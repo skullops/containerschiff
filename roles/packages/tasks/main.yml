@@ -1,8 +1,9 @@
 ---
-- name: update packages
+- name: install latest PPAs
   become: yes
   become_method: sudo
-  apt: upgrade=dist update_cache=yes
+  tags: ppas
+  apt_repository: repo='ppa:git-core/ppa' update_cache=yes
 
 - name: install libraries using APT
   apt: name={{ item }} state=latest
@@ -11,7 +12,6 @@
   with_items:
   - vim
   - tmux
-  - git
   - openvpn
   - openssh-server
   - task
