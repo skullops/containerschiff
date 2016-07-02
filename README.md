@@ -1,4 +1,4 @@
-# Der Himmel Projekt
+# Der Containerschiff Projekt
 :package: Ansible playbooks
 
 :warning: Thou must follow the [Best Practices/Directory Layout][1] guide!
