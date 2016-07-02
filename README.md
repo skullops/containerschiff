@@ -1,4 +1,4 @@
-# Der Containerschiff Projekt
+# Der Containerschiff Projekt [![Build Status](https://travis-ci.org/WizDevOps/containerschiff.svg?branch=master)](https://travis-ci.org/WizDevOps/containerschiff)
 :package: Ansible playbooks
 
 :warning: Thou must follow the [Best Practices/Directory Layout][1] guide!
