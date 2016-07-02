@@ -23,8 +23,6 @@
   - python-gpgme
   - gnome-disk-utility
   - build-essential
-  - postgresql
-  - postgresql-contrib
   - nodejs
   - npm
   - tree
