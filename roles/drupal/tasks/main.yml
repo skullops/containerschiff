@@ -5,23 +5,5 @@ connection: local
 tasks:
   - docker_service:
     project_name: drupal8
-      definition:
-				web:
-					image: completit/dockerized-drupal:alpine
-					ports:
-						- "80:80"
-						- "443:443"
-					volumes:
-						- {{ playbook_dir }}/files/app:/var/www/html
-					working_dir: /var/www/html
-					links:
-						- psql
-
-				psql:
-					image: kiasaki/alpine-postgres
-					environment:
-						- POSTGRES_PASSWORD=drupal
-						- POSTGRES_USER=drupal
-						- POSTGRES_DB=drupal
-					volumes:
-						- ./db:/var/lib/postgresql/data
+    project_src: {{ playbook_dir }}/drupal/files/docker-compose.yml
+    state: present
