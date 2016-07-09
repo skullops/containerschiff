@@ -1,6 +1,8 @@
 # Der Containerschiff Projekt [![Build Status](https://travis-ci.org/WizDevOps/containerschiff.svg?branch=master)](https://travis-ci.org/WizDevOps/containerschiff)
 :package: Ansible playbooks
 
+![Der Containerschiff][7]
+
 :warning: Thou must follow the [Best Practices/Directory Layout][1] guide!
 ```bash
 production                # inventory file for production servers
@@ -56,3 +58,4 @@ roles/
 [4]: https://github.com/heybigname/ansible/tree/master/tasks
 [5]: https://github.com/RaymiiOrg/ansible
 [6]: https://github.com/M4nu/ansible
+[7]: http://i.imgur.com/FmvEGT4.png
