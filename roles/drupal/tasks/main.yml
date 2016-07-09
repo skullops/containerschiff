@@ -1,9 +1,7 @@
 ---
-name: Run Drupal 8 on Docker containers
-hosts: localhost
-connection: local
-tasks:
+- name: Run Drupal 8 on Docker containers
+  tasks:
   - docker_service:
     project_name: drupal8
-    project_src: {{ playbook_dir }}/drupal/files/docker-compose.yml
+    project_src: "{{ playbook_dir }}/drupal/files/docker-compose.yml"
     state: present
