@@ -5,12 +5,20 @@
   get_url:
     url: http://c758482.r82.cf2.rackcdn.com/sublime-text_build-{{ sublime_version }}.deb
     dest: /tmp
+  tags: subl_install
+
+- name: Create sublime deb file name
+  command: ls /tmp | grep 'sublime\-text'
+  register: sublime_debfile
+  changed_when: "sublime_debfile.rc != 0"
+  tags: subl_install
 
 # install {{ sublime_version }}.deb
-- name: Install sublime_text.deb
-  become: yes
-  become_user: sudo
-  shell: dpkg -i /tmp/sublime-text_build-{{ sublime_version }}.deb
+# - name: Install sublime_text.deb
+#   become: yes
+#   become_user: sudo
+#   shell: dpkg -i /tmp/{{ sublime_debfile }}
+#   tags: subl_install
 
 # download sublime_text to `/opt/sublime_text`
 - name: Download Sublime 3 executable
@@ -18,3 +26,4 @@
     url: http://cl.ly/1z0S25150Y0I/sublime_text%20crack%20linux%2064%20build%203065
     dest: /tmp/sublime_text
     mode: 0764
+  tags: subl_install
