@@ -9,7 +9,7 @@
 - name: Download Sublime Text
   get_url:
     url: http://c758482.r82.cf2.rackcdn.com/sublime-text_build-{{ sublime_version }}.deb
-    dest: {{ home_dir }}
+    dest: "{{ home_dir }}"
   tags: subl_install
 
 - name: Create sublime deb file name
