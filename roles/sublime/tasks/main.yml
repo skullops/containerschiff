@@ -8,7 +8,7 @@
   tags: subl_install
 
 - name: Create sublime deb file name
-  command: ls /tmp | grep 'sublime\-text'
+  shell: ls /tmp | grep 'sublime\-text'
   register: sublime_debfile
   changed_when: "sublime_debfile.rc != 0"
   tags: subl_install
