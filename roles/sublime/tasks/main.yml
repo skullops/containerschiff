@@ -7,6 +7,8 @@
   tags: subl_install
 
 - name: Download Sublime Text
+  become: yes
+  become_user: sudo
   get_url:
     url: http://c758482.r82.cf2.rackcdn.com/sublime-text_build-{{ sublime_version }}.deb
     dest: "{{ home_dir }}"
