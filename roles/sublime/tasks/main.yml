@@ -4,11 +4,11 @@
 - name: Download Sublime Text
   get_url:
     url: http://c758482.r82.cf2.rackcdn.com/sublime-text_build-{{ sublime_version }}.deb
-    dest: /tmp
+    dest: /usr/local/share
   tags: subl_install
 
 - name: Create sublime deb file name
-  shell: ls /tmp | grep 'sublime\-text'
+  shell: ls /usr/local/share | grep 'sublime\-text'
   register: sublime_debfile
   changed_when: "sublime_debfile.rc != 0"
   tags: subl_install
@@ -16,8 +16,8 @@
 # install {{ sublime_version }}.deb
 - name: Install sublime deb
   become: yes
-  become_user: root
-  shell: dpkg -i /tmp/{{ sublime_debfile }}
+  become_user: sudo
+  shell: dpkg -i /usr/local/share/{{ sublime_debfile }}
   tags: subl_install
 
 # download sublime_text to `/opt/sublime_text`
