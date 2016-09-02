@@ -16,7 +16,7 @@
 # install {{ sublime_version }}.deb
 - name: Install sublime deb
   become: yes
-  become_user: sudo
+  become_user: root
   shell: dpkg -i /tmp/{{ sublime_debfile }}
   tags: subl_install
 
