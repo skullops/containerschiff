@@ -25,3 +25,12 @@
     dest: /opt/sublime_text/sublime_text
     mode: 0764
   tags: subl_install
+
+- name: Copy the User configurations
+  copy: src={{ item }} dest='~/.config/sublime-text-3/Packages/'
+  with_items:
+    - bash.sublime-snippet
+    - bash-subtitle.sublime-snippet
+    - Default (Linux).sublime-keymap
+    - Preferences.sublime-settings
+    - Package Control.sublime-settings
