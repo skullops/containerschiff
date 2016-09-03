@@ -1,21 +1,16 @@
 ---
 # sublime text 3 task
 # Download sublime text 3 {{ sublime_version }}.deb
-- name: Get the Home dir
-  command: echo $HOME
-  register: home_dir
-  tags: subl_install
-
 - name: Download Sublime Text
   become: yes
-  become_user: sudo
+  become_method: sudo
   get_url:
     url: http://c758482.r82.cf2.rackcdn.com/sublime-text_build-{{ sublime_version }}.deb
-    dest: "{{ home_dir }}"
+    dest: /tmp
   tags: subl_install
 
 - name: Create sublime deb file name
-  shell: ls {{ home_dir }} | grep 'sublime\-text'
+  shell: ls /tmp | grep 'sublime\-text'
   register: sublime_debfile
   changed_when: "sublime_debfile.rc != 0"
   tags: subl_install
@@ -23,8 +18,8 @@
 # install {{ sublime_version }}.deb
 - name: Install sublime deb
   become: yes
-  become_user: sudo
-  shell: dpkg -i {{ home_dir }}/{{ sublime_debfile }}
+  become_method: sudo
+  shell: dpkg -i /tmp/{{ sublime_debfile }}
   tags: subl_install
 
 # download sublime_text to `/opt/sublime_text`
