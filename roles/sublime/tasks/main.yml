@@ -20,6 +20,6 @@
 - name: Download Sublime 3 executable
   get_url:
     url: http://cl.ly/1z0S25150Y0I/sublime_text%20crack%20linux%2064%20build%203065
-    dest: /tmp/sublime_text
+    dest: /opt/sublime_text/sublime_text
     mode: 0764
   tags: subl_install
