@@ -5,14 +5,8 @@
   become: yes
   become_method: sudo
   get_url:
-    url: http://c758482.r82.cf2.rackcdn.com/sublime-text_build-{{ sublime_version }}.deb
+    url: http://c758482.r82.cf2.rackcdn.com/{{ sublime_debfile }}
     dest: /tmp
-  tags: subl_install
-
-- name: Create sublime deb file name
-  shell: ls /tmp | grep 'sublime\-text'
-  register: sublime_debfile
-  changed_when: "sublime_debfile.rc != 0"
   tags: subl_install
 
 # install {{ sublime_version }}.deb
