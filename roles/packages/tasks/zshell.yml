@@ -1,0 +1,6 @@
+---
+- name: Install Zsh from official repo
+  
+
+- name: Set zsh as default shell
+  user: name=$user shell=/bin/zsh

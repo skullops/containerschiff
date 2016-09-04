@@ -2,38 +2,42 @@
 - name: install latest PPAs
   become: yes
   become_method: sudo
-  tags: ppas
   apt_repository: repo='ppa:git-core/ppa' update_cache=yes
+  tags: packs
 
 - name: install libraries using APT
   apt: name={{ item }} state=latest
   become: yes
   become_method: sudo
   with_items:
-  - vim
-  - tmux
-  - openvpn
-  - openssh-server
-  - task
-  - cmake
-  - curl
-  - keepass2
-  - xdotool # required by keepass2 to auto-type credentials
-  - xclip
-  - python-gpgme
-  - gnome-disk-utility # format/partition disks
-  - build-essential
-  - nodejs
-  - npm
-  - tree
-  - audacious
-  - silversearcher-ag
-  - gnupg-agent
-  - enigmail
-  - secure-delete # delete by zeroization
-  - clamav # useful antivirus for Linux
-  - lnav # utility for checking logs
-  - dtrx # universal archive extractor utility
-  - zsh
-  - python-pip
-  - python-dev
+    - vim
+    - tmux
+    - openvpn
+    - openssh-server
+    - task
+    - cmake
+    - curl
+    - keepass2
+    - xdotool # required by keepass2 to auto-type credentials
+    - xclip
+    - python-gpgme
+    - gnome-disk-utility # format/partition disks
+    - build-essential
+    - nodejs
+    - npm
+    - tree
+    - audacious
+    - silversearcher-ag
+    - gnupg-agent
+    - enigmail
+    - secure-delete # delete by zeroization
+    - clamav # useful antivirus for Linux
+    - lnav # utility for checking logs
+    - dtrx # universal archive extractor utility
+    - zsh
+    - python-pip
+    - python-dev
+  tags: packs
+
+- include: dotfiles.yml
+- include: zshell.yml
