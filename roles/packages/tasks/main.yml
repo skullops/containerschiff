@@ -18,10 +18,10 @@
   - cmake
   - curl
   - keepass2
-  - xdotool
+  - xdotool # required by keepass2 to auto-type credentials
   - xclip
   - python-gpgme
-  - gnome-disk-utility
+  - gnome-disk-utility # format/partition disks
   - build-essential
   - nodejs
   - npm
@@ -30,10 +30,10 @@
   - silversearcher-ag
   - gnupg-agent
   - enigmail
-  - secure-delete
-  - clamav
-  - lnav
-  - dtrx
+  - secure-delete # delete by zeroization
+  - clamav # useful antivirus for Linux
+  - lnav # utility for checking logs
+  - dtrx # universal archive extractor utility
   - zsh
   - python-pip
   - python-dev
