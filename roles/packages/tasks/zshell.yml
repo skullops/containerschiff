@@ -1,6 +1,20 @@
 ---
 - name: Install Zsh from official repo
-  
+  become: yes
+  become_method: sudo
+  shell: >
+    curl -sSL http://install.ohmyz.sh | sh -s
+  tags: zsh
+
+- name: Pull the Custom Plugins and Themes
+  get_url:
+    url: https://raw.githubusercontent.com/{{ gh_user }}/{{ gh_repo }}/{{ gh_branch }}/custom/{{ items }}
+    dest: ~/.oh-my-zsh/custom/
+  with_items:
+    - plugins/dangit/dangit.plugin.zsh
+    - themes/danthe.zsh-theme
+  tags: zsh
 
 - name: Set zsh as default shell
   user: name=$user shell=/bin/zsh
+  tags: zsh

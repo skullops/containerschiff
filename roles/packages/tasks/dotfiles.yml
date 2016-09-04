@@ -1,2 +1,14 @@
 ---
 - name: Copy the dotfiles to home dir
+  copy: src={{ item }} dest=/home/$user
+  with_items:
+    - .bash_aliases
+    - .bash_formatting
+    - .bashrc
+    - .gemrc
+    - .git-commit-template.commit
+    - .gitconfig
+    - .taskrc
+    - .tmux.conf
+    - .vimrc
+    - .zshrc
