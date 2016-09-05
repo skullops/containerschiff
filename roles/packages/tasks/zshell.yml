@@ -8,11 +8,11 @@
 
 - name: Pull the Custom Plugins and Themes
   get_url:
-    url: https://raw.githubusercontent.com/{{ gh_user }}/{{ gh_repo }}/{{ gh_branch }}/custom/{{ items }}
-    dest: ~/.oh-my-zsh/custom/
+    url: https://raw.githubusercontent.com/{{ gh_user }}/{{ gh_repo }}/{{ gh_branch }}/custom/{{ item.name }}
+    dest: ~/.oh-my-zsh/custom/{{ item.dir }}
   with_items:
-    - plugins/dangit/dangit.plugin.zsh
-    - themes/danthe.zsh-theme
+    - { name: 'plugins/dangit/dangit.plugin.zsh', dir: 'plugins/dangit/'}
+    - { name: 'themes/danthe.zsh-theme', dir: 'themes/'}
   tags: zsh
 
 - name: Set zsh as default shell
