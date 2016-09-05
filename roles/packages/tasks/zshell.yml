@@ -15,6 +15,14 @@
     - { name: 'themes/danthe.zsh-theme', dir: 'themes/'}
   tags: zsh
 
+- name: Remove default .zshrc
+  file: path=~/.zshrc state=absent
+  tags: zsh
+
+- name: Deploy customized .zshrc
+  copy: src=.zshrc dest=~/
+  tags: zsh
+
 - name: Set zsh as default shell
   user: name=$user shell=/bin/zsh
   tags: zsh
