@@ -2,21 +2,21 @@
 - name: Install Zsh from official repo
   git:
     repo: https://github.com/robbyrussell/oh-my-zsh.git
-    dest: /home/$USER/.oh-my-zsh
+    dest: /home/{{ zsh_user }}/.oh-my-zsh
     update: no
   tags: zsh
 
 - name: Set zsh config dir permissions
   file:
-    path: /home/$USER/.oh-my-zsh
-    owner: $USER
-    group: $USER
+    path: /home/{{ zsh_user }}/.oh-my-zsh
+    owner: {{ zsh_user }}
+    group: {{ zsh_user }}
     recurse: yes
   tags: zsh
 
 - name: Set zsh as default shell
   user:
-    name: $USER
+    name: {{ zsh_user }}
     shell: which zsh
   tags: zsh
 
