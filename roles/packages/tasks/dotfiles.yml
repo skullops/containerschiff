@@ -1,5 +1,7 @@
 ---
 - name: Copy the dotfiles to home dir
+  become: yes
+  become_method: sudo
   copy: src={{ item }} dest=/home/$user
   with_items:
     - .bash_aliases
