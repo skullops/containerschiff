@@ -1,9 +1,23 @@
 ---
 - name: Install Zsh from official repo
-  become: yes
-  become_method: sudo
-  shell: >
-    curl -sSL http://install.ohmyz.sh | sh -s
+  git:
+    repo: https://github.com/robbyrussell/oh-my-zsh.git
+    dest: /home/$user/.oh-my-zsh
+    update: no
+  tags: zsh
+
+- name: Set zsh config dir permissions
+  file:
+    path: /home/$user/.oh-my-zsh
+    owner: $user
+    group: $user
+    recurse: yes
+  tags: zsh
+
+- name: Set zsh as default shell
+  user:
+    name: $user
+    shell: which zsh
   tags: zsh
 
 - name: Pull the Custom Plugins and Themes
@@ -18,14 +32,10 @@
     - { name: 'themes/danthe.zsh-theme', dir: 'themes/'}
   tags: zsh
 
-- name: Remove default .zshrc
-  file: path=~/.zshrc state=absent
-  tags: zsh
+# - name: Remove default .zshrc
+#   file: path=~/.zshrc state=absent
+#   tags: zsh
 
 - name: Deploy customized .zshrc
   copy: src=.zshrc dest=~/
-  tags: zsh
-
-- name: Set zsh as default shell
-  user: name=$user shell=/bin/zsh
   tags: zsh
