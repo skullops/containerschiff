@@ -21,8 +21,8 @@
   tags: zsh
 
 - name: Pull the Custom Plugins and Themes
-  become: yes
-  become_method: sudo
+  # become: yes
+  # become_method: sudo
   get_url:
     url: https://raw.githubusercontent.com/{{ gh_user }}/{{ gh_repo }}/{{ gh_branch }}/custom/{{ item.name }}
     dest: ~/.oh-my-zsh/custom/{{ item.dir }}
