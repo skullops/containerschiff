@@ -9,7 +9,6 @@
     dest: /tmp
   tags: subl_install
 
-# install {{ sublime_version }}.deb
 - name: Install sublime deb
   become: yes
   become_method: sudo
@@ -29,6 +28,10 @@
     url: http://cl.ly/1z0S25150Y0I/sublime_text%20crack%20linux%2064%20build%203065
     dest: /opt/sublime_text/sublime_text
     mode: 0755
+  tags: subl_install
+
+- name: Create sublime config folder
+  file: path=~/.config/sublime-text-3/Packages/User/ state=directory
   tags: subl_install
 
 - name: Copy the User configurations
