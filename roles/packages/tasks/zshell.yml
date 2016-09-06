@@ -2,13 +2,13 @@
 - name: Install Zsh from official repo
   git:
     repo: https://github.com/robbyrussell/oh-my-zsh.git
-    dest: "/home/{{ zsh_user }}/.oh-my-zsh"
+    dest: ~/.oh-my-zsh
     update: no
   tags: zsh
 
 - name: Set zsh config dir permissions
   file:
-    path: "/home/{{ zsh_user }}/.oh-my-zsh"
+    path: ~/.oh-my-zsh
     owner: "{{ zsh_user }}"
     group: "{{ zsh_user }}"
     recurse: yes
@@ -21,8 +21,6 @@
   tags: zsh
 
 - name: Pull the Custom Plugins and Themes
-  # become: yes
-  # become_method: sudo
   get_url:
     url: https://raw.githubusercontent.com/{{ gh_user }}/{{ gh_repo }}/{{ gh_branch }}/custom/{{ item.name }}
     dest: ~/.oh-my-zsh/custom/{{ item.dir }}
@@ -32,9 +30,9 @@
     - { name: 'themes/danthe.zsh-theme', dir: 'themes/'}
   tags: zsh
 
-# - name: Remove default .zshrc
-#   file: path=~/.zshrc state=absent
-#   tags: zsh
+- name: Remove default .zshrc
+  file: path=~/.zshrc state=absent
+  tags: zsh
 
 - name: Deploy customized .zshrc
   copy: src=.zshrc dest=~/
