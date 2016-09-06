@@ -9,7 +9,9 @@
 - name: Capture the PC username in a var
   command: echo $USER
   register: home_user
-  debug: msg="Now I can use {{ home_user.stdout }}"
+
+- debug:
+  msg: "Now I can use {{ home_user.stdout }}"
 
 - name: Set zsh config dir permissions
   file:
