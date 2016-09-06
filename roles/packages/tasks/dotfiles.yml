@@ -1,8 +1,6 @@
 ---
 - name: Copy the dotfiles to home dir
-  become: yes
-  become_method: sudo
-  copy: src={{ item }} dest=/home/$user
+  copy: src={{ item }} dest=~/
   with_items:
     - .bash_aliases
     - .bash_formatting
@@ -13,3 +11,4 @@
     - .taskrc
     - .tmux.conf
     - .vimrc
+  tags: dotfiles
