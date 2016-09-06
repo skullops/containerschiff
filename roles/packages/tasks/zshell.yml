@@ -10,9 +10,6 @@
   command: echo $USER
   register: home_user
 
-- debug:
-  msg: "Now I can use {{ home_user.stdout }}"
-
 - name: Set zsh config dir permissions
   file:
     path: ~/.oh-my-zsh
