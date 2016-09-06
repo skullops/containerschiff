@@ -7,7 +7,7 @@
   tags: zsh
 
 - name: Capture the PC username in a var
-  command: echo $USER
+  command: whoami
   register: home_user
 
 - name: Set zsh config dir permissions
