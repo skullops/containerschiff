@@ -29,8 +29,8 @@ set runtimepath^=~/.vim/bundle/ctrlp.vim
 "let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 'ra'
 
-set backupdir=~/vimBackups/
-set directory=~/vimBackups/
+set backupdir=/tmp/
+set directory=/tmp/
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => VIM user interface
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

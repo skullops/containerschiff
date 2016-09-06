@@ -6,6 +6,10 @@
     - bundle
   tags: vim
 
+- name: Make vim backup directories
+  file: path=/tmp/ state=directory
+  tags: vim
+
 - name: Pull vim-pathogen
   get_url:
     url: https://tpo.pe/pathogen.vim
