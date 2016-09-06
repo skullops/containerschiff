@@ -32,3 +32,9 @@
     - Preferences.sublime-settings
     - Package Control.sublime-settings
   tags: subl_install
+
+- name: Cleanup after installation
+  become: yes
+  become_method: sudo
+  file: path=/tmp/{{ sublime_debfile }} state=absent
+  tags: subl_install
