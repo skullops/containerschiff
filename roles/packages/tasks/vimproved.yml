@@ -8,6 +8,7 @@
 
 - name: Make vim backup directories
   file: path=/tmp/ state=directory
+  notify: reload-vimrc
   tags: vim
 
 - name: Pull vim-pathogen
@@ -27,8 +28,4 @@
     - { name: garbas/vim-snipmate.git, dir: vim-snipmate }
     - { name: kien/ctrlp.vim.git, dir: ctrlp.vim }
     - { name: dyng/ctrlsf.vim.git, dir: ctrlsf.vim }
-  tags: vim
-
-- name: Deploy custom vimrc config file
-  copy: src=.vimrc dest=~/
   tags: vim

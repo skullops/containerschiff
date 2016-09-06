@@ -1,0 +1,4 @@
+---
+- name: reload-vimrc
+  copy: src=.vimrc dest=~/
+  tags: vim
