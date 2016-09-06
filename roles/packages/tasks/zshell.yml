@@ -6,17 +6,22 @@
     update: no
   tags: zsh
 
+- name: Capture the PC username in a var
+  command: echo $USER
+  register: home_user
+  debug: msg="Now I can use {{ home_user.stdout }}"
+
 - name: Set zsh config dir permissions
   file:
     path: ~/.oh-my-zsh
-    owner: "{{ zsh_user }}"
-    group: "{{ zsh_user }}"
+    owner: "{{ home_user.stdout }}"
+    group: "{{ home_user.stdout }}"
     recurse: yes
   tags: zsh
 
 - name: Set zsh as default shell
   user:
-    name: "{{ zsh_user }}"
+    name: "{{ home_user.stdout }}"
     shell: which zsh
   tags: zsh
 
