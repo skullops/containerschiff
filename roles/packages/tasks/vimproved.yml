@@ -26,5 +26,5 @@
   tags: vim
 
 - name: Deploy custom vimrc config file
-  copy: src.vimrc dest=~/
+  copy: src=.vimrc dest=~/
   tags: vim
