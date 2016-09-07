@@ -2,3 +2,8 @@
 gh_user: dminca
 gh_repo: dotfiles
 gh_branch: master
+
+# vars used in .gitconfig (global git configuration)
+git_name: Minca Daniel Andrei
+git_email: mandrei17@gmail.com
+gpg_key_id: 81DF875D
