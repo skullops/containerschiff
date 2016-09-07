@@ -26,9 +26,14 @@
     shell: which zsh
   tags: zsh
 
+- name: Create plugins and themes dirs
+  file: path=~/.oh-my-zsh/custom/{{ item }} state=directory
+  with_items:
+    - plugins/dangit
+    - themes
+  tags: zsh
+
 - name: Pull the Custom Plugins and Themes
-  become: yes
-  become_method: sudo
   get_url:
     url: https://raw.githubusercontent.com/{{ gh_user }}/{{ gh_repo }}/{{ gh_branch }}/custom/{{ item.name }}
     dest: ~/.oh-my-zsh/custom/{{ item.dir }}
