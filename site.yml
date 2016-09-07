@@ -1,5 +1,14 @@
 ---
 - hosts: all
+  vars_prompt:
+    - name: "git_name"
+      prompt: "Please provide your Full Name for Git"
+
+    - name: "git_email"
+      prompt: "Now provide the the email you used in Git"
+
+    - name: "gpg_key_id"
+      prompt: "Enter the GPG Key ID (ex: 81DF875D)"
   roles:
-    - sublime
     - packages
+    - sublime
