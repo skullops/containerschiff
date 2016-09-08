@@ -2,13 +2,22 @@
 
 - name: Create the font config dir
   file:
-    path: ~/.fonts/truetype
+    path: ~/.fonts/truetype/Hack
     state: directory
   tags: font
 
-- name: Download and extract the font archive
+- name: Download the font archive
+  get_url:
+    url: https://github.com/chrissimpkins/Hack/releases/download/v2.020/Hack-v2_020-ttf.tar.gz
+    dest: /tmp
+  tags: font
+
+- name: Extract the archive
   unarchive:
-    src: https://github.com/chrissimpkins/Hack/releases/download/v2.020/Hack-v2_020-ttf.tar.gz
-    dest: ~/.fonts/truetype
-    remove_src: yes
+    src: /tmp/Hack-v2_020-ttf.tar.gz
+    dest: ~/.fonts/truetype/Hack
+  tags: font
+
+- name: Clear teh font cache
+  command: fc-cache
   tags: font
