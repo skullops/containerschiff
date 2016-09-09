@@ -1,4 +1,9 @@
 ---
+- name: Install the Microsoft TrueType fonts
+  become: yes
+  become_method: sudo
+  apt: name=msttcorefonts state=latest
+  tags: font
 
 - name: Create the font config dir
   file:
@@ -19,5 +24,7 @@
   tags: font
 
 - name: Clear teh font cache
-  command: fc-cache
+  become: yes
+  become_method: sudo
+  command: fc-cache -f
   tags: font
