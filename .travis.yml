@@ -26,4 +26,4 @@ install:
 
 script:
   - ansible-playbook -i inventory site.yml --syntax-check
-  - ansible-playbook -i inventory site.yml --tags font
+  - ansible-playbook -i inventory site.yml
