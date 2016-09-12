@@ -44,6 +44,13 @@
     - Package Control.sublime-settings
   tags: subl_install
 
+- name: Download and setup Package Control
+  get_url:
+    url: https://packagecontrol.io/Package%20Control.sublime-package
+    dest: ~/.config/sublime-text-3/Installed Packages/Package Control.sublime-package
+  tags: subl_install
+
+
 - name: Cleanup after installation
   become: yes
   become_method: sudo
