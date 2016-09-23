@@ -35,6 +35,7 @@
     - clamav # useful antivirus for Linux
     - lnav # utility for checking logs
     - dtrx # universal archive extractor utility
+    - pavucontrol
     - zsh
     - python-pip
     - python-dev
