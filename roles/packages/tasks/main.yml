@@ -3,7 +3,7 @@
   become: yes
   become_method: sudo
   pacman:
-    pkg: {{ item }}
+    pkg: "{{ item }}"
     state: present
     update_cache: yes
   with_items:
