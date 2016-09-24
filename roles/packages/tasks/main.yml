@@ -1,5 +1,5 @@
 ---
-- name: install libraries using APT
+- name: installing pacman packages
   become: yes
   become_method: sudo
   pacman:
