@@ -1,14 +1,11 @@
 ---
-- name: install latest PPAs
-  become: yes
-  become_method: sudo
-  apt_repository: repo='ppa:git-core/ppa' update_cache=yes
-  tags: packs
-
 - name: install libraries using APT
-  apt: name={{ item }} state=latest
   become: yes
   become_method: sudo
+  pacman:
+    pkg: {{ item }}
+    state: present
+    update_cache: yes
   with_items:
     - vim
     - git
