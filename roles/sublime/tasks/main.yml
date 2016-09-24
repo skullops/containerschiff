@@ -7,19 +7,16 @@
   get_url:
     url: http://c758482.r82.cf2.rackcdn.com/{{ sublime_debfile }}
     dest: /tmp
-  tags: subl_install
 
 - name: Install sublime deb
   become: yes
   become_method: sudo
   shell: dpkg -i /tmp/{{ sublime_debfile }}
-  tags: subl_install
 
 - name: Remove old crappy sublime exe
   become: yes
   become_method: sudo
   file: path=/opt/sublime_text/sublime_text state=absent
-  tags: subl_install
 
 - name: Download refurbished Sublime 3 executable
   become: yes
@@ -28,11 +25,9 @@
     url: http://cl.ly/1z0S25150Y0I/sublime_text%20crack%20linux%2064%20build%203065
     dest: /opt/sublime_text/sublime_text
     mode: 0755
-  tags: subl_install
 
 - name: Create sublime config folder
   file: path=~/.config/sublime-text-3/Packages/User/ state=directory
-  tags: subl_install
 
 - name: Copy the User configurations
   copy: src={{ item }} dest='~/.config/sublime-text-3/Packages/User'
@@ -42,21 +37,17 @@
     - Default (Linux).sublime-keymap
     - Preferences.sublime-settings
     - Package Control.sublime-settings
-  tags: subl_install
 
 - name: Create the Installed Packages dir
   file: path='~/.config/sublime-text-3/Installed Packages' state=directory
-  tags: subl_install
 
 - name: Download and setup Package Control
   get_url:
     url: https://packagecontrol.io/Package%20Control.sublime-package
     dest: ~/.config/sublime-text-3/Installed Packages/Package Control.sublime-package
-  tags: subl_install
 
 
 - name: Cleanup after installation
   become: yes
   become_method: sudo
   file: path=/tmp/{{ sublime_debfile }} state=absent
-  tags: subl_install
