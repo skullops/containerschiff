@@ -4,13 +4,11 @@
   with_items:
     - autoload
     - bundle
-  tags: vim
 
 - name: Pull vim-pathogen
   get_url:
     url: https://tpo.pe/pathogen.vim
     dest: ~/.vim/autoload
-  tags: vim
 
 - name: Install vim plugins
   git:
@@ -23,4 +21,3 @@
     - { name: garbas/vim-snipmate.git, dir: vim-snipmate }
     - { name: kien/ctrlp.vim.git, dir: ctrlp.vim }
     - { name: dyng/ctrlsf.vim.git, dir: ctrlsf.vim }
-  tags: vim

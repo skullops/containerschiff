@@ -38,8 +38,7 @@
     - zsh
     - python-pip
     - python-dev
-  tags: packs
 
-- include: dotfiles.yml
-- include: vimproved.yml
-- include: zshell.yml
+  #- include: dotfiles.yml
+  #- include: vimproved.yml
+  #- include: zshell.yml

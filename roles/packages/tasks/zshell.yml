@@ -4,34 +4,26 @@
     repo: https://github.com/robbyrussell/oh-my-zsh.git
     dest: ~/.oh-my-zsh
     update: no
-  tags: zsh
-
-- name: Capture the PC username in a var
-  command: whoami
-  register: home_user
 
 - name: Set zsh config dir permissions
   file:
     path: ~/.oh-my-zsh
-    owner: "{{ home_user.stdout }}"
-    group: "{{ home_user.stdout }}"
+    owner: "{{ ansible_user_id }}"
+    group: "{{ ansible_user_id }}"
     recurse: yes
-  tags: zsh
 
 - name: Set zsh as default shell
   become: yes
   become_method: sudo
   user:
-    name: "{{ home_user.stdout }}"
-    shell: which zsh
-  tags: zsh
+    name: "{{ ansible_user_id }}"
+    shell: /bin/zsh
 
 - name: Create plugins and themes dirs
   file: path=~/.oh-my-zsh/custom/{{ item }} state=directory
   with_items:
     - plugins/dangit
     - themes
-  tags: zsh
 
 - name: Pull the Custom Plugins and Themes
   get_url:
@@ -41,12 +33,9 @@
   with_items:
     - { name: 'plugins/dangit/dangit.plugin.zsh', dir: 'plugins/dangit/'}
     - { name: 'themes/danthe.zsh-theme', dir: 'themes/'}
-  tags: zsh
 
 - name: Remove default .zshrc
   file: path=~/.zshrc state=absent
-  tags: zsh
 
 - name: Deploy customized .zshrc
   copy: src=.zshrc dest=~/
-  tags: zsh
