@@ -1,6 +1,5 @@
 ---
 - hosts: all
-  strategy: debug
   connection: local
   roles:
     - packages
