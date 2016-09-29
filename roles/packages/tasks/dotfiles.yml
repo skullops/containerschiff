@@ -9,10 +9,8 @@
     - .git-commit-template.commit
     - .taskrc
     - .tmux.conf
-  tags: dotfiles
 
 - name: Add the gitconfig with custom User and Email
   template:
     src: gitconfig.j2
     dest: ~/.gitconfig
-  tags: dotfiles
