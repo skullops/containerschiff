@@ -20,7 +20,6 @@
   with_items:
     - { name: scrooloose/nerdtree.git, dir: nerdtree.vim }
     - { name: MarcWeber/vim-addon-mw-utils.git, dir: vim-addon-mw-utils }
-    - { name: garbas/vim-snipmate.git, dir: vim-snipmate }
     - { name: kien/ctrlp.vim.git, dir: ctrlp.vim }
     - { name: dyng/ctrlsf.vim.git, dir: ctrlsf.vim }
 
