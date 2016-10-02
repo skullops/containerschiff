@@ -2,29 +2,23 @@
 - name: Install the Microsoft TrueType fonts
   become: yes
   become_method: sudo
-  apt: name=msttcorefonts state=latest
-  tags: font
+  apt: 
+    name: msttcorefonts
+    state: latest
 
 - name: Create the font config dir
   file:
     path: ~/.fonts/truetype/Hack
     state: directory
-  tags: font
 
 - name: Download the font archive
   get_url:
     url: https://github.com/chrissimpkins/Hack/releases/download/v2.020/Hack-v2_020-ttf.tar.gz
     dest: /tmp
-  tags: font
+    force: no
 
 - name: Extract the archive
   unarchive:
     src: /tmp/Hack-v2_020-ttf.tar.gz
     dest: ~/.fonts/truetype/Hack
-  tags: font
-
-- name: Clear teh font cache
-  become: yes
-  become_method: sudo
-  command: fc-cache -f
-  tags: font
+  notify: clear font cache

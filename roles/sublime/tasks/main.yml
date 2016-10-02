@@ -7,6 +7,6 @@
   register: subl # now I can use [when: subl.changed is false]
 
 - include: install.yml
-  when: subl.changed is not false
+  when: subl|changed
 - include: configure.yml
-  when: subl.changed is not false
+  when: subl|changed
