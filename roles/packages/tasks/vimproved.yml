@@ -4,23 +4,27 @@
   with_items:
     - autoload
     - bundle
-  tags: vim
 
 - name: Pull vim-pathogen
   get_url:
     url: https://tpo.pe/pathogen.vim
     dest: ~/.vim/autoload
-  tags: vim
+    force: no
 
 - name: Install vim plugins
   git:
     repo: https://github.com/{{ item.name }}
     dest: "~/.vim/bundle/{{ item.dir }}"
     update: no
+    force: no
   with_items:
     - { name: scrooloose/nerdtree.git, dir: nerdtree.vim }
     - { name: MarcWeber/vim-addon-mw-utils.git, dir: vim-addon-mw-utils }
     - { name: garbas/vim-snipmate.git, dir: vim-snipmate }
     - { name: kien/ctrlp.vim.git, dir: ctrlp.vim }
     - { name: dyng/ctrlsf.vim.git, dir: ctrlsf.vim }
-  tags: vim
+
+- name: deploy custom vimrc
+  copy:
+    src: .vimrc
+    dest: ~/

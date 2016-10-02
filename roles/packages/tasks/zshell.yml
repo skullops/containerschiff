@@ -4,7 +4,6 @@
     repo: https://github.com/robbyrussell/oh-my-zsh.git
     dest: ~/.oh-my-zsh
     update: no
-  tags: zsh
 
 - name: Set zsh config dir permissions
   file:
@@ -12,7 +11,6 @@
     owner: "{{ ansible_user_id }}"
     group: "{{ ansible_user_id }}"
     recurse: yes
-  tags: zsh
 
 - name: Set zsh as default shell
   become: yes
@@ -20,14 +18,14 @@
   user:
     name: "{{ ansible_user_id }}"
     shell: /usr/bin/zsh
-  tags: zsh
 
 - name: Create plugins and themes dirs
-  file: path=~/.oh-my-zsh/custom/{{ item }} state=directory
+  file: 
+    path: "~/.oh-my-zsh/custom/{{ item }}" 
+    state: directory
   with_items:
     - plugins/dangit
     - themes
-  tags: zsh
 
 - name: Pull the Custom Plugins and Themes
   get_url:
@@ -37,12 +35,13 @@
   with_items:
     - { name: 'plugins/dangit/dangit.plugin.zsh', dir: 'plugins/dangit/'}
     - { name: 'themes/danthe.zsh-theme', dir: 'themes/'}
-  tags: zsh
 
 - name: Remove default .zshrc
-  file: path=~/.zshrc state=absent
-  tags: zsh
+  file:
+    path: ~/.zshrc
+    state: absent
 
 - name: Deploy customized .zshrc
-  copy: src=.zshrc dest=~/
-  tags: zsh
+  copy: 
+    src: .zshrc
+    dest: ~/
