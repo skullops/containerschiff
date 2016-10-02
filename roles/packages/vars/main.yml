@@ -12,3 +12,7 @@ gpg_key_id: 81DF875D
 gpg_photo_viewer: gpicview
 
 # Openbox Keyboard Shortcuts
+telegram_key: "W-t"
+browser_key: "W-w"
+retext_key: "W-r" # https://github.com/retext-project/retext
+sublime_key: "W-e"
