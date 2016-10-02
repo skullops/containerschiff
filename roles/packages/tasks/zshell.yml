@@ -36,12 +36,8 @@
     - { name: 'plugins/dangit/dangit.plugin.zsh', dir: 'plugins/dangit/'}
     - { name: 'themes/danthe.zsh-theme', dir: 'themes/'}
 
-- name: Remove default .zshrc
-  file:
-    path: ~/.zshrc
-    state: absent
-
 - name: Deploy customized .zshrc
   copy: 
     src: .zshrc
     dest: ~/
+    force: yes
