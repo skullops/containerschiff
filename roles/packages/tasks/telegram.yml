@@ -1,0 +1,14 @@
+---
+- name: download telegram via telegram.org
+  get_url:
+    url: https://telegram.org/dl/desktop/linux
+    dest: /tmp/tsetup.tar.xz
+    force: no
+  register: telegram_archive
+
+- name: extract archive to ~/Downloads dir
+  unarchive:
+    src: /tmp/tsetup.tar.xz
+    dest: ~/Downloads
+    copy: no
+  when: telegram_archive | changed

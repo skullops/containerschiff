@@ -42,5 +42,6 @@
   tags: packs
 
 - include: dotfiles.yml
+- include: telegram.yml
 - include: vimproved.yml
 - include: zshell.yml
