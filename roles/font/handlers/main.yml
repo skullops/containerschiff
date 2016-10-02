@@ -1,0 +1,5 @@
+---
+- name: clear font cache
+  become: yes
+  become_method: sudo
+  command: fc-cache -f
