@@ -1,66 +1,12 @@
 ---
-# sublime text 3 task
-# Download sublime text 3 {{ sublime_version }}.deb
-- name: Download Sublime Text
-  become: yes
-  become_method: sudo
-  get_url:
-    url: http://c758482.r82.cf2.rackcdn.com/{{ sublime_debfile }}
-    dest: /tmp
-    force: no
+# sublime text 3 main task
+- name: check if sublime already installed
+  apt:
+    name: sublime-text=3065
+    state: present
+  register: subl # now I can use [when: subl.changed is false]
 
-- name: Install sublime deb
-  become: yes
-  become_method: sudo
-  shell: dpkg -i /tmp/{{ sublime_debfile }}
-
-- name: Remove old crappy sublime exe
-  become: yes
-  become_method: sudo
-  file: 
-    path: /opt/sublime_text/sublime_text 
-    state: absent
-
-- name: Download refurbished Sublime 3 executable
-  become: yes
-  become_method: sudo
-  get_url:
-    url: http://cl.ly/1z0S25150Y0I/sublime_text%20crack%20linux%2064%20build%203065
-    dest: /opt/sublime_text/sublime_text
-    mode: 0755
-    force: no
-
-- name: Create sublime config folder
-  file: 
-    path: ~/.config/sublime-text-3/Packages/User/
-    state: directory
-
-- name: Copy the User configurations
-  copy: 
-    src: "{{ item }}" 
-    dest: '~/.config/sublime-text-3/Packages/User'
-    force: no
-  with_items:
-    - bash.sublime-snippet
-    - bash-subtitle.sublime-snippet
-    - Default (Linux).sublime-keymap
-    - Preferences.sublime-settings
-    - Package Control.sublime-settings
-
-- name: Create the Installed Packages dir
-  file: 
-    path: '~/.config/sublime-text-3/Installed Packages'
-    state: directory
-
-- name: Download and setup Package Control
-  get_url:
-    url: https://packagecontrol.io/Package%20Control.sublime-package
-    dest: ~/.config/sublime-text-3/Installed Packages/Package Control.sublime-package
-    force: no
-
-- name: Cleanup after installation
-  become: yes
-  become_method: sudo
-  file: 
-    path: "/tmp/{{ sublime_debfile }}"
-    state: absent
+- include: install.yml
+  when: subl.changed is not false
+- include: configure.yml
+  when: subl.changed is not false
