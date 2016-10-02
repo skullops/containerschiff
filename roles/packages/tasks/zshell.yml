@@ -6,15 +6,11 @@
     update: no
   tags: zsh
 
-- name: Capture the PC username in a var
-  command: whoami
-  register: home_user
-
 - name: Set zsh config dir permissions
   file:
     path: ~/.oh-my-zsh
-    owner: "{{ home_user.stdout }}"
-    group: "{{ home_user.stdout }}"
+    owner: "{{ ansible_user_id }}"
+    group: "{{ ansible_user_id }}"
     recurse: yes
   tags: zsh
 
@@ -22,7 +18,7 @@
   become: yes
   become_method: sudo
   user:
-    name: "{{ home_user.stdout }}"
+    name: "{{ ansible_user_id }}"
     shell: /usr/bin/zsh
   tags: zsh
 
