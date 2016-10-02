@@ -23,7 +23,7 @@
   become_method: sudo
   user:
     name: "{{ home_user.stdout }}"
-    shell: which zsh
+    shell: /usr/bin/zsh
   tags: zsh
 
 - name: Create plugins and themes dirs
