@@ -3,17 +3,22 @@
   become: yes
   become_method: sudo
   apt_repository: 
-    repo: 'ppa:git-core/ppa'
+    repo: "{{ item }}"
     update_cache: yes
-  tags: packs
+  with_items:
+    - 'ppa:git-core/ppa'
+    - 'ppa:shutter/ppa'
 
 - name: install libraries using APT
-  apt: name={{ item }} state=latest
+  apt: 
+    name: "{{ item }}"
+    state: latest
   become: yes
   become_method: sudo
   with_items:
     - vim
     - git
+    - shutter # screenshot tool http://shutter-project.org/downloads/
     - tmux
     - openvpn
     - openssh-server
@@ -37,11 +42,11 @@
     - clamav # useful antivirus for Linux
     - lnav # utility for checking logs
     - dtrx # universal archive extractor utility
+    - unrar # required by dtrx
     - pavucontrol
     - zsh
     - python-pip
     - python-dev
-  tags: packs
 
 - include: dotfiles.yml
 - include: telegram.yml
