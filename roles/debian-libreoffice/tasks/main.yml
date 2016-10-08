@@ -24,8 +24,7 @@
     - "{{ libre_debs.stdout_lines[44] }}"
     - "{{ libre_debs.stdout_lines[2] }}"
     - "{{ libre_debs.stdout_lines[22] }}"
-    - "{{ libre_debs.stdout_lines[33] }}"
-    - "{{ libre_debs.stdout_lines }}"
+    - "{{ libre_debs.stdout_lines[0:] }}"
 
 - name: teardown after install
   file:
