@@ -33,4 +33,4 @@
     dest: ~/.config/openbox/lubuntu-rc.xml
     mode: 0644
   notify: reload openbox
-  when: ansible_env.XDG_CURRENT_DESKTOP is 'LXDE'
+  when: ansible_env.XDG_CURRENT_DESKTOP == 'LXDE'
