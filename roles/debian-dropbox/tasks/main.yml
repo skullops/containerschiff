@@ -1,1 +1,11 @@
 ---
+- name: grab the apt key
+  apt_key:
+    keyserver: pgp.mit.edu
+    id: 5044912E
+    state: present
+
+- name: add to apt repository
+  apt_repository:
+    repo: "deb http://linux.dropbox.com/ubuntu {{ ansible_lsb.codename }} main"
+    state: present
