@@ -1,7 +1,7 @@
 ---
 - name: check if LibreOffice5 already installed
   apt:
-    package: libreoffice5.2
+    package: libreoffice5
     state: present
   register: libre_state
 
