@@ -1,34 +1,7 @@
 ---
 - name: check if LibreOffice5 already installed
-  apt:
-    package: libreoffice
-    state: present
-  register: libre_state
-
-- name: download LibreOffice5
-  get_url:
-    url: "http://mirrors.serverhost.ro/libreoffice/tdf/libreoffice/stable/{{ libre_version }}/deb/{{ ansible_architecture }}/LibreOffice_{{ libre_version }}_{{ ansible_system }}_x86-64_deb.tar.gz"
-    dest: /tmp/libreoffice.tar.gz
-    sha256sum: "{{ libre_sha256sum }}"
-  when: libre_state.changed != false
-
-- name: extract archive
-  unarchive:
-    src: /tmp/libreoffice.tar.gz
-    dest: /tmp
-    exclude: 'readmes/*'
-  when: libre_state.changed != false
-
-- name: install LibreOffice5
   become: true
   become_method: sudo
-  shell: "dpkg -i /tmp/LibreOffice_{{ libre_version }}.2_{{ ansible_system }}_x86-64_deb/DEBS/*"
-  when: libre_state.changed != false
-
-- name: teardown after install
-  file:
-    path: "/tmp/{{ item }}"
-    state: absent
-  with_items:
-    - "libreoffice.tar.gz"
-    - "LibreOffice_{{ libre_version }}.2_{{ ansible_system }}_x86-64_deb"
+  apt:
+    package: libreoffice
+    state: latest
