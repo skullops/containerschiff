@@ -1,5 +1,5 @@
 ---
-- name: check if LibreOffice5 already installed
+- name: install LibreOffice5
   become: true
   become_method: sudo
   apt:
