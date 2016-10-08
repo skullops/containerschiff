@@ -9,3 +9,9 @@
   apt_repository:
     repo: "deb http://linux.dropbox.com/ubuntu {{ ansible_lsb.codename }} main"
     state: present
+
+- name: install dropbox
+  apt:
+    package: dropbox
+    state: latest
+  notify: restart dropbox

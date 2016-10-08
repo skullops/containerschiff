@@ -1,1 +1,10 @@
 ---
+- name: start dropbox
+  service:
+    name: dropbox
+    state: started
+
+- name: restart dropbox
+  service:
+    name: dropbox
+    state: restarted
