@@ -15,7 +15,7 @@
   command: "ls /tmp/LibreOffice_{{ libre_version }}.2_{{ ansible_system }}_x86-64_deb/DEBS/"
   register: libre_debs
 
-- name: install requirements for LibreOffice5
+- name: install LibreOffice5 dependencies
   become: true
   become_method: sudo
   apt:
