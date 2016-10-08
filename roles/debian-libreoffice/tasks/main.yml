@@ -3,11 +3,10 @@
   get_url:
     url: "http://mirrors.serverhost.ro/libreoffice/tdf/libreoffice/stable/{{ libre_version }}/deb/{{ ansible_architecture }}/LibreOffice_{{ libre_version }}_{{ ansible_system }}_x86-64_deb.tar.gz"
     dest: /tmp/libreoffice.tar.gz
-    sha256sum: "{{ libre_checksum }}"
-  register: libre_name
+    sha256sum: "{{ libre_sha256sum }}"
 
 - name: extract archive
   unarchive:
-    src:
-    dest: 
+    src: /tmp/libreoffice.tar.gz
+    dest: "/tmp/LibreOffice_{{ libre_version }}_{{ ansible_system }}_x86-64.deb"
     exclude: 'readmes/*'
