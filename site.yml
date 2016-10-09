@@ -1,6 +1,7 @@
 ---
 - hosts: all
   roles:
-    - packages
-    - sublime
-    - font
+    #    - packages
+    #    - sublime
+    #    - font
+    - { role: debian-docker, when: ansible_os_family == 'Debian' }

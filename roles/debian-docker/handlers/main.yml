@@ -1,0 +1,33 @@
+---
+- name: start docker
+  become: true
+  become_method: sudo
+  service: 
+    name: docker
+    state: started
+  tags: [start_docker]
+
+- name: stop docker
+  become: true
+  become_method: sudo
+  service:
+    name: docker
+    state: stopped
+  tags: [stop_docker]
+
+
+- name: restart docker
+  become: true
+  become_method: sudo
+  service:
+    name: docker
+    state: restarted
+  tags: [reboot_docker]
+
+- name: reload docker
+  become: true
+  become_method: sudo
+  service:
+    name: docker
+    state: reloaded
+  tags: [reload_docker]
