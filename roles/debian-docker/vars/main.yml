@@ -2,3 +2,16 @@
 docker_compose_version: '1.8.1'
 docker_machine_version: '0.8.2'
 docker_machine_checksum: 'sha256:e5c3e360b46a82d4bc5ff2efe357b15040cfc58d3d962f793fee6ee1e44e9b66'
+
+docker_apt_url: 'https://apt.dockerproject.org'
+docker_gpg_fingerprint: '58118E89F3A912897C070ADBF76221572C52609D'
+docker_repo:
+  stable: main
+  alpha: testing
+  beta: experimental
+
+docker_gpg_keyservers:
+  hpksks: 'hkp://p80.pool.sks-keyservers.net:80'
+  hapool: 'ha.pool.sks-keyservers.net'
+  pgpmit: 'pgp.mit.edu'
+  ksubuntu: 'keyserver.ubuntu.com'
