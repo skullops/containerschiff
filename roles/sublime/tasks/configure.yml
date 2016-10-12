@@ -47,5 +47,5 @@
   become: yes
   become_method: sudo
   file: 
-    path: "/tmp/{{ sublime_debfile }}"
+    path: "{{ sublimetext_tmp_deb }}"
     state: absent

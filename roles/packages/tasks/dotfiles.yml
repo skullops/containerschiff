@@ -27,11 +27,16 @@
     src: gitconfig.j2
     dest: ~/.gitconfig
 
-- name: check for openbox presence
-  apt:
-    package: openbox
-    state: present
-  register: openbox_stat
+- name: make sure openbox exists
+  file:
+    path: ~/.config/openbox/
+    state: directory
+    mode: 0775
+
+- name: check if openbox installed
+  command: 'openbox --version'
+  ignore_errors: true
+  register: obox
 
 - name: enable openbox keyboard shortcuts
   template:
@@ -39,4 +44,4 @@
     dest: ~/.config/openbox/lubuntu-rc.xml
     mode: 0644
   notify: reload openbox
-  when: openbox_stat.changed == false
+  when: obox.rc == 0

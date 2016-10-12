@@ -6,9 +6,15 @@
     force: no
   register: telegram_archive
 
-- name: extract archive to ~/Downloads dir
+- name: create app dir
+  file:
+    path: /opt/telegram
+    state: directory
+    mode: 0755
+
+- name: extract archive to app dir
   unarchive:
     src: /tmp/tsetup.tar.xz
-    dest: ~/Downloads
+    dest: /opt/telegram
     copy: no
   when: telegram_archive | changed

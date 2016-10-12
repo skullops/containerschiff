@@ -1,12 +1,4 @@
 ---
-# sublime text 3 main task
-- name: check if sublime already installed
-  apt:
-    name: sublime-text=3065
-    state: present
-  register: subl # now I can use [when: subl.changed is false]
-
+# main role to install Sublime Text
 - include: install.yml
-  when: subl|changed
 - include: configure.yml
-  when: subl|changed
