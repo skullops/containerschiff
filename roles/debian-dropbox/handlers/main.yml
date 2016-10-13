@@ -1,4 +1,1 @@
 ---
-- name: restart dropbox
-  command: '~/.dropbox-dist/dropboxd'
-  tags: [restart_dropbox]
