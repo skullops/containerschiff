@@ -1,10 +1,4 @@
 ---
-- name: start dropbox
-  service:
-    name: dropbox
-    state: started
-
 - name: restart dropbox
-  service:
-    name: dropbox
-    state: restarted
+  command: '~/.dropbox-dist/dropboxd'
+  tags: [restart_dropbox]
