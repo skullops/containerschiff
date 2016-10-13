@@ -1,5 +1,5 @@
 ---
-dropbox_version: "2015.02.12"
+dropbox_version: "2015.10.28"
 dropbox_tmp_deb: "/tmp/dropbox_{{dropbox_version}}.deb"
 dropbox_architecture: "{% if ansible_architecture == 'x86_64' %}amd64{% else %}i386{% endif %}"
 dropbox_url_ubuntu_deb: "https://www.dropbox.com/download?dl=packages/ubuntu/dropbox_{{dropbox_version}}_{{dropbox_architecture}}.deb"

@@ -3,7 +3,6 @@
   get_url:
     url: "{{ dropbox_url_ubuntu_deb }}"
     dest: "{{ dropbox_tmp_deb }}"
-    validate_certs: false
 
 - name: install dropbox package
   apt:
