@@ -2,4 +2,5 @@
 - name: install dropbox package
   apt:
     deb: "{{ dropbox_url_ubuntu_deb }}"
+    allow_unauthenticated: true
     state: present
