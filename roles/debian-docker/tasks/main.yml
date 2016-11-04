@@ -41,6 +41,8 @@
   get_url:
     url: "https://github.com/docker/compose/releases/download/{{ docker_compose_version }}/docker-compose-{{ ansible_system }}-{{ ansible_userspace_architecture }}"
     dest: /usr/local/bin/docker-compose
+    owner: "{{ ansible_user_id }}"
+    group: "{{ ansible_user_id }}"
     mode: 'u+x'
 
 - name: install docker machine
@@ -50,4 +52,6 @@
     url: "https://github.com/docker/machine/releases/download/v{{ docker_machine_version }}/docker-machine-{{ ansible_system }}-{{ ansible_userspace_architecture }}"
     dest: /usr/local/bin/docker-machine
     mode: 'u+x'
+    owner: "{{ ansible_user_id }}"
+    group: "{{ ansible_user_id }}"
     checksum: "{{ docker_machine_checksum }}"
