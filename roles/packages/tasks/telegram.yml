@@ -7,14 +7,21 @@
   register: telegram_archive
 
 - name: create app dir
+  become: true
+  become_method: sudo
   file:
     path: /opt/telegram
     state: directory
     mode: 0755
+    owner: "{{ ansible_user_id }}"
+    group: "{{ ansible_user_id }}"
 
 - name: extract archive to app dir
+  become: true
+  become_method: sudo
   unarchive:
     src: /tmp/tsetup.tar.xz
     dest: /opt/telegram
     copy: no
-  when: telegram_archive | changed
+    owner: "{{ ansible_user_id }}"
+    group: "{{ ansible_user_id }}"
