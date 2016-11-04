@@ -1,0 +1,32 @@
+[user]
+	name = Daniel Andrei Mincă
+	email = mandrei17@gmail.com
+	signingkey = 81DF875D
+[commit]
+	gpgsign = true
+	template = /home/dminca/.git-commit-template.commit
+[core]
+	editor = vim
+  logallrefupdates = true
+  sharedRepository = 0644
+  compression = 9
+[push]
+	default = simple
+[status]
+  submoduleSummary = true
+[diff]
+  submodule = log
+[fetch]
+  recurseSubmodules = on-demand
+[receive]
+  fsckObjects = true
+  denyDeletes = true
+  denyDeleteCurrent = true
+  denyCurrentBranch = true
+  denyNonFastForwards = true
+[merge]
+  log = true
+[rebase]
+  stat = true
+[color]
+  ui = auto
