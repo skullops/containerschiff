@@ -25,3 +25,5 @@
     copy: no
     owner: "{{ ansible_user_id }}"
     group: "{{ ansible_user_id }}"
+  when: telegram_archive.changed == false
+
