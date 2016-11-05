@@ -50,8 +50,12 @@
     - python-dev
     - meld # for resolving git conflicts
     - clementine
+    - pulseaudio-module-bluetooth # fix blueman for Wireless Headphones
 
+- name: load PulseAudio bluetooth module
+  command: pactl load-module module-bluetooth-discover
 - include: dotfiles.yml
 - include: telegram.yml
 - include: vimproved.yml
 - include: zshell.yml
+
