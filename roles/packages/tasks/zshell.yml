@@ -41,3 +41,4 @@
     src: .zshrc
     dest: ~/
     force: yes
+
