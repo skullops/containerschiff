@@ -58,3 +58,19 @@
     checksum: "{{ docker_machine_checksum }}"
     force: true
 
+- name: ensure docker dir present
+  file:
+    path: ~/.docker
+    mode: 0700
+    owner: "{{ ansible_user_id }}"
+    group: docker
+    state: directory
+
+- name: login to docker cloud
+  copy:
+    src: config.json
+    dest: ~/.docker/config.json
+    mode: 0600
+    owner: "{{ ansible_user_id }}"
+    group: docker
+  notify: restart docker
