@@ -8,10 +8,12 @@
   with_items:
     - 'ppa:git-core/ppa'
     - 'ppa:shutter/ppa'
+    - 'ppa:me-davidsansome/clementine'
 
 - name: install libraries using APT
   apt: 
     name: "{{ item }}"
+    cache_valid_time: 3600
     state: latest
   become: yes
   become_method: sudo
@@ -34,7 +36,6 @@
     - nodejs
     - npm
     - tree
-    - audacious
     - silversearcher-ag
     - gnupg-agent
     - enigmail
@@ -48,6 +49,7 @@
     - python-pip
     - python-dev
     - meld # for resolving git conflicts
+    - clementine
 
 - include: dotfiles.yml
 - include: telegram.yml
