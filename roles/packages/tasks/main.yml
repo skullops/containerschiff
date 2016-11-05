@@ -47,6 +47,7 @@
     - zsh
     - python-pip
     - python-dev
+    - meld # for resolving git conflicts
 
 - include: dotfiles.yml
 - include: telegram.yml
