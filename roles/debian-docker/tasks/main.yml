@@ -1,76 +1,12 @@
 ---
-- name: add apt repository
-  become: true
-  become_method: sudo
-  apt_repository:
-    repo: "deb https://apt.dockerproject.org/repo debian-jessie main"
-    state: present
-    update_cache: true
+# basic Docker Engine provisioning
+- include: install.yml
 
-- name: get docker-engine apt key
-  become: true
-  become_method: sudo
-  apt_key:
-    keyserver: "hkp://p80.pool.sks-keyservers.net:80"
-    id: "58118E89F3A912897C070ADBF76221572C52609D"
-    state: present
+# provision with Docker Compose
+- include: compose.yml
 
-- name: install docker
-  become: true
-  become_method: sudo
-  apt:
-    package: docker-engine
-    state: latest
-    update_cache: true
-    cache_valid_time: 3600
-    force: true
+# provision with Docker Machine
+- include: machine.yml
 
-- name: add user to docker group
-  become: true
-  become_method: sudo
-  user:
-    append: true
-    group: docker
-    name: "{{ ansible_user_id }}"
-    state: present
-  notify: reload docker
-
-- name: install docker compose
-  become: true
-  become_method: sudo
-  get_url:
-    url: "https://github.com/docker/compose/releases/download/{{ docker_compose_version }}/docker-compose-{{ ansible_system }}-{{ ansible_userspace_architecture }}"
-    dest: /usr/local/bin/docker-compose
-    mode: 0755
-    owner: "{{ ansible_user_id }}"
-    group: "{{ ansible_user_id }}"
-    force: true
-
-- name: install docker machine
-  become: true
-  become_method: sudo
-  get_url:
-    url: "https://github.com/docker/machine/releases/download/v{{ docker_machine_version }}/docker-machine-{{ ansible_system }}-{{ ansible_userspace_architecture }}"
-    dest: /usr/local/bin/docker-machine
-    owner: "{{ ansible_user_id }}"
-    group: "{{ ansible_user_id }}"
-    mode: 0755
-    checksum: "{{ docker_machine_checksum }}"
-    force: true
-
-- name: ensure docker dir present
-  file:
-    path: ~/.docker
-    mode: 0700
-    owner: "{{ ansible_user_id }}"
-    group: docker
-    state: directory
-
-- name: login to docker cloud
-  copy:
-    src: config.json
-    dest: ~/.docker/config.json
-    mode: 0600
-    owner: "{{ ansible_user_id }}"
-    group: docker
-  notify: restart docker
+# authenticate to Docker Cloud (now Docker Store)
+- include: cloud.yml

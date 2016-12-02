@@ -1,0 +1,59 @@
+---
+- name: ensure apt-transport-https is present
+  become: true
+  become_method: sudo
+  apt:
+    package: apt-transport-https
+    state: present
+    force: true
+
+- name: install pip the safe way
+  become: true
+  become_method: sudo
+  easy_install:
+    name: pip
+    state: present
+
+- name: ensure docker-py is present
+  become: true
+  become_method: sudo
+  environment: "{{ proxy_env }}"
+  pip:
+    name: docker-py
+    state: latest
+
+- name: add apt repository
+  become: true
+  become_method: sudo
+  apt_repository:
+    repo: "deb https://apt.dockerproject.org/repo debian-jessie main"
+    state: present
+    update_cache: true
+
+- name: get docker-engine apt key
+  become: true
+  become_method: sudo
+  apt_key:
+    keyserver: "hkp://p80.pool.sks-keyservers.net:80"
+    id: "58118E89F3A912897C070ADBF76221572C52609D"
+    state: present
+
+- name: install docker
+  become: true
+  become_method: sudo
+  apt:
+    package: docker-engine
+    state: latest
+    update_cache: true
+    cache_valid_time: 3600
+    force: true
+
+- name: add user to docker group
+  become: true
+  become_method: sudo
+  user:
+    append: true
+    group: docker
+    name: "{{ ansible_user_id }}"
+    state: present
+  notify: reload docker
