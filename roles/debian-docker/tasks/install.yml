@@ -17,7 +17,6 @@
 - name: ensure docker-py is present
   become: true
   become_method: sudo
-  environment: "{{ proxy_env }}"
   pip:
     name: docker-py
     state: latest
@@ -26,7 +25,7 @@
   become: true
   become_method: sudo
   apt_repository:
-    repo: "deb https://apt.dockerproject.org/repo debian-jessie main"
+    repo: "deb {{ docker_apt_url }}/repo {{ ansible_distribution|lower }}-{{ ansible_distribution_release }} {{ docker_repo.beta }}"
     state: present
     update_cache: true
 
@@ -34,8 +33,8 @@
   become: true
   become_method: sudo
   apt_key:
-    keyserver: "hkp://p80.pool.sks-keyservers.net:80"
-    id: "58118E89F3A912897C070ADBF76221572C52609D"
+    keyserver: "{{ docker_gpg_keyservers.hapool }}"
+    id: "{{ docker_gpg_fingerprint }}"
     state: present
 
 - name: install docker
