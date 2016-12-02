@@ -1,8 +1,9 @@
 ---
 - hosts: all
   roles:
-    - packages
-    - sublime
-    - font
-    - { role: debian-docker, when: ansible_os_family == 'Debian' }
-    - { role: debian-dropbox, when: ansible_os_family == 'Debian' }
+    # - packages
+    # - sublime
+    # - font
+    # - { role: debian-docker, when: ansible_os_family == 'Debian' }
+    # - { role: debian-dropbox, when: ansible_os_family == 'Debian' }
+    - debian-virtualbox
