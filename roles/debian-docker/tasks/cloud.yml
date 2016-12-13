@@ -1,5 +1,6 @@
 ---
 - name: ensure docker dir present
+  become: true
   file:
     path: ~/.docker
     mode: 0700
@@ -8,6 +9,7 @@
     state: directory
 
 - name: login to docker cloud
+  become: true
   copy:
     src: config.json
     dest: ~/.docker/config.json
