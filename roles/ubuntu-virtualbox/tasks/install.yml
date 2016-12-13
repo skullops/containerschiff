@@ -1,10 +1,10 @@
 ---
 - name: download the deb file & scan
   get_url:
-    url: "http://download.virtualbox.org/virtualbox/5.1.10/{{ virtualbox_wily.deb }}"
+    url: "http://download.virtualbox.org/virtualbox/5.1.10/{{ virtualbox_xenial.deb }}"
     mode: 0644
     dest: /tmp
-    checksum: "sha256:{{ virtualbox_wily.sha256 }}"
+    checksum: "sha256:{{ virtualbox_xenial.sha256 }}"
 
 - name: download & scan ExtPack
   get_url:
@@ -22,7 +22,7 @@
 - name: install virtualbox via deb file
   become: true
   apt:
-    deb: "/tmp/{{ virtualbox_wily.deb }}"
+    deb: "/tmp/{{ virtualbox_xenial.deb }}"
     update_cache: true
     cache_valid_time: 3600
     state: present
