@@ -7,6 +7,3 @@
 
 # provision with Docker Machine
 - include: machine.yml
-
-# authenticate to Docker Cloud (now Docker Store)
-- include: cloud.yml
