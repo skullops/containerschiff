@@ -1,10 +1,4 @@
 ---
-- name: install ca-certificates to download from HTTPS
-  become: true
-  apt:
-    name: ca-certificates
-    state: present
-
 - name: download dropbox from official source
   get_url:
     url: "{{ dropbox_url_deb }}"
