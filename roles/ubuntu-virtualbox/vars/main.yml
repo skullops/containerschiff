@@ -14,5 +14,5 @@ virtualbox_xenial:
   sha256: "eea78d20ae4ff3a85b84fc2cc2096228c779dc8cf25517425804a4bcdb2c57fa"
 
 virtualbox_extpack:
-  file: "Oracle_VM_VirtualBox_Extension_Pack-{{ vbox_major }}.{{ vbox_minor }}_{{ vbox_patch }}-{{ vbox_build }}.vbox-extpack"
+  file: "Oracle_VM_VirtualBox_Extension_Pack-{{ vbox_patch }}-{{ vbox_build }}.vbox-extpack"
   sha256: "03111380afb06122a494595e966dffe3e2779840e8698e27e80f87342b291286"
