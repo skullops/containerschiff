@@ -1,4 +1,13 @@
 ---
+- name: install required packages
+  become: true
+  apt:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - dpkg-dev
+    - virtualbox-dkms
+
 - name: download the deb file & scan
   get_url:
     url: "http://download.virtualbox.org/virtualbox/{{ vbox_patch }}/{{ virtualbox_xenial.deb }}"
