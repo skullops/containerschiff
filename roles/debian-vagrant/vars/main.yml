@@ -1,0 +1,5 @@
+---
+# vars file for debian-vagrant
+vagrant_version: 1.9.1
+
+vagrant_sha256: "d006d6227e049725b64d8ba3967f0c82460a403ff40230515c93134d58723150"
