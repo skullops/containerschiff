@@ -1,14 +1,9 @@
 ---
-- name: download dropbox from official source
-  get_url:
-    url: "{{ dropbox_url_deb }}"
-    dest: "{{ dropbox_tmp_deb }}"
-
 - name: install dropbox package
   become: true
   become_method: sudo
   apt:
-    deb: "{{ dropbox_tmp_deb }}"
+    deb: "{{ dropbox_url_deb }}"
   register: dbox_result
 
 - name: run dropbox daemon interface
