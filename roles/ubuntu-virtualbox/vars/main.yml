@@ -1,13 +1,17 @@
 ---
 # vars file for debian-virtualbox
+vbox_major: 5
+vbox_minor: 1_5.1.12
+vbox_build: 112440
+
 virtualbox_wily:
-  deb: "virtualbox-5.1_5.1.10-112026~Ubuntu~wily_amd64.deb"
+  deb: "virtualbox-{{ vbox_major }}.{{ vbox_minor }}-{{ vbox_build }}~Ubuntu~wily_amd64.deb"
   sha256: "92e98c742815835feee4b25af87deb35d328e3672a6ac23294a06486c4fa0212"
 
 virtualbox_xenial:
-  deb: "virtualbox-5.1_5.1.10-112026~Ubuntu~xenial_amd64.deb"
-  sha256: "a84a0a50e3bc2d62e8b6a002e6b6884aadca74116f6772ef01bb1e185cfbf358"
+  deb: "virtualbox-{{ vbox_major }}.{{ vbox_minor }}-{{ vbox_build }}~Ubuntu~xenial_amd64.deb"
+  sha256: "eea78d20ae4ff3a85b84fc2cc2096228c779dc8cf25517425804a4bcdb2c57fa"
 
 virtualbox_extpack:
-  file: "Oracle_VM_VirtualBox_Extension_Pack-5.1.10-112026.vbox-extpack"
-  sha256: "3982657fd4853bcbc79b9162e618545a479b65aca08e9ced43a904aeeba3ffa5"
+  file: "Oracle_VM_VirtualBox_Extension_Pack-{{ vbox_major }}.{{ vbox_minor }}-{{ vbox_build }}.vbox-extpack"
+  sha256: "03111380afb06122a494595e966dffe3e2779840e8698e27e80f87342b291286"
