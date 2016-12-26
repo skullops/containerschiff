@@ -2,7 +2,6 @@
 - name: download dropbox from official source
   get_url:
     url: "{{ dropbox_url_deb }}"
-    validate_certs: false
     dest: "{{ dropbox_tmp_deb }}"
 
 - name: install dropbox package
