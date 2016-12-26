@@ -1,4 +1,15 @@
 ---
+- name: install dependencies
+  become: true
+  pip:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - urllib3
+    - pyopenssl
+    - ndg-httpsclient
+    - pyasn1
+
 - name: install dropbox package
   become: true
   become_method: sudo
