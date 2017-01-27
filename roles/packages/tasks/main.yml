@@ -52,6 +52,7 @@
     - clementine
     - pulseaudio-module-bluetooth # fix blueman for Wireless Headphones
     - mono-complete # for validating KeePass2 plugins http://askubuntu.com/a/143183/343191
+    - dstat # view system resources instantly
 
 - include: dotfiles.yml
 - include: telegram.yml
