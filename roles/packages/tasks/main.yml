@@ -9,6 +9,7 @@
     - 'ppa:git-core/ppa'
     - 'ppa:shutter/ppa'
     - 'ppa:me-davidsansome/clementine'
+    - 'ppa:jtaylor/keepass' # for KeePass 2.35+
 
 - name: install libraries using APT
   apt: 
