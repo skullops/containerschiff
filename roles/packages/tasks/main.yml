@@ -58,6 +58,14 @@
     - iftop # listens to network traffic on a named network interface
     - iotop # watches I/O usage information output by the Linux kernel
 
+# disable anoying useless system crash dialog
+- name: disable apport
+  become: true
+  become_method: sudo
+  template:
+    src: apport.j2
+    dest: /etc/default/apport
+
 - include: dotfiles.yml
 - include: telegram.yml
 - include: vimproved.yml
