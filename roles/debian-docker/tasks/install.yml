@@ -25,7 +25,7 @@
   become: true
   become_method: sudo
   apt_repository:
-    repo: "deb {{ docker_apt_url }}/repo {{ ansible_distribution|lower }}-{{ ansible_distribution_release }} {{ docker_repo.beta }}"
+    repo: "deb {{ docker_apt_url }}/repo {{ ansible_distribution|lower }}-{{ ansible_distribution_release }} {{ docker_repo.stable }}"
     state: present
     update_cache: true
 

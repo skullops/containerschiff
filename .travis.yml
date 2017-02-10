@@ -25,5 +25,5 @@ install:
   - ansible --version
 
 script:
-  - ansible-playbook site.yml --syntax-check
-  - ansible-playbook site.yml
+  - ansible-playbook playbook.yml --syntax-check
+  - ansible-playbook playbook.yml
