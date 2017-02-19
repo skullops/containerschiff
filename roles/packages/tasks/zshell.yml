@@ -6,6 +6,8 @@
     update: no
 
 - name: Set zsh config dir permissions
+  become: true
+  become_method: sudo
   file:
     path: "{{ ansible_env.HOME }}/.oh-my-zsh"
     owner: "{{ ansible_user_id }}"
@@ -13,12 +15,12 @@
     recurse: yes
 
 - name: Set zsh as default shell
-  become: yes
+  become: true
   become_method: sudo
   user:
     name: "{{ ansible_user_id }}"
-    group: "{{ ansible_user_id }}"
     shell: /usr/bin/zsh
+    state: present
 
 - name: Create plugins and themes dirs
   file: 
