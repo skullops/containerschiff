@@ -17,6 +17,7 @@
   become_method: sudo
   user:
     name: "{{ ansible_user_id }}"
+    group: "{{ ansible_user_id }}"
     shell: /usr/bin/zsh
 
 - name: Create plugins and themes dirs
