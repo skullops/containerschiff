@@ -1,3 +1,4 @@
+# {{ ansible_managed }}
 # Options for GnuPG
 # Copyright 1998, 1999, 2000, 2001, 2002, 2003,
 #           2010 Free Software Foundation, Inc.
@@ -27,7 +28,7 @@
 # If you have more than 1 secret key in your keyring, you may want to
 # uncomment the following option and set your preferred keyid.
 
-default-key {{ gpg_key_id }}
+default-key {{ github.gpg_key_id }}
 
 # If you do not pass a recipient to gpg, it will ask for one.  Using
 # this option you can encrypt to a default key.  Key validation will

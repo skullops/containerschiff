@@ -10,13 +10,13 @@
 - name: Pull vim-pathogen
   get_url:
     url: https://tpo.pe/pathogen.vim
-    dest: ~/.vim/autoload
+    dest: "{{ ansible_env.HOME }}/.vim/autoload"
     force: no
 
 - name: Install vim plugins
   git:
     repo: https://github.com/{{ item.name }}
-    dest: "~/.vim/bundle/{{ item.dir }}"
+    dest: "{{ ansible_env.HOME }}/.vim/bundle/{{ item.dir }}"
     update: no
     force: no
   with_items:
