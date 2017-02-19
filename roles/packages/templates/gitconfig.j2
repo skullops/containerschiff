@@ -5,7 +5,7 @@
 	signingkey = {{ github.pgp_key_id }}
 [commit]
 	gpgsign = true
-	template = "{{ ansible_env.HOME }}/".git-commit-template.commit
+	template = {{ ansible_env.HOME }}/.git-commit-template.commit
 [core]
 	editor = vim
   logallrefupdates = true
