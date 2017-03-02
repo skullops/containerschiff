@@ -1,7 +1,7 @@
 ---
 - name: deploy dotfiles to home dir
   template:
-    src: {{ item.src }}
+    src: "{{ item.src }}"
     dest: "{{ ansible_env.HOME }}/{{ item.dest }}"
     mode: 0644
   with_items:
