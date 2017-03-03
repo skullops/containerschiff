@@ -66,7 +66,7 @@ nnoremap <silent> <Leader>- :exe "resize " . (winheight(0) * 2/3)<CR>
 " => Colors and Fonts
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 colorscheme evening
-set background=dark
+"set background=dark
 
 " Display vim colors properly on ubuntu
 if $COLORTERM == 'gnome-terminal'
@@ -91,10 +91,13 @@ set smarttab
 " 1 tab == 2 spaces
 set shiftwidth=2
 set tabstop=2
+set softtabstop=2
 
 set ai "Auto indent
 set si "Smart indent
 
+" show line numbers
+nmap <C-N> :set invnumber<CR>
 """"""""""""""""""""""""""""""
 " => Status line
 """"""""""""""""""""""""""""""
