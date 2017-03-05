@@ -8,7 +8,7 @@
 
 - name: Create the font config dir
   file:
-    path: ~/.fonts/truetype/Hack
+    path: "{{ ansible_env.HOME }}/.fonts/truetype/Hack"
     state: directory
 
 - name: Download the font archive
@@ -20,5 +20,5 @@
 - name: Extract the archive
   unarchive:
     src: /tmp/Hack-v2_020-ttf.tar.gz
-    dest: ~/.fonts/truetype/Hack
+    dest: "{{ ansible_env.HOME }}/.fonts/truetype/Hack"
   notify: clear font cache

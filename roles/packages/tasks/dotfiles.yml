@@ -1,6 +1,8 @@
 ---
 - name: Copy the dotfiles to home dir
-  copy: src={{ item }} dest=~/
+  copy: 
+    src: "{{ item }}"
+    dest: "{{ ansible_env.HOME }}/"
   with_items:
     - .bash_aliases
     - .bash_formatting
@@ -12,24 +14,24 @@
 
 - name: create gnupg directory
   file:
-    path: ~/.gnupg
+    path: "{{ ansible_env.HOME }}/.gnupg"
     state: directory
     mode: 0700
 
 - name: add gpg configuration file
   template:
     src: gpg.conf.j2
-    dest: ~/.gnupg/gpg.conf
-    mode: 0700
+    dest: "{{ ansible_env.HOME }}/.gnupg/gpg.conf"
+    mode: 0600
 
 - name: Add the gitconfig with custom User and Email
   template:
     src: gitconfig.j2
-    dest: ~/.gitconfig
+    dest: "{{ ansible_env.HOME }}/.gitconfig"
 
 - name: make sure openbox exists
   file:
-    path: ~/.config/openbox/
+    path: "{{ ansible_env.HOME }}/.config/openbox/"
     state: directory
     mode: 0775
 
@@ -41,7 +43,7 @@
 - name: enable openbox keyboard shortcuts
   template:
     src: lubuntu-rc.xml.j2
-    dest: ~/.config/openbox/lubuntu-rc.xml
+    dest: "{{ ansible_env.HOME }}/.config/openbox/lubuntu-rc.xml"
     mode: 0644
   notify: reload openbox
   when: obox.rc == 0
