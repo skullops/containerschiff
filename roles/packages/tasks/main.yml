@@ -26,6 +26,9 @@
     - sysstat # collect, report, or save UNIX / Linux system activity information
     - iftop # listens to network traffic on a named network interface
     - iotop # watches I/O usage information output by the Linux kernel
+    - virtualbox
+    - vagrant
+    - dropbox
 
 - include: dotfiles.yml
 - include: telegram.yml
