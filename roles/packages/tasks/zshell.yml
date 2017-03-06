@@ -9,7 +9,7 @@
   file:
     path: ~/.oh-my-zsh
     owner: "{{ ansible_user_id }}"
-    group: "{{ ansible_user_id }}"
+    group: users
     recurse: yes
 
 - name: Set zsh as default shell

@@ -14,7 +14,7 @@
     state: directory
     mode: 0755
     owner: "{{ ansible_user_id }}"
-    group: "{{ ansible_user_id }}"
+    group: users
 
 - name: extract archive to app dir
   become: true
@@ -24,6 +24,6 @@
     dest: /opt/telegram
     copy: no
     owner: "{{ ansible_user_id }}"
-    group: "{{ ansible_user_id }}"
+    group: users
   when: telegram_archive.changed == false
 
