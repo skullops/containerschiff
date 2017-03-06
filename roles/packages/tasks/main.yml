@@ -30,6 +30,9 @@
     - virtualbox
     - vagrant
     - dropbox
+    - docker
+    - docker-compose
+    - docker-machine
 
 - include: dotfiles.yml
 - include: telegram.yml
