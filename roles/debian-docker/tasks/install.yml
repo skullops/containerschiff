@@ -1,58 +1,18 @@
 ---
-- name: ensure apt-transport-https is present
-  become: true
-  become_method: sudo
-  apt:
-    package: apt-transport-https
-    state: present
-    force: true
-
-- name: install pip the safe way
-  become: true
-  become_method: sudo
-  easy_install:
-    name: pip
-    state: present
-
-- name: ensure docker-py is present
-  become: true
-  become_method: sudo
-  pip:
-    name: docker-py
+- name: install the docker suite
+  pacman: 
+    name: "{{ item }}"
     state: latest
-
-- name: add apt repository
   become: true
-  become_method: sudo
-  apt_repository:
-    repo: "deb {{ docker_apt_url }}/repo {{ ansible_distribution|lower }}-{{ ansible_distribution_release }} {{ docker_repo.stable }}"
-    state: present
-    update_cache: true
+  with_items:
+    - docker
+    - docker-compose
+    - docker-machine
 
-- name: get docker-engine apt key
+- name: start and enable docker engine
   become: true
-  become_method: sudo
-  apt_key:
-    keyserver: "{{ docker_gpg_keyservers.hapool }}"
-    id: "{{ docker_gpg_fingerprint }}"
-    state: present
+  systemd:
+    name: docker
+    state: started
+    enabled: true
 
-- name: install docker
-  become: true
-  become_method: sudo
-  apt:
-    package: docker-engine
-    state: latest
-    update_cache: true
-    cache_valid_time: 3600
-    force: true
-
-- name: add user to docker group
-  become: true
-  become_method: sudo
-  user:
-    append: true
-    group: docker
-    name: "{{ ansible_user_id }}"
-    state: present
-  notify: reload docker
