@@ -3,7 +3,6 @@
   roles:
     - packages
       #    - sublime
-      #    - font
       #    - { role: debian-docker, when: ansible_os_family == 'Debian' }
       #    # - { role: debian-dropbox, when: ansible_os_family == 'Debian' }
       #    - { role: ubuntu-virtualbox, when: ansible_distribution == 'Ubuntu' }
