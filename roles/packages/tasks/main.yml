@@ -34,6 +34,13 @@
     - docker-compose
     - docker-machine
 
+- name: start and enable docker engine
+  become: true
+  systemd:
+    name: docker
+    state: started
+    enabled: true
+
 - include: dotfiles.yml
 - include: telegram.yml
 - include: vimproved.yml
