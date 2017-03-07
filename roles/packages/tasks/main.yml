@@ -30,6 +30,7 @@
     - virtualbox
     - vagrant
     - dropbox
+    - reflector
 
 - include: dotfiles.yml
 - include: telegram.yml
