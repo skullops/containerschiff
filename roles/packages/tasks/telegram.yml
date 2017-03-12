@@ -15,7 +15,6 @@
   unarchive:
     src: https://telegram.org/dl/desktop/linux
     dest: /opt/telegram
-    copy: no
     owner: "{{ ansible_user_id }}"
     group: users
     remote_src: true
