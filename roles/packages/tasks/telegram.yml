@@ -18,4 +18,5 @@
     owner: "{{ ansible_user_id }}"
     group: users
     remote_src: true
+    validate_certs: false
 
