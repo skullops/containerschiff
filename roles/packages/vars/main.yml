@@ -8,5 +8,5 @@ github:
   branch: master
 
 # in case GPG signatures also contain photos
-gpg_photo_viewer: gpicview
+gpg_photo_viewer: gthumb
 
