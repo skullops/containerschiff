@@ -12,9 +12,9 @@
 - name: add user to docker group
   become: true
   user:
-    append: true
-    group: docker
     name: "{{ ansible_user_id }}"
+    group: docker
+    append: true
     state: present
 
 - name: start and enable docker engine
