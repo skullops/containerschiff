@@ -1,6 +1,8 @@
 ---
 - name: reload-vimrc
-  copy: src=.vimrc dest=~/
+  copy: 
+    src: .vimrc 
+    dest: "{{ ansible_env.HOME }}/"
   tags: vim
 
 - name: reload openbox

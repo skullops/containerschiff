@@ -2,14 +2,14 @@
 - name: Install Zsh from official repo
   git:
     repo: https://github.com/robbyrussell/oh-my-zsh.git
-    dest: ~/.oh-my-zsh
+    dest: "{{ ansible_env.HOME }}/.oh-my-zsh"
     update: no
 
 - name: Set zsh config dir permissions
   file:
-    path: ~/.oh-my-zsh
+    path: "{{ ansible_env.HOME }}/.oh-my-zsh"
     owner: "{{ ansible_user_id }}"
-    group: "{{ ansible_user_id }}"
+    group: users
     recurse: yes
 
 - name: Set zsh as default shell
@@ -21,7 +21,7 @@
 
 - name: Create plugins and themes dirs
   file: 
-    path: "~/.oh-my-zsh/custom/{{ item }}" 
+    path: "{{ ansible_env.HOME }}/.oh-my-zsh/custom/{{ item }}"
     state: directory
   with_items:
     - plugins/dangit
@@ -29,8 +29,8 @@
 
 - name: Pull the Custom Plugins and Themes
   get_url:
-    url: https://raw.githubusercontent.com/{{ gh_user }}/{{ gh_repo }}/{{ gh_branch }}/custom/{{ item.name }}
-    dest: ~/.oh-my-zsh/custom/{{ item.dir }}
+    url: https://raw.githubusercontent.com/{{ github.username }}/{{ github.repo }}/{{ github.branch }}/custom/{{ item.name }}
+    dest: "{{ ansible_env.HOME }}/.oh-my-zsh/custom/{{ item.dir }}"
     mode: 0644
   with_items:
     - { name: 'plugins/dangit/dangit.plugin.zsh', dir: 'plugins/dangit/'}
@@ -39,6 +39,6 @@
 - name: Deploy customized .zshrc
   copy: 
     src: .zshrc
-    dest: ~/
+    dest: "{{ ansible_env.HOME }}/"
     force: yes
 

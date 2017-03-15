@@ -1,19 +1,9 @@
-"       _                _        _  _     
-"    __| |  __ _  _ __  (_)  ___ | |( )___ 
-"   / _` | / _` || '_ \ | | / _ \| ||// __|
-"  | (_| || (_| || | | || ||  __/| |  \__ \
-"   \__,_| \__,_||_| |_||_| \___||_|  |___/
-"          _                               
-"  __   __(_) _ __ ___   _ __  ___         
-"  \ \ / /| || '_ ` _ \ | '__|/ __|        
-"   \ V / | || | | | | || |  | (__         
-"    \_/  |_||_| |_| |_||_|   \___|        
-"                                          
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => General
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Set pathogen.vim up and running
 execute pathogen#infect()
+Helptags
 syntax on
 filetype plugin indent on
 
@@ -66,7 +56,7 @@ nnoremap <silent> <Leader>- :exe "resize " . (winheight(0) * 2/3)<CR>
 " => Colors and Fonts
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 colorscheme evening
-set background=dark
+"set background=dark
 
 " Display vim colors properly on ubuntu
 if $COLORTERM == 'gnome-terminal'
@@ -91,10 +81,13 @@ set smarttab
 " 1 tab == 2 spaces
 set shiftwidth=2
 set tabstop=2
+set softtabstop=2
 
 set ai "Auto indent
 set si "Smart indent
 
+" show line numbers
+nmap <C-N> :set invnumber<CR>
 """"""""""""""""""""""""""""""
 " => Status line
 """"""""""""""""""""""""""""""
