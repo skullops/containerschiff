@@ -22,6 +22,7 @@
     - { name: MarcWeber/vim-addon-mw-utils.git, dir: vim-addon-mw-utils }
     - { name: kien/ctrlp.vim.git, dir: ctrlp.vim }
     - { name: dyng/ctrlsf.vim.git, dir: ctrlsf.vim }
+    - { name: terryma/vim-multiple-cursors.git, dir: vim-multiple-cursors }
 
 - name: deploy custom vimrc
   copy:
