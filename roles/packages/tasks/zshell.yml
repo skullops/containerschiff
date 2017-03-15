@@ -3,7 +3,7 @@
   git:
     repo: https://github.com/robbyrussell/oh-my-zsh.git
     dest: "{{ ansible_env.HOME }}/.oh-my-zsh"
-    update: no
+    update: false
 
 - name: Set zsh config dir permissions
   file:
@@ -13,11 +13,12 @@
     recurse: yes
 
 - name: Set zsh as default shell
-  become: yes
+  become: true
   become_method: sudo
   user:
     name: "{{ ansible_user_id }}"
     shell: /usr/bin/zsh
+    state: present
 
 - name: Create plugins and themes dirs
   file: 
