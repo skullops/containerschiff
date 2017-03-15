@@ -30,6 +30,7 @@
     - virtualbox
     - vagrant
     - dropbox
+    - dnsutils
 
 - include: dotfiles.yml
 - include: telegram.yml
