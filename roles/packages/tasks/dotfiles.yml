@@ -1,7 +1,7 @@
 ---
 - name: Copy the dotfiles to home dir
-  copy: 
-    src: "{{ item }}" 
+  copy:
+    src: "{{ item }}"
     dest: "{{ ansible_env.HOME }}"
   with_items:
     - .bash_aliases
@@ -22,18 +22,18 @@
 
 - name: create gnupg directory
   file:
-    path: ~/.gnupg
+    path: "{{ ansible_env.HOME }}/.gnupg"
     state: directory
     mode: 0700
 
 - name: add gpg configuration file
   template:
     src: gpg.conf.j2
-    dest: ~/.gnupg/gpg.conf
+    dest: "{{ ansible_env.HOME }}/.gnupg/gpg.conf"
     mode: 0700
 
 - name: Add the gitconfig with custom User and Email
   template:
     src: gitconfig.j2
-    dest: ~/.gitconfig
+    dest: "{{ ansible_env.HOME }}/.gitconfig"
 
