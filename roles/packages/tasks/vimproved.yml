@@ -27,6 +27,7 @@
     - { name: terryma/vim-multiple-cursors.git, dir: vim-multiple-cursors }
 
 - name: deploy custom vimrc
-  copy:
-    src: vimrc
+  template:
+    src: vimrc.j2
     dest: "{{ ansible_env.HOME }}/.vimrc"
+

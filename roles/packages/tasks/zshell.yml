@@ -39,8 +39,7 @@
     - { name: 'themes/danthe.zsh-theme', dir: 'themes/'}
 
 - name: Deploy customized .zshrc
-  copy: 
-    src: zshrc
+  template:
+    src: zshrc.j2
     dest: "{{ ansible_env.HOME }}/.zshrc"
-    force: yes
 
