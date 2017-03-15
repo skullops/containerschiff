@@ -1,6 +1,8 @@
 ---
 - name: Copy the dotfiles to home dir
-  copy: src={{ item }} dest=~/
+  copy: 
+    src: "{{ item }}" 
+    dest: "{{ ansible_env.HOME }}"
   with_items:
     - .bash_aliases
     - .bash_formatting

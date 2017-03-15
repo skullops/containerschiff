@@ -1,6 +1,8 @@
 ---
 - name: Make directories for vim-pathogen
-  file: path=~/.vim/{{ item }} state=directory
+  file: 
+    path: "{{ ansible_env.HOME }}/.vim/{{ item }}"
+    state: directory
   with_items:
     - autoload
     - bundle
@@ -27,4 +29,4 @@
 - name: deploy custom vimrc
   copy:
     src: .vimrc
-    dest: ~/
+    dest: "{{ ansible_env.HOME }}"
