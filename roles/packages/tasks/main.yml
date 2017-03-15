@@ -2,7 +2,7 @@
 - name: install packages via pacman
   pacman: 
     name: "{{ item }}"
-    state: latest
+    state: present
   become: yes
   become_method: sudo
   with_items:
@@ -30,7 +30,6 @@
     - virtualbox
     - vagrant
     - dropbox
-    - reflector
 
 - include: dotfiles.yml
 - include: telegram.yml
