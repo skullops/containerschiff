@@ -28,5 +28,5 @@
 
 - name: deploy custom vimrc
   copy:
-    src: .vimrc
-    dest: "{{ ansible_env.HOME }}"
+    src: vimrc
+    dest: "{{ ansible_env.HOME }}/.vimrc"
