@@ -31,6 +31,8 @@
     - vagrant
     - dropbox
     - dnsutils
+    - pidgin
+    - purple-skypeweb
 
 - include: dotfiles.yml
 - include: telegram.yml
