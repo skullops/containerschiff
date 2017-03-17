@@ -1,5 +1,5 @@
 ---
-- name: create app dir
+- name: create Telegram dir
   become: true
   become_method: sudo
   file:
@@ -9,7 +9,7 @@
     owner: "{{ ansible_user_id }}"
     group: users
 
-- name: extract archive to app dir
+- name: extract archive to Telegram dir
   become: true
   become_method: sudo
   unarchive:
