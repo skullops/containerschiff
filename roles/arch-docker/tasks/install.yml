@@ -27,6 +27,6 @@
 - name: ensure docker-py is installed
   become: true
   pip:
-    name: docker-py
+    name: docker
     state: latest
 
