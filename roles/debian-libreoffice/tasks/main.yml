@@ -1,7 +1,0 @@
----
-- name: install LibreOffice5
-  become: true
-  become_method: sudo
-  apt:
-    package: libreoffice
-    state: latest

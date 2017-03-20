@@ -1,47 +1,40 @@
 ---
-- name: Copy the dotfiles to home dir
-  copy: src={{ item }} dest=~/
+- name: deploy dotfiles to home dir
+  template:
+    src: "{{ item.src }}"
+    dest: "{{ ansible_env.HOME }}/{{ item.dest }}"
+    mode: 0644
   with_items:
-    - .bash_aliases
-    - .bash_formatting
-    - .bashrc
-    - .gemrc
-    - .git-commit-template.commit
-    - .taskrc
-    - .tmux.conf
+    - { src: bash_aliases.j2, dest: .bash_aliases }
+    - { src: bash_formatting.j2, dest: .bash_formatting }
+    - { src: bashrc.j2, dest: .bashrc }
+    - { src: gemrc.j2, dest: .gemrc }
+    - { src: git-commit-template.commit.j2, dest: .git-commit-template.commit }
+    - { src: taskrc.j2, dest: .taskrc }
+    - { src: tmux.conf.j2, dest: .tmux.conf }
+
+- name: symlink git-prompt
+  file:
+    src: /usr/share/git/git-prompt.sh
+    dest: "{{ ansible_env.HOME }}/.git-prompt.sh"
+    owner: "{{ ansible_user_id }}"
+    group: users
+    state: link
 
 - name: create gnupg directory
   file:
-    path: ~/.gnupg
+    path: "{{ ansible_env.HOME }}/.gnupg"
     state: directory
     mode: 0700
 
 - name: add gpg configuration file
   template:
     src: gpg.conf.j2
-    dest: ~/.gnupg/gpg.conf
+    dest: "{{ ansible_env.HOME }}/.gnupg/gpg.conf"
     mode: 0700
 
 - name: Add the gitconfig with custom User and Email
   template:
     src: gitconfig.j2
-    dest: ~/.gitconfig
+    dest: "{{ ansible_env.HOME }}/.gitconfig"
 
-- name: make sure openbox exists
-  file:
-    path: ~/.config/openbox/
-    state: directory
-    mode: 0775
-
-- name: check if openbox installed
-  command: 'openbox --version'
-  ignore_errors: true
-  register: obox
-
-- name: enable openbox keyboard shortcuts
-  template:
-    src: lubuntu-rc.xml.j2
-    dest: ~/.config/openbox/lubuntu-rc.xml
-    mode: 0644
-  notify: reload openbox
-  when: obox.rc == 0

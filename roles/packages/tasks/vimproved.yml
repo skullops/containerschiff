@@ -1,6 +1,8 @@
 ---
 - name: Make directories for vim-pathogen
-  file: path=~/.vim/{{ item }} state=directory
+  file: 
+    path: "{{ ansible_env.HOME }}/.vim/{{ item }}"
+    state: directory
   with_items:
     - autoload
     - bundle
@@ -8,13 +10,13 @@
 - name: Pull vim-pathogen
   get_url:
     url: https://tpo.pe/pathogen.vim
-    dest: ~/.vim/autoload
+    dest: "{{ ansible_env.HOME }}/.vim/autoload"
     force: no
 
 - name: Install vim plugins
   git:
     repo: https://github.com/{{ item.name }}
-    dest: "~/.vim/bundle/{{ item.dir }}"
+    dest: "{{ ansible_env.HOME }}/.vim/bundle/{{ item.dir }}"
     update: no
     force: no
   with_items:
@@ -22,8 +24,10 @@
     - { name: MarcWeber/vim-addon-mw-utils.git, dir: vim-addon-mw-utils }
     - { name: kien/ctrlp.vim.git, dir: ctrlp.vim }
     - { name: dyng/ctrlsf.vim.git, dir: ctrlsf.vim }
+    - { name: terryma/vim-multiple-cursors.git, dir: vim-multiple-cursors }
 
 - name: deploy custom vimrc
-  copy:
-    src: .vimrc
-    dest: ~/
+  template:
+    src: vimrc.j2
+    dest: "{{ ansible_env.HOME }}/.vimrc"
+

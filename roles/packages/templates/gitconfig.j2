@@ -1,7 +1,8 @@
+{{ ansible_managed | comment('plain', prefix='#######\n#', postfix='#\n#######\n') }}
 [user]
-	name = {{ git_name }}
-	email = {{ git_email }}
-	signingkey = {{ gpg_key_id }}
+	name = {{ github.name }}
+	email = {{ github.email }}
+	signingkey = {{ github.pgp_key_id }}
 [commit]
 	gpgsign = true
 	template = ~/.git-commit-template.commit

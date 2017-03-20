@@ -1,7 +1,0 @@
----
-# variables for sublime text role
-sublimetext_dl_source: "https://download.sublimetext.com"
-sublimetext_build: 3065
-sublimetext_arch: "{% if ansible_architecture == 'x86_64' %}amd64{% else %}i386{% endif %}"
-sublimetext_url_deb: "{{sublimetext_dl_source}}/sublime-text_build-{{sublimetext_build}}_{{sublimetext_arch}}.deb"
-sublimetext_tmp_deb: "/tmp/{{sublimetext_build}}sublimetext.deb"

@@ -1,18 +1,4 @@
-#       _                _        _  _
-#      | |              (_)      | |( )
-#    __| |  __ _  _ __   _   ___ | ||/ ___
-#   / _` | / _` || '_ \ | | / _ \| |  / __|
-#  | (_| || (_| || | | || ||  __/| |  \__ \
-#   \__,_| \__,_||_| |_||_| \___||_|  |___/
-#   _
-#  | |
-#  | |_  _ __ ___   _   _ __  __
-#  | __|| '_ ` _ \ | | | |\ \/ /
-#  | |_ | | | | | || |_| | >  <
-#   \__||_| |_| |_| \__,_|/_/\_\
-#
-#
-
+{{ ansible_managed | comment('plain', prefix='#######\n#', postfix='#\n#######\n') }}
 # Template source: https://gist.github.com/completit/c3c13627078b63b2376c
 #
 ############################################################################
@@ -65,7 +51,7 @@ unbind C-Right
 # Define my custom menu bar
 ########################################
 set-option -g status on                # turn the status bar on
-set -g status-utf8 on                  # set utf-8 for the status bar
+#set -g status-utf8 on                  # set utf-8 for the status bar
 set -g status-interval 5               # set update frequencey (default 15 seconds)
 set -g status-justify centre           # center window list for clarity
 # set-option -g status-position top    # position the status bar at top of screen
@@ -83,6 +69,10 @@ set-option -g status-attr dim
 set-window-option -g window-status-fg brightblue #base0
 set-window-option -g window-status-bg colour236
 set-window-option -g window-status-attr dim
+
+# increase scrollback log ( http://stackoverflow.com/a/18777877/2733115 )
+set-option -g history-limit 4000
+
 
 set-window-option -g window-status-current-fg brightred #orange
 set-window-option -g window-status-current-bg colour236
