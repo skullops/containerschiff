@@ -12,7 +12,7 @@
     - tmux
     - task
     - cmake
-    - keepass
+    - keepassx2
     - xdotool # required by keepass2 to auto-type credentials
     - xclip
     - tree
