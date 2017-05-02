@@ -37,4 +37,4 @@
 - include: telegram.yml
 - include: vimproved.yml
 - include: zshell.yml
-
+- include: sublime.yml

@@ -1,0 +1,22 @@
+---
+- name: ensure the presence of config folder
+  file:
+    path: "{{ sublime_text_config_dir }}"
+    state: directory
+
+- name: deploy custom user configuration
+  copy:
+    src: "{{ item }}"
+    dest: "{{ sublime_text_config_dir }}"
+    force: no
+
+- name: ensure the presence of installed pkgs dir
+  file:
+    path: "{{ ansible_env.HOME }}/.config/sublime-text-3/Installed Packages"
+    state: directory
+
+- name: install Package Control
+  get_url:
+    url: https://packagecontrol.io/Package%20Control.sublime-package
+    dest: "{{ ansible_env.HOME }}/.config/sublime-text-3/Installed Packages/Package Control.sublime-package"
+    force: no
