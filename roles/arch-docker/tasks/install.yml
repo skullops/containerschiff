@@ -1,0 +1,32 @@
+---
+- name: install the docker suite
+  pacman: 
+    name: "{{ item }}"
+    state: latest
+  become: true
+  with_items:
+    - docker
+    - docker-compose
+    - docker-machine
+
+- name: add user to docker group
+  become: true
+  user:
+    name: "{{ ansible_user_id }}"
+    group: docker
+    append: true
+    state: present
+
+- name: start and enable docker engine
+  become: true
+  systemd:
+    name: docker
+    state: started
+    enabled: true
+
+- name: ensure docker-py is installed
+  become: true
+  pip:
+    name: docker
+    state: latest
+

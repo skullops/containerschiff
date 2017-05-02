@@ -1,8 +1,1 @@
 ---
-- name: reload-vimrc
-  copy: src=.vimrc dest=~/
-  tags: vim
-
-- name: reload openbox
-  command: openbox --reconfigure
-  tags: reload_obox

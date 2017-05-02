@@ -1,12 +1,5 @@
 ---
-- name: download telegram via telegram.org
-  get_url:
-    url: https://telegram.org/dl/desktop/linux
-    dest: /tmp/tsetup.tar.xz
-    force: no
-  register: telegram_archive
-
-- name: create app dir
+- name: create Telegram dir
   become: true
   become_method: sudo
   file:
@@ -14,16 +7,16 @@
     state: directory
     mode: 0755
     owner: "{{ ansible_user_id }}"
-    group: "{{ ansible_user_id }}"
+    group: users
 
-- name: extract archive to app dir
+- name: extract archive to Telegram dir
   become: true
   become_method: sudo
   unarchive:
-    src: /tmp/tsetup.tar.xz
+    src: https://telegram.org/dl/desktop/linux
     dest: /opt/telegram
-    copy: no
     owner: "{{ ansible_user_id }}"
-    group: "{{ ansible_user_id }}"
-  when: telegram_archive.changed == false
+    group: users
+    remote_src: true
+    validate_certs: false
 
