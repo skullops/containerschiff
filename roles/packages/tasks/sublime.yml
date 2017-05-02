@@ -5,10 +5,14 @@
     state: directory
 
 - name: deploy custom user configuration
-  copy:
-    src: "{{ item }}"
-    dest: "{{ sublime_text_config_dir }}"
-    force: no
+  template:
+    src: "{{ item.src }}"
+    dest: "{{ sublime_text_config_dir }}/{{ item.dest }}"
+  with_items:
+    - { src: bash.sublime-snippet.j2, dest: bash.sublime-snippet }
+    - { src: bash-subtitle.sublime-snippet.j2, dest: bash-subtitle.sublime-snippet }
+    - { src: linux.sublime-keymap.j2, dest: Default (Linux).sublime-keymap }
+    - { src: prefs.sublime-settings.j2, dest: Preferences.sublime-settings }
 
 - name: ensure the presence of installed pkgs dir
   file:
