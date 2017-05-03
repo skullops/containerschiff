@@ -8,7 +8,6 @@
     - { src: bash_aliases.j2, dest: .bash_aliases }
     - { src: bash_formatting.j2, dest: .bash_formatting }
     - { src: bashrc.j2, dest: .bashrc }
-    - { src: gemrc.j2, dest: .gemrc }
     - { src: git-commit-template.commit.j2, dest: .git-commit-template.commit }
     - { src: taskrc.j2, dest: .taskrc }
     - { src: tmux.conf.j2, dest: .tmux.conf }

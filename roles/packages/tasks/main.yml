@@ -33,8 +33,11 @@
     - pidgin
     - purple-skypeweb
 
+- name: fix folder opening issue
+  command: xdg-mime default nautilus.desktop inode/directory
+
 - include: dotfiles.yml
 - include: telegram.yml
 - include: vimproved.yml
 - include: zshell.yml
-
+- include: sublime.yml
