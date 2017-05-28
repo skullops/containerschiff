@@ -6,11 +6,21 @@
   with_items:
     - autoload
     - bundle
+    - syntax
 
-- name: Pull vim-pathogen
+- name: Pull vim-pathogen and nginx syntax
   get_url:
-    url: https://tpo.pe/pathogen.vim
-    dest: "{{ ansible_env.HOME }}/.vim/autoload"
+    url: "{{ item.url }}"
+    dest: "{{ ansible_env.HOME }}/.vim/{{ item.dest }}"
+    force: no
+  with_items:
+    - { url: "https://tpo.pe/pathogen.vim", dest: autoload }
+    - { url: "https://raw.githubusercontent.com/nginx/nginx/master/contrib/vim/syntax/nginx.vim", dest: syntax }
+
+- name: pull Nginx vim syntax
+  get_url:
+    url: 
+    dest: "{{ ansible_env.HOME }}/.vim/syntax"
     force: no
 
 - name: Install vim plugins
