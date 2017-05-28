@@ -17,12 +17,6 @@
     - { url: "https://tpo.pe/pathogen.vim", dest: autoload }
     - { url: "https://raw.githubusercontent.com/nginx/nginx/master/contrib/vim/syntax/nginx.vim", dest: syntax }
 
-- name: pull Nginx vim syntax
-  get_url:
-    url: 
-    dest: "{{ ansible_env.HOME }}/.vim/syntax"
-    force: no
-
 - name: Install vim plugins
   git:
     repo: https://github.com/{{ item.name }}
