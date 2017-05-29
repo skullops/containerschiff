@@ -41,7 +41,7 @@
     state: started
     enabled: true
 
-- name: ensure docker-py is installed
+- name: ensure docker python lib is installed
   become: true
   pip:
     name: docker

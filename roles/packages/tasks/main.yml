@@ -1,16 +1,14 @@
 ---
 - name: install packages via pacman
-  pacman: 
+  become: yes
+  pacman:
     name: "{{ item }}"
     state: present
-  become: yes
-  become_method: sudo
   with_items:
     - yaourt
     - vim
     - git
     - tmux
-    - task
     - cmake
     - keepassx2
     - xdotool # required by keepass2 to auto-type credentials
