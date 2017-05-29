@@ -1,13 +1,30 @@
 ---
-- name: install the docker suite
-  pacman: 
-    name: "{{ item }}"
-    state: latest
+- name: install the docker engine
   become: true
-  with_items:
-    - docker
-    - docker-compose
-    - docker-machine
+  pacman:
+    name: docker
+    state: latest
+
+- name: install docker compose
+  become: true
+  get_url:
+    url: "https://github.com/docker/compose/releases/download/{{ docker_compose_version }}/docker-compose-{{ ansible_system }}-{{ ansible_userspace_architecture }}"
+    dest: /usr/local/bin/docker-compose
+    mode: 0755
+    owner: root
+    group: root
+    force: true
+
+- name: install docker machine
+  become: true
+  get_url:
+    url: "https://github.com/docker/machine/releases/download/v{{ docker_machine_version }}/docker-machine-{{ ansible_system }}-{{ ansible_userspace_architecture }}"
+    dest: /usr/local/bin/docker-machine
+    owner: root
+    group: root
+    mode: 0755
+    checksum: "{{ docker_machine_checksum }}"
+    force: true
 
 - name: add user to docker group
   become: true
