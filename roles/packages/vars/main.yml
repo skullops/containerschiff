@@ -8,6 +8,6 @@ github:
   branch: master
 
 # in case GPG signatures also contain photos
-gpg_photo_viewer: gthumb
+gpg_photo_viewer: eog
 
 sublime_text_config_dir: "{{ ansible_env.HOME }}/.config/sublime-text-3/Packages/User"
