@@ -1,7 +1,7 @@
 ---
-docker_compose_version: '1.11.1'
-docker_machine_version: '0.9.0'
-docker_machine_checksum: 'sha256:ce8d78da67bed7ac1601a5d77714ebcc097f9a607aef2adbc9df61a272f66dee'
+docker_compose_version: '1.13.0'
+docker_machine_version: '0.11.0'
+docker_machine_checksum: 'sha256:71de3ce0c2233f9fbc2ca7e359ff29711e3fb078d9c7b808a771a2bcaa24f729'
 
 docker_apt_url: 'https://apt.dockerproject.org'
 docker_gpg_fingerprint: '58118E89F3A912897C070ADBF76221572C52609D'
@@ -15,3 +15,4 @@ docker_gpg_keyservers:
   hapool: 'ha.pool.sks-keyservers.net'
   pgpmit: 'pgp.mit.edu'
   ksubuntu: 'keyserver.ubuntu.com'
+
