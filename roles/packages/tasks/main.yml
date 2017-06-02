@@ -11,23 +11,22 @@
     - tmux
     - cmake
     - keepassx2
-    - xdotool # required by keepass2 to auto-type credentials
+    - xdotool
     - xclip
     - tree
-    - clamav # useful antivirus for Linux
-    - unrar # required by dtrx
+    - clamav
+    - unrar
     - pavucontrol
     - zsh
     - python-pip
-    - meld # for resolving git conflicts
+    - meld
     - clementine
-    - dstat # view system resources instantly
-    - sysstat # collect, report, or save UNIX / Linux system activity information
-    - iftop # listens to network traffic on a named network interface
-    - iotop # watches I/O usage information output by the Linux kernel
+    - dstat
+    - sysstat
+    - iftop
+    - iotop
     - vagrant
     - dropbox
-    - dnsutils
     - pidgin
     - purple-skypeweb
 
