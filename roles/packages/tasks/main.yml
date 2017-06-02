@@ -5,6 +5,18 @@
     name: "{{ item }}"
     state: present
   with_items:
+    - yaourt
+    - vim
+    - git
+    - tmux
+    - cmake
+    - keepassx2
+    - xdotool
+    - xclip
+    - tree
+    - clamav
+    - unrar
+    - pavucontrol
     - zsh
     - python-pip
     - meld
