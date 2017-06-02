@@ -182,5 +182,7 @@ alias wanip='dig +short myip.opendns.com @resolver1.opendns.com'
 
 # Run Tmux by default in terminal
 # If not running interactively, do not do anything
-[[ $- != *i* ]] && return
-[[ -z "$TMUX" ]] && exec tmux
+if [ -f /usr/bin/tmux ]; then
+  [[ $- != *i* ]] && return
+  [[ -z "$TMUX" ]] && exec tmux
+fi

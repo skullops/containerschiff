@@ -113,7 +113,8 @@ export IGNOREEOF=1
 
 # Run TMUX by default instead of Terminal
 # If not running interactively, do not do anything
-[[ $- != *i* ]] && return
-[[ -z "$TMUX" ]] && exec tmux
+if [ -f /usr/bin/tmux ]; then
+  [[ $- != *i* ]] && return
+  [[ -z "$TMUX" ]] && exec tmux
 # [ -z "$TMUX" ] && export TERM=xterm-256color
-
+fi
