@@ -29,6 +29,7 @@
     - dropbox
     - pidgin
     - purple-skypeweb
+    - the_silver_searcher
 
 - name: fix folder opening issue
   command: xdg-mime default nautilus.desktop inode/directory
