@@ -32,8 +32,20 @@
     dest: "{{ ansible_env.HOME }}/.gnupg/gpg.conf"
     mode: 0700
 
+- name: ensure git directories are created
+  file:
+    path: "{{ ansible_env.HOME}}/Repos/{{ item }}"
+    state: directory
+  with_items:
+    - work
+    - open-source
+
 - name: Add the gitconfig with custom User and Email
   template:
-    src: gitconfig.j2
-    dest: "{{ ansible_env.HOME }}/.gitconfig"
+    src: "{{ item.src }}"
+    dest: "{{ ansible_env.HOME }}/.{{ item.dest }}"
+  with_items:
+    - { src: gitconfig.j2, dest: gitconfig }
+    - { src: gitconfig_open_source.j2, dest: git_config_open_source }
+    - { src: gitconfig_work.j2, dest: gitconfig_work }
 

@@ -31,7 +31,7 @@
 
 - name: Pull the Custom Plugins and Themes
   get_url:
-    url: https://raw.githubusercontent.com/{{ github.username }}/{{ github.repo }}/{{ github.branch }}/custom/{{ item.name }}
+    url: https://raw.githubusercontent.com/{{ git.username }}/{{ git.repo }}/{{ git.branch }}/custom/{{ item.name }}
     dest: "{{ ansible_env.HOME }}/.oh-my-zsh/custom/{{ item.dir }}"
     mode: 0644
   with_items:

@@ -1,0 +1,35 @@
+---
+- name: install packages via pacman
+  become: yes
+  pacman:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - yaourt
+    - vim
+    - git
+    - tmux
+    - cmake
+    - keepassx2
+    - xdotool
+    - xclip
+    - tree
+    - clamav
+    - unrar
+    - pavucontrol
+    - zsh
+    - python-pip
+    - meld
+    - clementine
+    - dstat
+    - sysstat
+    - iftop
+    - iotop
+    - vagrant
+    - dropbox
+    - pidgin
+    - purple-skypeweb
+    - the_silver_searcher
+
+- name: fix folder opening issue
+  command: xdg-mime default nautilus.desktop inode/directory
