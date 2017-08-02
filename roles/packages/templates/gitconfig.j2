@@ -1,8 +1,8 @@
 {{ ansible_managed | comment('plain', prefix='#######\n#', postfix='#\n#######\n') }}
-[user]
-	name = {{ github.name }}
-	email = {{ github.email }}
-	signingkey = {{ github.pgp_key_id }}
+[includeIf "gitdir:{{ ansible_env.HOME }}/Repos/work/"]
+  path = ~/.gitconfig_work
+[includeIf "gitdir:{{ ansible_env.HOME }}/Repos/open-source/"]
+  path = ~/.gitconfig_open_source
 [commit]
 	gpgsign = true
 	template = ~/.git-commit-template.commit
