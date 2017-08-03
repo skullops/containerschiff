@@ -30,6 +30,8 @@
     - pidgin
     - purple-skypeweb
     - the_silver_searcher
+    - openconnect
+    - networkmanager-openconnect
 
 - name: fix folder opening issue
   command: xdg-mime default nautilus.desktop inode/directory
