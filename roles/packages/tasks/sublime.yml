@@ -13,6 +13,7 @@
     - { src: bash-subtitle.sublime-snippet.j2, dest: bash-subtitle.sublime-snippet }
     - { src: linux.sublime-keymap.j2, dest: Default (Linux).sublime-keymap }
     - { src: prefs.sublime-settings.j2, dest: Preferences.sublime-settings }
+    - { src: python.sublime-settings.j2, dest: Python.sublime-settings }
 
 - name: ensure the presence of installed pkgs dir
   file:
