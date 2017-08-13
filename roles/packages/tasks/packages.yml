@@ -32,6 +32,7 @@
     - the_silver_searcher
     - openconnect
     - networkmanager-openconnect
+    - xf86-input-synaptics
 
 - name: fix folder opening issue
   command: xdg-mime default nautilus.desktop inode/directory
