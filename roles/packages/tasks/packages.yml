@@ -33,6 +33,8 @@
     - openconnect
     - networkmanager-openconnect
     - xf86-input-synaptics
+    - wget
+    - ipcalc
 
 - name: fix folder opening issue
   command: xdg-mime default nautilus.desktop inode/directory
