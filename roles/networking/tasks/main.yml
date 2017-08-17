@@ -1,0 +1,8 @@
+---
+# get the ansible_interfaces[] from facts
+# netctl list
+# netctl start bond0
+# netctl enable bond0
+# netctl switch-to bond0
+# reboot
+

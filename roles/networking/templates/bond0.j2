@@ -1,0 +1,7 @@
+{{ ansible_managed | comment('plain', prefix='#######\n#', postfix='#\n#######\n') }}
+Description="Bond interface"
+Interface=bond0
+Connection=bond
+BindsToInterfaces=(enp2s0 wlp3s0)
+IP=dhcp
+IP6=stateless
