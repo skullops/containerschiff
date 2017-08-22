@@ -1,2 +1,19 @@
 ---
+- name: restart network
+  become: true
+  systemd:
+    unit: NetworkManager
+    state: restarted
+    enabled: true
 
+- name: start bond
+  become: true
+  command: netctl start bond0
+
+- name: enable bond
+  become: true
+  command: netctl enable bond0
+
+- name: switch to bond
+  become: true
+  command: netctl switch-to bond0
