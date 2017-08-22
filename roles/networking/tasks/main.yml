@@ -1,0 +1,8 @@
+---
+- name: deploy the bonding configuration file
+  become: true
+  template:
+    src: bond0.j2
+    dest: /etc/netctl/bond0
+  notify: start bond
+

@@ -34,6 +34,7 @@
     - networkmanager-openconnect
     - wget
     - ipcalc
+    - ifenslave
 
 - name: fix folder opening issue
   command: xdg-mime default nautilus.desktop inode/directory
