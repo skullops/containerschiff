@@ -3,16 +3,17 @@
   become: true
   systemd:
     unit: NetworkManager
-    state: restarted
-    enabled: true
+    state: reloaded
 
 - name: start bond
   become: true
   command: netctl start bond0
+  notify: enable bond
 
 - name: enable bond
   become: true
   command: netctl enable bond0
+  notify: switch to bond
 
 - name: switch to bond
   become: true
