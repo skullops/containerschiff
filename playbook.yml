@@ -3,4 +3,6 @@
   roles:
     - packages
     - arch-docker
+    - role: networking
+      tags: net
 
