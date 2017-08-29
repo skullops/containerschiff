@@ -6,6 +6,9 @@
     # - font
     - role: debian-docker-toolbox
       when: ansible_os_family == 'Debian'
-    # - { role: debian-dropbox, when: ansible_os_family == 'Debian' }
-    # - { role: ubuntu-virtualbox, when: ansible_distribution == 'Ubuntu' }
-    # - { role: debian-vagrant, when: ansible_os_family == 'Debian' }
+    # - role: debian-dropbox
+    #   when: ansible_os_family == 'Debian'
+    # - role: ubuntu-virtualbox
+    #   when: ansible_distribution == 'Ubuntu'
+    # - role: debian-vagrant
+    #   when: ansible_os_family == 'Debian'
