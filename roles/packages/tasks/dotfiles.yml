@@ -45,3 +45,20 @@
     mode: 0644
   notify: reload openbox
   when: obox.rc == 0
+
+- name: ensure git directories are created
+  file:
+    path: "{{ ansible_env.HOME}}/Repos/{{ item }}"
+    state: directory
+  with_items:
+    - work
+    - open-source
+
+- name: Add the gitconfig with custom User and Email
+  template:
+    src: "{{ item.src }}"
+    dest: "{{ ansible_env.HOME }}/.{{ item.dest }}"
+  with_items:
+    - { src: gitconfig.j2, dest: gitconfig }
+    - { src: gitconfig_open_source.j2, dest: gitconfig_open_source }
+    - { src: gitconfig_work.j2, dest: gitconfig_work }

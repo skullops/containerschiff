@@ -1,0 +1,6 @@
+{{ ansible_managed | comment('plain', prefix='#######\n#', postfix='#\n#######\n') }}
+[user]
+	name = {{ git.name }}
+	email = {{ git.personal.email }}
+	signingkey = {{ git.personal.pgp_key_id }}
+
