@@ -2,8 +2,8 @@
 - hosts: all
   roles:
     - packages
-    # - sublime
-    # - font
+    - sublime
+    - font
     - role: debian-docker-toolbox
       when: ansible_os_family == 'Debian'
     # - role: debian-dropbox
