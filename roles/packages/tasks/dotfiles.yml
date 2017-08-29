@@ -40,8 +40,8 @@
 
 - name: enable openbox keyboard shortcuts
   template:
-    src: lubuntu-rc.xml.j2
-    dest: ~/.config/openbox/lubuntu-rc.xml
+    src: lxde-rc.xml.j2
+    dest: ~/.config/openbox/lxde-rc.xml
     mode: 0644
   notify: reload openbox
   when: obox.rc == 0
