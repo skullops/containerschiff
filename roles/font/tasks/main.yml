@@ -1,24 +1,12 @@
 ---
-- name: Install the Microsoft TrueType fonts
-  become: yes
-  become_method: sudo
-  apt: 
-    name: ttf-mscorefonts-installer
-    state: latest
-
 - name: Create the font config dir
   file:
-    path: ~/.fonts/truetype/Hack
+    path: ~/.fonts/truetype
     state: directory
 
-- name: Download the font archive
-  get_url:
-    url: https://github.com/chrissimpkins/Hack/releases/download/v2.020/Hack-v2_020-ttf.tar.gz
-    dest: /tmp
-    force: no
-
-- name: Extract the archive
-  unarchive:
-    src: /tmp/Hack-v2_020-ttf.tar.gz
-    dest: ~/.fonts/truetype/Hack
+- name: copy the font to dir
+  copy:
+    src: consolas.ttf
+    dest: "{{ ansible_env.HOME }}/.fonts/truetype/Consolas.ttf"
   notify: clear font cache
+
