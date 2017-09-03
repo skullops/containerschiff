@@ -7,6 +7,15 @@
     id: E1DF1F24
     state: present
 
+- name: install ppa dependency
+  become: true
+  apt:
+    package: "{{ item }}"
+    state: present
+  with_items:
+    - dirmngr
+    - software-properties-common
+
 - name: add latest git PPA
   become: true
   become_method: sudo
