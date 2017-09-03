@@ -1,20 +1,4 @@
 ---
-- name: Remove old crappy sublime exe
-  become: yes
-  become_method: sudo
-  file: 
-    path: /opt/sublime_text/sublime_text 
-    state: absent
-
-- name: Download refurbished Sublime 3 executable
-  become: yes
-  become_method: sudo
-  get_url:
-    url: http://cl.ly/1z0S25150Y0I/sublime_text%20crack%20linux%2064%20build%203065
-    dest: /opt/sublime_text/sublime_text
-    mode: 0755
-    force: no
-
 - name: Create sublime config folder
   file: 
     path: ~/.config/sublime-text-3/Packages/User/
@@ -33,19 +17,7 @@
     - Package Control.sublime-settings
 
 - name: Create the Installed Packages dir
-  file: 
+  file:
     path: '~/.config/sublime-text-3/Installed Packages'
     state: directory
 
-- name: Download and setup Package Control
-  get_url:
-    url: https://packagecontrol.io/Package%20Control.sublime-package
-    dest: ~/.config/sublime-text-3/Installed Packages/Package Control.sublime-package
-    force: no
-
-- name: Cleanup after installation
-  become: yes
-  become_method: sudo
-  file: 
-    path: "{{ sublimetext_tmp_deb }}"
-    state: absent
