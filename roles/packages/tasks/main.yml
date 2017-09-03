@@ -1,15 +1,18 @@
 ---
-#- name: install latest PPAs
-#  become: yes
-#  become_method: sudo
-#  apt_repository: 
-#    repo: "{{ item }}"
-#    update_cache: yes
-#  with_items:
-#    - 'ppa:git-core/ppa'
-#    - 'ppa:shutter/ppa'
-#    - 'ppa:me-davidsansome/clementine'
-#    - 'ppa:jtaylor/keepass' # for KeePass 2.35+
+- name: import PGP key for git package
+  become: true
+  become_method: sudo
+  apt_key:
+    keyserver: keyserver.ubuntu.com
+    id: E1DF1F24
+    state: present
+
+- name: add latest git PPA
+  become: true
+  become_method: sudo
+  apt_repository:
+    repo: 'ppa:git-core/ppa'
+    update_cache: true
 
 - name: install libraries using APT
   apt: 
@@ -26,6 +29,8 @@
     - task
     - cmake
     - curl
+    - shutter
+    - clementine
     - keepassx
     - xdotool # required by keepass2 to auto-type credentials
     - xclip
@@ -39,8 +44,6 @@
     - secure-delete # delete by zeroization
     - clamav # useful antivirus for Linux
     - lnav # utility for checking logs
-    - dtrx # universal archive extractor utility
-    - unrar # required by dtrx
     - pavucontrol
     - zsh
     - python-pip
