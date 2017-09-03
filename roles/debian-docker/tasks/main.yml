@@ -1,9 +1,0 @@
----
-# basic Docker Engine provisioning
-- include: install.yml
-
-# provision with Docker Compose
-- include: compose.yml
-
-# provision with Docker Machine
-- include: machine.yml

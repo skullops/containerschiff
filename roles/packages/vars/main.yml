@@ -1,12 +1,15 @@
 ---
-gh_user: dminca
-gh_repo: dotfiles
-gh_branch: master
-
-# vars used in .gitconfig (global git configuration)
-git_name: Daniel Andrei Minca
-git_email: mandrei17@gmail.com
-gpg_key_id: 81DF875D
+git:
+  name: Daniel Andrei Minca
+  username: dminca
+  work:
+    email: danielandrei.minca@gameloft.com
+    pgp_key_id: BC9AB912
+  personal:
+    email: mandrei17@gmail.com
+    pgp_key_id: 81DF875D
+  repo: dotfiles
+  branch: master
 
 # in case GPG signatures also contain photos
 gpg_photo_viewer: gpicview

@@ -1,0 +1,3 @@
+---
+- name: debian-docker-toolbox
+  src: WizDevOps.debian-docker-toolbox

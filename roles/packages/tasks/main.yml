@@ -1,15 +1,27 @@
 ---
-- name: install latest PPAs
-  become: yes
+- name: import PGP key for git package
+  become: true
   become_method: sudo
-  apt_repository: 
-    repo: "{{ item }}"
-    update_cache: yes
+  apt_key:
+    keyserver: keyserver.ubuntu.com
+    id: E1DF1F24
+    state: present
+
+- name: install ppa dependency
+  become: true
+  apt:
+    package: "{{ item }}"
+    state: present
   with_items:
-    - 'ppa:git-core/ppa'
-    - 'ppa:shutter/ppa'
-    - 'ppa:me-davidsansome/clementine'
-    - 'ppa:jtaylor/keepass' # for KeePass 2.35+
+    - dirmngr
+    - software-properties-common
+
+- name: add latest git PPA
+  become: true
+  become_method: sudo
+  apt_repository:
+    repo: 'ppa:git-core/ppa'
+    update_cache: true
 
 - name: install libraries using APT
   apt: 
@@ -20,22 +32,20 @@
   become_method: sudo
   with_items:
     - vim
-    - git
-    - shutter # screenshot tool http://shutter-project.org/downloads/
     - tmux
     - openvpn
     - openssh-server
     - task
     - cmake
     - curl
-    - keepass2
+    - shutter
+    - clementine
+    - keepassx
     - xdotool # required by keepass2 to auto-type credentials
     - xclip
     - python-gpgme
     - gnome-disk-utility # format/partition disks
     - build-essential
-    - nodejs
-    - npm
     - tree
     - silversearcher-ag
     - gnupg-agent
@@ -43,20 +53,18 @@
     - secure-delete # delete by zeroization
     - clamav # useful antivirus for Linux
     - lnav # utility for checking logs
-    - dtrx # universal archive extractor utility
-    - unrar # required by dtrx
     - pavucontrol
     - zsh
     - python-pip
     - python-dev
     - meld # for resolving git conflicts
-    - clementine
     - pulseaudio-module-bluetooth # fix blueman for Wireless Headphones
     - mono-complete # for validating KeePass2 plugins http://askubuntu.com/a/143183/343191
     - dstat # view system resources instantly
     - sysstat # collect, report, or save UNIX / Linux system activity information
     - iftop # listens to network traffic on a named network interface
     - iotop # watches I/O usage information output by the Linux kernel
+    - selinux-basics
 
 # disable anoying useless system crash dialog
 - name: disable apport
