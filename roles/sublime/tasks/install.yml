@@ -10,7 +10,7 @@
 - name: extract the sublime tarball
   become: true
   unarchive:
-    src: https://download.sublimetext.com/sublime_text_3_build_3126_x64.tar.bz2
+    src: "{{ sublime_download_url }}"
     dest: /opt/sublime_text/
     remote_src: true
 
