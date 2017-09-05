@@ -34,6 +34,7 @@
   become_method: sudo
   with_items:
     - vim
+    - git
     - tmux
     - openvpn
     - openssh-server
