@@ -1,13 +1,13 @@
 ---
 - name: Create sublime config folder
   file: 
-    path: ~/.config/sublime-text-3/Packages/User/
+    path: "{{ ansible_env.HOME }}/.config/sublime-text-3/Packages/User/"
     state: directory
 
 - name: Copy the User configurations
   copy:
     src: "{{ item }}"
-    dest: '~/.config/sublime-text-3/Packages/User'
+    dest: "{{ ansible_env.HOME }}/.config/sublime-text-3/Packages/User"
     force: no
   with_items:
     - bash.sublime-snippet
@@ -18,6 +18,6 @@
 
 - name: Create the Installed Packages dir
   file:
-    path: '~/.config/sublime-text-3/Installed Packages'
+    path: "{{ ansible_env.HOME }}/.config/sublime-text-3/Installed Packages"
     state: directory
 
