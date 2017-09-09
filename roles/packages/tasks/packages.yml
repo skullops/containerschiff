@@ -32,6 +32,7 @@
     - wget
     - ipcalc
     - ifenslave
+    - thunderbird
 
 - name: fix folder opening issue
   command: xdg-mime default nautilus.desktop inode/directory
