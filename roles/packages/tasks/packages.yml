@@ -23,6 +23,7 @@
     - sysstat
     - iftop
     - iotop
+    - htop
     - vagrant
     - pidgin
     - purple-skypeweb
