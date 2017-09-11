@@ -18,7 +18,7 @@
     src: /usr/share/git/git-prompt.sh
     dest: "{{ ansible_env.HOME }}/.git-prompt.sh"
     owner: "{{ ansible_user_id }}"
-    group: "{{ ansible_user_id }}"
+    group: users
     state: link
 
 - name: create gnupg directory

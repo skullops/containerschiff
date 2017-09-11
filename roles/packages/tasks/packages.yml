@@ -36,6 +36,7 @@
     - thunderbird
     - dia
     - libreoffice-fresh
+    - icedtea-web
 
 - name: fix folder opening issue
   command: xdg-mime default nautilus.desktop inode/directory
