@@ -5,11 +5,9 @@
     name: "{{ item }}"
     state: present
   with_items:
-    - yaourt
     - vim
     - git
     - tmux
-    - cmake
     - keepassx2
     - xdotool
     - xclip
@@ -25,8 +23,8 @@
     - sysstat
     - iftop
     - iotop
+    - htop
     - vagrant
-    - dropbox
     - pidgin
     - purple-skypeweb
     - the_silver_searcher
@@ -35,6 +33,9 @@
     - wget
     - ipcalc
     - ifenslave
+    - thunderbird
+    - dia
+    - libreoffice-fresh
 
 - name: fix folder opening issue
   command: xdg-mime default nautilus.desktop inode/directory

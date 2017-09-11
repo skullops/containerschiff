@@ -13,11 +13,12 @@
     - { src: tmux.conf.j2, dest: .tmux.conf }
 
 - name: symlink git-prompt
+  become: true
   file:
     src: /usr/share/git/git-prompt.sh
     dest: "{{ ansible_env.HOME }}/.git-prompt.sh"
     owner: "{{ ansible_user_id }}"
-    group: users
+    group: "{{ ansible_user_id }}"
     state: link
 
 - name: create gnupg directory
@@ -46,6 +47,6 @@
     dest: "{{ ansible_env.HOME }}/.{{ item.dest }}"
   with_items:
     - { src: gitconfig.j2, dest: gitconfig }
-    - { src: gitconfig_open_source.j2, dest: git_config_open_source }
+    - { src: gitconfig_open_source.j2, dest: gitconfig_open_source }
     - { src: gitconfig_work.j2, dest: gitconfig_work }
 
