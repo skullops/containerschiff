@@ -3,8 +3,8 @@
 MACHINE_HOSTNAME="ansible"
 
 Vagrant.configure("2") do |config|
-  config.vm.box = "debian/jessie64"
-  config.vm.network :private_network, ip: "192.168.2.2"
+  config.vm.box = "debian/stretch64"
+  config.vm.network :private_network, ip: "192.168.30.2"
 
   config.vm.provider "virtualbox" do |v|
     v.customize ["modifyvm", :id, "--name", MACHINE_HOSTNAME]
