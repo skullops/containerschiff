@@ -1,5 +1,5 @@
 ---
 # main role to install Sublime Text
-- include: install.yml
-- include: configure.yml
+- include_tasks: install.yml
+- include_tasks: configure.yml
 

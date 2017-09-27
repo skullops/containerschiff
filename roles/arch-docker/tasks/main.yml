@@ -1,4 +1,4 @@
 ---
 # basic Docker Engine provisioning
-- include: install.yml
+- include_tasks: install.yml
 
