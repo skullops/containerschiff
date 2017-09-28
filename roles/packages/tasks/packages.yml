@@ -37,6 +37,7 @@
     - dia
     - libreoffice-fresh
     - icedtea-web
+    - bind-tools
 
 - name: fix folder opening issue
   command: xdg-mime default nautilus.desktop inode/directory
