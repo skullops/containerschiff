@@ -1,5 +1,5 @@
 ---
-- name: import PGP key for git package
+- name: import PGP key for latest git package
   become: true
   become_method: sudo
   apt_key:
@@ -20,7 +20,9 @@
   become: true
   become_method: sudo
   apt_repository:
-    repo: 'ppa:git-core/ppa'
+    repo: 'deb-src http://ppa.launchpad.net/git-core/ppa/ubuntu precise main'
+    filename: git
+    state: present
     update_cache: true
 
 - name: install libraries using APT
@@ -32,6 +34,7 @@
   become_method: sudo
   with_items:
     - vim
+    - git
     - tmux
     - openvpn
     - openssh-server
