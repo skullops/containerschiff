@@ -1,4 +1,3 @@
 ---
 - src: WizDevOps.vim-ansible-role
   name: vim-ansible
-  version: origin/master
