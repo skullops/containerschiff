@@ -16,5 +16,6 @@
   roles:
     - packages
     - arch-docker
-      #- vim-ansible
+    - role: vim-ansible
+      tag: vim
     - sublime
