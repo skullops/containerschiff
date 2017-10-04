@@ -1,7 +1,21 @@
 ---
 - hosts: all
+  vars:
+    VIM_SYNTAX_PLUGINS:
+      - "https://raw.githubusercontent.com/nginx/nginx/master/contrib/vim/syntax/nginx.vim"
+      - "https://raw.githubusercontent.com/pearofducks/ansible-vim/master/syntax/jinja2.vim"
+      - "https://raw.githubusercontent.com/pearofducks/ansible-vim/master/syntax/ansible_template.vim"
+      - "https://raw.githubusercontent.com/pearofducks/ansible-vim/master/syntax/ansible_hosts.vim"
+      - "https://raw.githubusercontent.com/pearofducks/ansible-vim/master/syntax/ansible.vim"
+    VIM_PLUGINS:
+      - "https://github.com/scrooloose/nerdtree.git"
+      - "https://github.com/MarcWeber/vim-addon-mw-utils.git"
+      - "https://github.com/kien/ctrlp.vim.git"
+      - "https://github.com/dyng/ctrlsf.vim.git"
+      - "https://github.com/terryma/vim-multiple-cursors.git"
   roles:
     - packages
     - arch-docker
+    - role: vim-ansible
+      tags: vim
     - sublime
-

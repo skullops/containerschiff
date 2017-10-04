@@ -1,0 +1,3 @@
+---
+- src: WizDevOps.vim-ansible-role
+  name: vim-ansible

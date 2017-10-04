@@ -1,1 +1,3 @@
 vault_password_file
+roles/vim-ansible
+.vagrant
