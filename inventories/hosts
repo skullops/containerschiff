@@ -1,3 +1,8 @@
-localhost ansible_connection=local ansible_python_interpreter=/usr/bin/python2
+[localhost]
+localhost
+
+[localhost:vars]
+ansible_connection=local
+ansible_python_interpreter=/usr/bin/python2
 
 # vim: syntax=ansible_hosts
