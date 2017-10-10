@@ -1,0 +1,16 @@
+---
+- name: weekly update mirrorlist
+  become: true
+  cron:
+    name: weekly mirrorlist update
+    state: present
+    special_time: weekly
+    insert_after: true
+    user: root
+    job: >
+      reflector
+        --verbose
+        --latest 5
+        --sort rate
+        --save /etc/pacman.d/mirrorlist
+  tags: cron
