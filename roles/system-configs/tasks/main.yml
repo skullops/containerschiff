@@ -5,7 +5,6 @@
     name: weekly mirrorlist update
     state: present
     special_time: weekly
-    insert_after: true
     user: root
     job: >
       reflector
