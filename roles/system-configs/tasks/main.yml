@@ -18,8 +18,8 @@
     cron_file: reflector_mirrorlist-update
     job: >
       reflector
-        --verbose
-        --latest 5
-        --sort rate
-        --save /etc/pacman.d/mirrorlist
+      --verbose
+      --latest 5
+      --sort rate
+      --save /etc/pacman.d/mirrorlist
   tags: cron
