@@ -19,4 +19,5 @@
     - arch-docker
     - role: vim-ansible
       tags: vim
-    - sublime
+    - role: sublime
+      tags: subl
