@@ -5,10 +5,9 @@
     state: directory
 
 - name: Copy the User configurations
-  copy:
-    src: "{{ item }}"
-    dest: "{{ ansible_env.HOME }}/.config/sublime-text-3/Packages/User"
-    force: no
+  template:
+    src: "{{ item }}.j2"
+    dest: "{{ ansible_env.HOME }}/.config/sublime-text-3/Packages/User/{{ item }}"
   with_items:
     - bash.sublime-snippet
     - bash-subtitle.sublime-snippet
