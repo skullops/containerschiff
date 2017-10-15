@@ -6,7 +6,7 @@
     state: present
   tags: cron
 
-- name: enable cronie as daemon
+- name: start and enable cronie as daemon
   become: true
   systemd:
     name: cronie
