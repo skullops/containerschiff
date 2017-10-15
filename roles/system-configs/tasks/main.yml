@@ -6,12 +6,13 @@
     state: present
     user: root
     minute: 0
+    weekday: 1
     hour: 21
     cron_file: reflector_mirrorlist-update
     job: >
-      reflector \
-        --verbose \
-        --latest 5 \
-        --sort rate \
+      reflector
+        --verbose
+        --latest 5
+        --sort rate
         --save /etc/pacman.d/mirrorlist
   tags: cron
