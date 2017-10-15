@@ -6,6 +6,14 @@
     state: present
   tags: cron
 
+- name: enable cronie as daemon
+  become: true
+  systemd:
+    name: cronie
+    enabled: true
+    state: started
+  tags: cron
+
 - name: weekly update mirrorlist
   become: true
   cron:
