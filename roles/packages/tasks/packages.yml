@@ -38,6 +38,7 @@
     - libreoffice-fresh
     - icedtea-web
     - bind-tools
+    - ttf-ubuntu-font-family
 
 - name: fix folder opening issue
   command: xdg-mime default nautilus.desktop inode/directory
