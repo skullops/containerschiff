@@ -6,6 +6,7 @@
     update: no
 
 - name: Set zsh config dir permissions
+  become: true
   file:
     path: "{{ ansible_env.HOME }}/.oh-my-zsh"
     owner: "{{ ansible_user_id }}"
@@ -37,7 +38,7 @@
     - { name: 'themes/danthe.zsh-theme', dir: 'themes/'}
 
 - name: Deploy customized .zshrc
-  copy: 
+  copy:
     src: .zshrc
     dest: "{{ ansible_env.HOME }}"
     force: yes
