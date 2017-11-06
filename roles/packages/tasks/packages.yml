@@ -39,6 +39,7 @@
     - icedtea-web
     - bind-tools
     - ttf-ubuntu-font-family
+    - openssh
 
 - name: fix folder opening issue
   command: xdg-mime default nautilus.desktop inode/directory
