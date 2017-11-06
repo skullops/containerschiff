@@ -40,6 +40,7 @@
     - bind-tools
     - ttf-ubuntu-font-family
     - openssh
+    - gnu-netcat
 
 - name: fix folder opening issue
   command: xdg-mime default nautilus.desktop inode/directory
