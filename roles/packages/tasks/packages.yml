@@ -41,6 +41,8 @@
     - ttf-ubuntu-font-family
     - openssh
     - gnu-netcat
+    - parallel
+    - rsync
 
 - name: fix folder opening issue
   command: xdg-mime default nautilus.desktop inode/directory
