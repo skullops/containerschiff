@@ -14,7 +14,8 @@
       - "https://github.com/dyng/ctrlsf.vim.git"
       - "https://github.com/terryma/vim-multiple-cursors.git"
   roles:
-    - packages
+    - role: packages
+      tags: packages
     - system-configs
     - role: arch-docker
       tags: docker
