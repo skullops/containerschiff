@@ -16,7 +16,8 @@
   roles:
     - packages
     - system-configs
-    - arch-docker
+    - role: arch-docker
+      tags: docker
     - role: vim-ansible
       tags: vim
     - role: sublime
