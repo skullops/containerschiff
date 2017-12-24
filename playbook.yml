@@ -23,4 +23,5 @@
       tags: vim
     - role: sublime
       tags: subl
-    - virtualization
+    - role: virtualization
+      tags: virt
