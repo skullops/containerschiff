@@ -1,0 +1,22 @@
+galaxy_info:
+  author: Daniel Andrei Minca
+  description: VirtualBox and Vagrant installation
+  company: OpenSource
+  issue_tracker_url: https://github.com/WizDevOps/containerschiff/issues
+  license: GPLv3
+
+  min_ansible_version: 2.4.0.0
+
+  github_branch: archlinux
+
+  platforms:
+    - name: Archlinux
+      versions:
+        - all
+
+  galaxy_tags:
+    - archlinux
+    - vagrant
+    - virtualbox
+
+dependencies: []
