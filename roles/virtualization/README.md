@@ -1,4 +1,4 @@
-VirtualBox
+Virtualization
 =========
 
 VirtualBox & Vagrant installation
