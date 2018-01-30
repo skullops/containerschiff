@@ -1,5 +1,5 @@
 ---
 - include_tasks: packages.yml
-- include_tasks: dotfiles.yml
+- import_tasks: dotfiles.yml
 - include_tasks: telegram.yml
 - include_tasks: zshell.yml
