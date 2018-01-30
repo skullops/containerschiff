@@ -12,15 +12,6 @@
     - { src: taskrc.j2, dest: .taskrc }
     - { src: tmux.conf.j2, dest: .tmux.conf }
 
-- name: symlink git-prompt
-  become: true
-  file:
-    src: /usr/share/git/git-prompt.sh
-    dest: "{{ ansible_env.HOME }}/.git-prompt.sh"
-    owner: "{{ ansible_user_id }}"
-    group: users
-    state: link
-
 - name: create gnupg directory
   file:
     path: "{{ ansible_env.HOME }}/.gnupg"

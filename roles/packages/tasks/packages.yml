@@ -1,22 +1,20 @@
 ---
-- name: install packages via pacman
+- name: install Fedora packages
   become: yes
-  pacman:
+  dnf:
     name: "{{ item }}"
-    state: present
+    state: latest
   with_items:
     - vim
     - git
     - tmux
-    - keepassx2
+    - keepassx
     - xdotool
     - xclip
     - tree
-    - clamav
-    - unrar
+    - unar
     - pavucontrol
     - zsh
-    - python-pip
     - meld
     - clementine
     - dstat
@@ -29,20 +27,14 @@
     - purple-skypeweb
     - the_silver_searcher
     - openconnect
-    - networkmanager-openconnect
+    - NetworkManager-openconnect
     - wget
     - ipcalc
-    - ifenslave
     - thunderbird
     - dia
-    - libreoffice-fresh
+    - gimp
+    - libreoffice-core
     - icedtea-web
-    - bind-tools
-    - ttf-ubuntu-font-family
     - openssh
-    - gnu-netcat
     - parallel
     - rsync
-
-- name: fix folder opening issue
-  command: xdg-mime default nautilus.desktop inode/directory

@@ -16,12 +16,11 @@
   roles:
     - role: packages
       tags: packages
-    - system-configs
-    - role: arch-docker
-      tags: docker
+#    - role: arch-docker
+#      tags: docker
     - role: vim-ansible
       tags: vim
-    - role: sublime
-      tags: subl
-    - role: virtualization
-      tags: virt
+#    - role: sublime
+#      tags: subl
+#    - role: virtualization
+#      tags: virt
