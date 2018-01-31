@@ -1,0 +1,9 @@
+---
+# handlers file for fedora-docker
+- name: enable docker-engine
+  become: true
+  systemd:
+    name: docker
+    state: started
+    enabled: true
+  

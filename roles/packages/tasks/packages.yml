@@ -33,8 +33,17 @@
     - thunderbird
     - dia
     - gimp
-    - libreoffice-core
+    - libreoffice
     - icedtea-web
     - openssh
     - parallel
     - rsync
+    - libselinux-python
+    - policycoreutils-python
+    - policycoreutils-gui
+    - setools-console
+    - setools-gui
+    - setroubleshoot
+    - setroubleshoot-server
+    - firefox
+

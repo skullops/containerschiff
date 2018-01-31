@@ -16,7 +16,7 @@
   roles:
     - role: packages
       tags: packages
-    - role: arch-docker
+    - role: fedora-docker
       tags: docker
     - role: vim-ansible
       tags: vim
