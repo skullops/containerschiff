@@ -298,7 +298,22 @@
   <!-- Launch gnome-screenshot when PrintScreen is pressed -->
   <keybind key="Print">
     <action name="Execute">
-      <command>lxsession-default screenshot</command>
+      <command>gnome-screenshot</command>
+    </action>
+  </keybind>
+  <keybind key="A+Print">
+    <action name="Execute">
+      <command>gnome-screenshot --area</command>
+    </action>
+  </keybind>
+  <keybind key="C+Print">
+    <action name="Execute">
+      <command>gnome-screenshot --window</command>
+    </action>
+  </keybind>
+  <keybind key="C+S+Print">
+    <action name="Execute">
+      <command>gnome-screenshot --clipboard</command>
     </action>
   </keybind>
 
