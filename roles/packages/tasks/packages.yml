@@ -27,7 +27,8 @@
     - purple-skypeweb
     - the_silver_searcher
     - openconnect
-    - NetworkManager-openconnect
+    - NetworkManager-openconnect-gnome
+    - NetworkManager-openvpn-gnome
     - wget
     - ipcalc
     - thunderbird
@@ -41,6 +42,7 @@
     - libselinux-python
     - policycoreutils-python
     - policycoreutils-gui
+    - policycoreutils-newrole
     - setools-console
     - setools-gui
     - setroubleshoot
