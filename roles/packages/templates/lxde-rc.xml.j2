@@ -348,6 +348,21 @@
 			<command>lxterminal</command>
 		</action>
 	</keybind>
+  <keybind key="XF86AudioLowerVolume">
+    <action name="Execute">
+      <command>pactl set-sink-volume 0 -1000</command>
+    </action>
+  </keybind>
+  <keybind key="XF86AudioRaiseVolume">
+    <action name="Execute">
+      <command>pactl set-sink-volume 0 +1000</command>
+    </action>
+  </keybind>
+  <keybind key="XF86AudioMute">
+    <action name="Execute">
+      <command>pactl set-sink-mute 0 toggle</command>
+    </action>
+  </keybind>
   <!-- EOF CUSTOM SHORTCUTS -->
 
   <!-- Launch LXRandR when Fn+Screen is pressed -->
