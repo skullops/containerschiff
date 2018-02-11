@@ -41,3 +41,15 @@
     state: latest
   notify: enable docker-engine
 
+- name: Enable Docker Experimental mode
+  become: true
+  template:
+    src: daemon.json.j2
+    dest: /etc/docker/daemon.json
+    owner: root
+    group: root
+    serole: object_r
+    setype: container_config_t
+    seuser: system_u
+    mode: 0600
+
