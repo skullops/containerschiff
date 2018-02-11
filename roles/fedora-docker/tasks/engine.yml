@@ -1,0 +1,43 @@
+---
+- name: create docker group
+  become: true
+  group:
+    name: docker
+    state: present
+
+- name: append user to docker group
+  become: true
+  user:
+    name: dminca
+    groups: dminca,wheel,docker
+    append: true
+
+- name: install docker python deps
+  become: true
+  pip:
+    name: "{{ item }}"
+    state: latest
+  with_items:
+    - docker
+    - boto
+    - boto3
+
+- name: ensure no previous docker versions are present
+  become: true
+  dnf:
+    name: "{{ item }}"
+    state: absent
+  with_items:
+    - docker
+    - docker-common
+    - container-selinux
+    - docker-selinux
+    - docker-engine
+
+- name: install Docker Engine
+  become: true
+  dnf:
+    name: docker-ce
+    state: latest
+  notify: enable docker-engine
+

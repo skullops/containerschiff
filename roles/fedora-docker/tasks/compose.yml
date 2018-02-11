@@ -1,0 +1,29 @@
+---
+- name: STAT | Check docker-compose exists
+  become: true
+  stat:
+    path: "{{ docker_compose_path }}"
+  register: compose_path
+
+- name: COMMAND | Check current Compose version
+  become: true
+  command: docker-compose --version
+  when: compose_path.stat.exists
+  register: compose_current
+
+- name: FILE | Remove current version if it differs
+  become: true
+  file:
+    path: "{{ docker_compose_path }}"
+    state: absent
+  when: >
+    compose_current.stdout is defined
+    and docker_compose_version not in compose_current.stdout
+
+- name: GET-URL | Deploy the current version
+  become: true
+  get_url:
+    url: "https://github.com/docker/compose/releases/download/{{ docker_compose_version }}/docker-compose-Linux-x86_64"
+    dest: "{{ docker_compose_path }}"
+    mode: 0755
+
