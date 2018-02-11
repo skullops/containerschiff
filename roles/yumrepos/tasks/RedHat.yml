@@ -1,0 +1,16 @@
+---
+- name: deploy the YUM repos
+  become: true
+  copy:
+    src: "{{ item }}"
+    dest: "/etc/yum.repos.d/{{ item }}"
+    serole: object_r
+    setype: system_conf_t
+    seuser: system_u
+  with_items:
+    - opera.repo
+    - dropbox.repo
+    - docker-ce.repo
+    - google-chrome.repo
+    - virtualbox.repo
+
