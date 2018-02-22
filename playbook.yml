@@ -13,6 +13,8 @@
       - "https://github.com/kien/ctrlp.vim.git"
       - "https://github.com/dyng/ctrlsf.vim.git"
       - "https://github.com/terryma/vim-multiple-cursors.git"
+      - "https://github.com/vim-airline/vim-airline"
+      - "https://github.com/vim-airline/vim-airline-themes"
   roles:
     - yumrepos
     - role: packages
