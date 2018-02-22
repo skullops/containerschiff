@@ -21,7 +21,7 @@
       tags: packages
     - role: fedora-docker
       tags: docker
-    - role: vim-ansible
+    - role: vim-ansible-role
       tags: vim
     - role: sublime
       tags: subl
