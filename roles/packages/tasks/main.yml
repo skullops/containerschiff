@@ -1,5 +1,6 @@
 ---
 - include_tasks: packages.yml
 - import_tasks: dotfiles.yml
+- include_tasks: "{{ ansible_env.DESKTOP_SESSION }}.yml"
 - include_tasks: telegram.yml
 - include_tasks: zshell.yml
