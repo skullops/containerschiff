@@ -11,6 +11,7 @@
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
 set $mod Mod4
+set $Locker i3lock -c 000000 && sleep 1
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -160,20 +161,18 @@ bar {
 # custom shortcuts
 ##################
 bindsym $mod+t exec '/opt/telegram/Telegram/Telegram'
-bindsym $mod+l exec i3lock -c 000000
+bindsym $mod+l exec --no-startup-id $Locker
+bindsym $mod+f exec pcmanfm
 
-# toggle between keyboard layouts
-exec --no-startup-id setxkbmap us,ro,ru -option 'grp:alt_shift_toggle'
-
-# Increase screen brightness by 5
-bindsym XF86MonBrightnessUp exec backlight -u 5
-
-# Decrease screen brightness by 5
-bindsym XF86MonBrightnessDown exec backlight -d 5
-
-# volume up/down/mute
 bindsym XF86AudioRaiseVolume exec "amixer -D pulse sset Master '3%+'"
 bindsym XF86AudioLowerVolume exec "amixer -D pulse sset Master '1%-'"
 bindsym XF86AudioMute exec "amixer -D pulse set Master toggle"
 bindsym XF86AudioMicMute exec "amixer -D pulse sset Capture toggle"
-bindsym $mod+f exec pcmanfm
+
+# autolock after 10m
+exec xautolock -time 10 -locker $Locker
+
+###########
+# autostart
+###########
+#exec --no-startup-id i3-msg 'workspace 3; exec slack; exec pidgin'
