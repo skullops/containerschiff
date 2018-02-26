@@ -74,7 +74,7 @@ bindsym $mod+h split h
 bindsym $mod+v split v
 
 # enter fullscreen mode for the focused container
-bindsym $mod+f fullscreen toggle
+bindsym $mod+F11 fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
@@ -160,7 +160,7 @@ bar {
 # custom shortcuts
 ##################
 bindsym $mod+t exec '/opt/telegram/Telegram/Telegram'
-bindsym $mod+l exec i3lock
+bindsym $mod+l exec i3lock -c 000000
 
 # toggle between keyboard layouts
 exec --no-startup-id setxkbmap us,ro,ru -option 'grp:alt_shift_toggle'
@@ -176,3 +176,4 @@ bindsym XF86AudioRaiseVolume exec "amixer -D pulse sset Master '3%+'"
 bindsym XF86AudioLowerVolume exec "amixer -D pulse sset Master '1%-'"
 bindsym XF86AudioMute exec "amixer -D pulse set Master toggle"
 bindsym XF86AudioMicMute exec "amixer -D pulse sset Capture toggle"
+bindsym $mod+f exec pcmanfm
