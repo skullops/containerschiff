@@ -16,6 +16,7 @@
       - "https://github.com/vim-airline/vim-airline"
       - "https://github.com/vim-airline/vim-airline-themes"
       - "https://github.com/drewtempelmeyer/palenight.vim.git"
+      - "https://github.com/tpope/vim-fugitive.git"
   roles:
     - yumrepos
     - role: packages
