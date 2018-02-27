@@ -14,3 +14,9 @@
     - google-chrome.repo
     - virtualbox.repo
 
+- name: install RPM Fusion repo
+  become: true
+  dnf:
+    name: "{{ rpm_fusion_free_url }}"
+    state: latest
+
