@@ -1,26 +1,36 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
-MACHINE_HOSTNAME="ansible"
-
 Vagrant.configure("2") do |config|
-  config.vm.box = "debian/jessie64"
-  config.vm.network :private_network, ip: "192.168.2.2"
+  config.vm.synced_folder ".", "/vagrant", disabled: true
+  config.vm.box_check_update = false
 
-  config.vm.provider "virtualbox" do |v|
-    v.customize ["modifyvm", :id, "--name", MACHINE_HOSTNAME]
-    v.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
-    v.customize ["modifyvm", :id, "--memory", 1024]
-    v.customize ["modifyvm", :id, "--cpus", 2]
-    v.customize ["modifyvm", :id, "--ioapic", "on"]
+  config.vm.define 'archlinux' do |arch|
+    arch.vm.box = 'terrywang/archlinux'
+    arch.ssh.insert_key = false
+    arch.vm.network "private_network", ip: "192.168.33.200"
+    arch.vm.hostname = 'archlinux'
+    arch.vm.provider :virtualbox do |vb|
+      vb.name = arch.vm.hostname
+    end
   end
 
-  config.vm.provision "ansible" do |ansible|
-    ansible.playbook = "./site.yml"
-    ansible.sudo = true
-    ansible.extra_vars = { ansible_ssh_user: 'vagrant' }
+  config.vm.define 'debian' do |deb|
+    deb.vm.box = 'debian/stretch64'
+    deb.ssh.insert_key = false
+    deb.vm.network "private_network", ip: "192.168.33.201"
+    deb.vm.hostname = 'debian'
+    deb.vm.provider :virtualbox do |vb|
+      vb.name = deb.vm.hostname
+    end
   end
 
-  config.vm.define MACHINE_HOSTNAME do |machine|
-    machine.vm.hostname = MACHINE_HOSTNAME
+  config.vm.define 'fedora' do |fed|
+    fed.vm.box = 'generic/fedora27'
+    fed.ssh.insert_key = false
+    fed.vm.network "private_network", ip: "192.168.33.202"
+    fed.vm.hostname = 'fedora'
+    fed.vm.provider :virtualbox do |vb|
+      vb.name = fed.vm.hostname
+    end
   end
 end

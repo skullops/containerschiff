@@ -1,0 +1,14 @@
+---
+- name: ensure OpenBox exists
+  file:
+    path: "{{ ansible_env.HOME }}/.config/openbox"
+    state: directory
+    mode: 0755
+
+- name: deploy the LXDE keyboard configs
+  template:
+    src: lxde-rc.xml.j2
+    dest: "{{ ansible_env.HOME }}/.config/openbox/lxde-rc.xml"
+    mode: 0644
+  notify: reload openbox
+

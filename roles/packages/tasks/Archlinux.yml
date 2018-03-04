@@ -1,0 +1,48 @@
+---
+- name: install packages via pacman
+  become: yes
+  pacman:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - vim
+    - git
+    - tmux
+    - keepassx2
+    - xdotool
+    - xclip
+    - tree
+    - clamav
+    - unrar
+    - pavucontrol
+    - zsh
+    - python-pip
+    - meld
+    - clementine
+    - dstat
+    - sysstat
+    - iftop
+    - iotop
+    - htop
+    - vagrant
+    - pidgin
+    - purple-skypeweb
+    - the_silver_searcher
+    - openconnect
+    - networkmanager-openconnect
+    - networkmanager-openvpn
+    - wget
+    - ipcalc
+    - ifenslave
+    - dia
+    - libreoffice-fresh
+    - icedtea-web
+    - bind-tools
+    - ttf-ubuntu-font-family
+    - openssh
+    - gnu-netcat
+    - parallel
+    - rsync
+    - mutt
+    - telegram-desktop
+

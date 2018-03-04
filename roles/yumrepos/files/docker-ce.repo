@@ -1,0 +1,6 @@
+[docker-ce]
+name=Docker CE edge - $basearch
+baseurl=https://download.docker.com/linux/fedora/$releasever/$basearch/edge
+enabled=1
+gpgcheck=1
+gpgkey=https://download.docker.com/linux/fedora/gpg
