@@ -36,10 +36,10 @@
   file:
     path: "{{ ansible_env.HOME}}/Repos/{{ item.0 }}/{{ item.1 }}"
     state: directory
-  with_together:
+  with_nested:
     -
-      - work
       - open-source
+      - work
     -
       - ansible-roles
       - ansible-playbooks

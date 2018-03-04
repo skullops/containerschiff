@@ -13,4 +13,3 @@ git:
 
 # in case GPG signatures also contain photos
 gpg_photo_viewer: gpicview
-
