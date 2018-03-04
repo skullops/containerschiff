@@ -1,4 +1,14 @@
 ---
+- name: install required dependencies for i3
+  become: true
+  pacman:
+    name: "{{ item }}"
+    state: latest
+  with_items:
+    - dmenu
+    - ttf-dejavu
+  when: ansible_os_family == 'Archlinux'
+
 - name: deploy the i3 configuration file
   template:
     src: config.j2
