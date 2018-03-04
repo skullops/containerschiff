@@ -28,5 +28,5 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - obsolete Openbox presence check
 - roles from playbook that aren't integrated yet on master branch
 
-[Unreleased]: https://github.com/olivierlacan/keep-a-changelog/compare/v5.0.0...HEAD
-[v5.0.0]: https://github.com/olivierlacan/keep-a-changelog/compare/4.2.0...v5.0.0
+[Unreleased]: https://github.com/WizDevOps/containerschiff/compare/v5.0.0...HEAD
+[v5.0.0]: https://github.com/WizDevOps/containerschiff/compare/4.2.0...v5.0.0
