@@ -1,3 +1,5 @@
 ---
 - name: debian-docker-toolbox
   src: WizDevOps.debian-docker-toolbox
+- src: WizDevOps.vim-ansible-role
+  name: vim-ansible

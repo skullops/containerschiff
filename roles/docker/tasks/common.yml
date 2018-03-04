@@ -1,0 +1,38 @@
+---
+- name: add user to docker group
+  become: true
+  user:
+    name: dminca
+    groups: dminca,wheel,docker
+    append: true
+    state: present
+  notify: restart docker
+
+- name: Enable Docker Experimental mode
+  become: true
+  template:
+    src: daemon.json.j2
+    dest: /etc/docker/daemon.json
+    owner: root
+    group: root
+    mode: 0600
+
+- name: start and enable docker engine
+  become: true
+  systemd:
+    name: docker
+    state: started
+    enabled: true
+
+- name: install python dependencies
+  become: true
+  pip:
+    name: "{{ item }}"
+    state: latest
+  with_items:
+    - docker
+    - boto3
+    - apache-libcloud
+
+- name: trigger Docker Restart handler
+  meta: flush_handlers

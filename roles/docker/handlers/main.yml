@@ -1,0 +1,25 @@
+---
+# handlers file for docker
+- name: start docker
+  become: true
+  systemd: 
+    name: docker
+    state: started
+
+- name: stop docker
+  become: true
+  systemd:
+    name: docker
+    state: stopped
+
+- name: restart docker
+  become: true
+  systemd:
+    name: docker
+    state: restarted
+
+- name: reload docker
+  become: true
+  systemd:
+    name: docker
+    state: reloaded

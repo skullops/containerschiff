@@ -1,0 +1,5 @@
+---
+# tasks file for docker
+- include_tasks: "{{ ansible_os_family }}.yml"
+- import_tasks: common.yml
+- include_tasks: compose.yml

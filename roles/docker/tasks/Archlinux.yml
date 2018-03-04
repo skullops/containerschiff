@@ -1,0 +1,7 @@
+---
+- name: install the docker engine
+  become: true
+  pacman:
+    name: docker
+    state: latest
+

@@ -1,0 +1,12 @@
+---
+- name: create docker group
+  become: true
+  group:
+    name: docker
+    state: present
+
+- name: install Docker Engine
+  become: true
+  dnf:
+    name: docker-ce
+    state: latest
