@@ -6,6 +6,36 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [v5.1.0] - 2018-03-04
+### Added
+- `xautolock` on ArchLinux for auto-locking screen
+- useful Jinja2 URL resource in [README](README.md)
+- LibreOffice package to `bootstrap` role for installing on Debian
+- Powerline font for `vim-airline`
+- weekly cron on ArchLinux for updating mirrorlist
+
+### Changed
+- Ansible default Python interpreter to Python3
+- `packages` rolename to `bootstrap`
+- merged into `master` the following docker roles:
+  - `archlinux` branch
+  - `fedora` branch
+  - [WizDevOps.debian-docker-toolbox](https://github.com/WizDevOps/debian-docker-toolbox)
+- merged the Docker role from `archlinux` and `fedora` branches into `master`
+
+### Fixed
+- typos and URLs in [CHANGELOG](CHANGELOG.md)
+- subdirectory creation for project root dir (`~/Repos `)
+- Sublime Text installer
+- dynamic imports based on `ansible_os_family`
+
+### Deprecated
+- Sublime Text role from main playbook
+
+### Removed
+- LibreOffice debian role
+- `WizDevOps.debian-docker-toolbox` role
+
 ## [v5.0.0] - 2018-03-04
 ### Added
 - [CHANGELOG](CHANGELOG.md) for keeping track of changes better
@@ -28,5 +58,6 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - obsolete Openbox presence check
 - roles from playbook that aren't integrated yet on master branch
 
-[Unreleased]: https://github.com/WizDevOps/containerschiff/compare/v5.0.0...HEAD
+[Unreleased]: https://github.com/WizDevOps/containerschiff/compare/v5.1.0...HEAD
+[v5.1.0]: https://github.com/WizDevOps/containerschiff/compare/v5.0.0...v5.1.0
 [v5.0.0]: https://github.com/WizDevOps/containerschiff/compare/4.2.0...v5.0.0
