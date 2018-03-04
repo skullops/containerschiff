@@ -1,6 +1,6 @@
 ---
 - include_tasks: "{{ ansible_os_family }}.yml"
 - include_tasks: dotfiles.yml
-- import_tasks: "{{ ansible_env.DESKTOP_SESSION }}.yml"
+- include_tasks: "{{ ansible_env.DESKTOP_SESSION }}.yml"
 - include_tasks: zshell.yml
 
