@@ -4,7 +4,6 @@
     - role: yumrepos
       when: ansible_os_family == 'Fedora'
     - bootstrap
-    #    - font
     #    - role: debian-docker-toolbox
     #      when: ansible_os_family == 'Debian'
     #    - role: debian-dropbox

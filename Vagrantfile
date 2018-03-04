@@ -33,4 +33,14 @@ Vagrant.configure("2") do |config|
       vb.name = fed.vm.hostname
     end
   end
+
+  config.vm.define 'ubuntu' do |ubu|
+    ubu.vm.box = 'ubuntu/trusty64'
+    ubu.ssh.insert_key = false
+    ubu.vm.network "private_network", ip: "192.168.33.203"
+    ubu.vm.hostname = 'ubuntu'
+    ubu.vm.provider :virtualbox do |vb|
+      vb.name = ubu.vm.hostname
+    end
+  end
 end

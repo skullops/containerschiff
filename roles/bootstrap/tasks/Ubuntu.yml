@@ -68,6 +68,7 @@
     - iftop # listens to network traffic on a named network interface
     - iotop # watches I/O usage information output by the Linux kernel
     - selinux-basics
+    - libreoffice
 
 # disable anoying useless system crash dialog
 - name: disable apport
