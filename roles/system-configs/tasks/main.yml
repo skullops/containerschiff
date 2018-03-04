@@ -1,0 +1,21 @@
+---
+- include_tasks: "{{ ansible_distribution }}.yml"
+
+- name: ensure Powerline font dir exists
+  become: true
+  file:
+    path: /usr/share/fonts/powerline-symbols
+    state: directory
+
+- name: install Powerline font
+  become: true
+  get_url:
+    url: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+  with_items:
+    - src: https://github.com/powerline/powerline/raw/develop/font/PowerlineSymbols.otf
+      dest: /usr/share/fonts/powerline-symbols
+    - src: https://github.com/powerline/powerline/raw/develop/font/10-powerline-symbols.conf
+      dest: /etc/fonts/conf.d/
+  notify: clear font cache
+

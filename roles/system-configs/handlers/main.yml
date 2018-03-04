@@ -1,0 +1,4 @@
+---
+- name: clear font cache
+  become: true
+  shell: fc-cache -vf /usr/share/fonts
