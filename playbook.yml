@@ -2,7 +2,7 @@
 - hosts: all
   roles:
     - role: yumrepos
-      when: ansible_os_family == 'Fedora'
+      when: ansible_os_family == 'RedHat'
     - bootstrap
     #    - role: debian-docker-toolbox
     #      when: ansible_os_family == 'Debian'
