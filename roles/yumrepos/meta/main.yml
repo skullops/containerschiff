@@ -1,0 +1,18 @@
+galaxy_info:
+  author: Daniel Andrei Minca
+  description: Install unofficial packages
+  company: Open-Source
+  issue_tracker_url: https://github.com/WizDevOps/containerschiff/issues
+  license: GPLv3
+  min_ansible_version: 2.4.2.0
+  github_branch: master
+  platforms:
+    - name: Fedora
+      versions:
+        - 27
+
+  galaxy_tags:
+    - dnf
+    - repos
+    - fedora
+dependencies: []
