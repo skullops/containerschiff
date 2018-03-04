@@ -1,2 +1,56 @@
 ---
+- name: install Fedora packages
+  become: yes
+  dnf:
+    name: "{{ item }}"
+    state: latest
+  with_items:
+    - vim
+    - git
+    - tmux
+    - keepassx
+    - xdotool
+    - xclip
+    - tree
+    - unar
+    - pavucontrol
+    - zsh
+    - meld
+    - clementine
+    - dstat
+    - sysstat
+    - iftop
+    - iotop
+    - htop
+    - vagrant
+    - pidgin
+    - purple-skypeweb
+    - the_silver_searcher
+    - openconnect
+    - NetworkManager-openconnect-gnome
+    - NetworkManager-openvpn-gnome
+    - wget
+    - ipcalc
+    - dia
+    - gimp
+    - libreoffice
+    - icedtea-web
+    - openssh
+    - parallel
+    - rsync
+    - libselinux-python
+    - policycoreutils-python
+    - policycoreutils-gui
+    - policycoreutils-newrole
+    - setools-console
+    - setools-gui
+    - setroubleshoot
+    - setroubleshoot-server
+    - firefox
+    - gnome-screenshot
+    - opera-stable
+    - nautilus-dropbox
+    - VirtualBox-5.2
+    - nmap
+    - telegram-desktop
 
