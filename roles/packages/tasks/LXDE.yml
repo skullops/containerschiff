@@ -5,16 +5,10 @@
     state: directory
     mode: 0755
 
-- name: ensure OpenBox is installed
-  command: openbox --version
-  ignore_errors: true
-  register: obox_status
-
 - name: deploy the LXDE keyboard configs
   template:
     src: lxde-rc.xml.j2
     dest: "{{ ansible_env.HOME }}/.config/openbox/lxde-rc.xml"
     mode: 0644
   notify: reload openbox
-  when: obox_status.rc == 0
 
