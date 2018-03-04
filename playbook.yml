@@ -3,7 +3,7 @@
   roles:
     - role: yumrepos
       when: ansible_os_family == 'Fedora'
-    - packages
+    - bootstrap
     #    - sublime
     #    - font
     #    - role: debian-docker-toolbox
