@@ -1,0 +1,78 @@
+---
+- name: import PGP key for latest git package
+  become: true
+  become_method: sudo
+  apt_key:
+    keyserver: keyserver.ubuntu.com
+    id: E1DF1F24
+    state: present
+
+- name: install ppa dependency
+  become: true
+  apt:
+    package: "{{ item }}"
+    state: present
+  with_items:
+    - dirmngr
+    - software-properties-common
+
+- name: add latest git PPA
+  become: true
+  become_method: sudo
+  apt_repository:
+    repo: 'deb-src http://ppa.launchpad.net/git-core/ppa/ubuntu precise main'
+    filename: git
+    state: present
+    update_cache: true
+
+- name: install libraries using APT
+  apt: 
+    name: "{{ item }}"
+    cache_valid_time: 3600
+    state: latest
+  become: yes
+  become_method: sudo
+  with_items:
+    - vim
+    - git
+    - tmux
+    - openvpn
+    - openssh-server
+    - task
+    - cmake
+    - curl
+    - shutter
+    - clementine
+    - keepassx
+    - xdotool # required by keepass2 to auto-type credentials
+    - xclip
+    - python-gpgme
+    - gnome-disk-utility # format/partition disks
+    - build-essential
+    - tree
+    - silversearcher-ag
+    - gnupg-agent
+    - enigmail
+    - secure-delete # delete by zeroization
+    - clamav # useful antivirus for Linux
+    - lnav # utility for checking logs
+    - pavucontrol
+    - zsh
+    - python-pip
+    - python-dev
+    - meld # for resolving git conflicts
+    - pulseaudio-module-bluetooth # fix blueman for Wireless Headphones
+    - mono-complete # for validating KeePass2 plugins http://askubuntu.com/a/143183/343191
+    - dstat # view system resources instantly
+    - sysstat # collect, report, or save UNIX / Linux system activity information
+    - iftop # listens to network traffic on a named network interface
+    - iotop # watches I/O usage information output by the Linux kernel
+    - selinux-basics
+
+# disable anoying useless system crash dialog
+- name: disable apport
+  become: true
+  become_method: sudo
+  template:
+    src: apport.j2
+    dest: /etc/default/apport
