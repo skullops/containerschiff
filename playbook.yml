@@ -4,7 +4,6 @@
     - role: yumrepos
       when: ansible_os_family == 'Fedora'
     - bootstrap
-    #    - sublime
     #    - font
     #    - role: debian-docker-toolbox
     #      when: ansible_os_family == 'Debian'
@@ -14,3 +13,4 @@
     #   when: ansible_distribution == 'Ubuntu'
     # - role: debian-vagrant
     #   when: ansible_os_family == 'Debian'
+    #- sublime
