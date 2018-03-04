@@ -25,8 +25,6 @@
     - role: vim-ansible
       tags: vim
     - docker
-    #    - role: debian-docker-toolbox
-    #      when: ansible_os_family == 'Debian'
     #    - role: debian-dropbox
     #      when: ansible_os_family == 'Debian'
     # - role: ubuntu-virtualbox
