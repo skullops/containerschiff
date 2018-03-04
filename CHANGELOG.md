@@ -21,7 +21,6 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
   - `archlinux` branch
   - `fedora` branch
   - [WizDevOps.debian-docker-toolbox](https://github.com/WizDevOps/debian-docker-toolbox)
-- merged the Docker role from `archlinux` and `fedora` branches into `master`
 
 ### Fixed
 - typos and URLs in [CHANGELOG](CHANGELOG.md)
