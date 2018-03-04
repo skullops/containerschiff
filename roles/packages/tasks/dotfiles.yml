@@ -6,7 +6,6 @@
     mode: 0644
   with_items:
     - { src: bash_aliases.j2, dest: .bash_aliases }
-    - { src: bash_formatting.j2, dest: .bash_formatting }
     - { src: bashrc.j2, dest: .bashrc }
     - { src: git-commit-template.commit.j2, dest: .git-commit-template.commit }
     - { src: tmux.conf.j2, dest: .tmux.conf }
@@ -35,11 +34,16 @@
 
 - name: ensure git directories are created
   file:
-    path: "{{ ansible_env.HOME}}/Repos/{{ item }}"
+    path: "{{ ansible_env.HOME}}/Repos/{{ item.0 }}/{{ item.1 }}"
     state: directory
-  with_items:
-    - work
-    - open-source
+  with_together:
+    -
+      - work
+      - open-source
+    -
+      - ansible-roles
+      - ansible-playbooks
+      - others
 
 - name: Add the gitconfig with custom User and Email
   template:
