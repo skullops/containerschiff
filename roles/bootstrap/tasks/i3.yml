@@ -7,6 +7,8 @@
   with_items:
     - dmenu
     - ttf-dejavu
+    - alsa-utils
+    - pulseaudio-alsa
   when: ansible_os_family == 'Archlinux'
 
 - name: deploy the i3 configuration file
