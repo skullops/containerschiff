@@ -22,7 +22,7 @@
       when: ansible_os_family == 'RedHat'
     - bootstrap
     - system-configs
-    - role: vim-ansible
+    - role: vim-ansible-role
       tags: vim
     - docker
     #    - role: debian-dropbox
