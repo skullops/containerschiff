@@ -6,7 +6,6 @@
       - "https://raw.githubusercontent.com/pearofducks/ansible-vim/master/syntax/jinja2.vim"
       - "https://raw.githubusercontent.com/pearofducks/ansible-vim/master/syntax/ansible_template.vim"
       - "https://raw.githubusercontent.com/pearofducks/ansible-vim/master/syntax/ansible_hosts.vim"
-      - "https://raw.githubusercontent.com/pearofducks/ansible-vim/master/syntax/ansible.vim"
     VIM_PLUGINS:
       - "https://github.com/scrooloose/nerdtree.git"
       - "https://github.com/MarcWeber/vim-addon-mw-utils.git"
