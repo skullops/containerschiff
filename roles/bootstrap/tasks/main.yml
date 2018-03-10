@@ -2,6 +2,5 @@
 - include_tasks: "{{ ansible_os_family }}.yml"
 - include_tasks: dotfiles.yml
 - include_tasks: "{{ ansible_env.DESKTOP_SESSION }}.yml"
-  tags: i3
 - include_tasks: zshell.yml
 

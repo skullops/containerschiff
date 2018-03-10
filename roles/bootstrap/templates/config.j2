@@ -170,29 +170,23 @@ bindsym $mod+k exec keepassx2
 {% else %}
 bindsym $mod+k exec keepassx
 {% endif %}
+
+
 bindsym XF86AudioRaiseVolume exec "amixer -D pulse sset Master '3%+'"
 bindsym XF86AudioLowerVolume exec "amixer -D pulse sset Master '1%-'"
 bindsym XF86AudioMute exec "amixer -D pulse set Master toggle"
 bindsym XF86AudioMicMute exec "amixer -D pulse sset Capture toggle"
 
-################
-# workspace apps
-# https://i3wm.org/docs/userguide.html#assign_workspace
-################
-assign [class="google-chrome-stable"] 1
-assign [class="keepassx2"] 1
-for_window [class="keepassx2"] stacked
-
-assign [class="lxterminal"] 2
-for_window [class="lxterminal"] fullscreen
-
-assign [class="telegram-desktop"] 3
-
-assign [class="pidgin"] 4
-
 ###########
 # autostart
 ###########
+{# TODO: get more intel; unable to spawn these on different workspaces
+{% if ansible_os_family == 'Archlinux' or ansible_os_family == 'RedHat' %}
+exec --no-startup-id "i3-msg 'workspace 1; exec --no-startup-id google-chrome-stable'"
+exec --no-startup-id "i3-msg 'workspace 3; exec --no-startup-id telegram-desktop'"
+{% endif %}
+exec --no-startup-id "i3-msg 'workspace 4; exec --no-startup-id pidgin'"
+#}
 exec_always --no-startup-id dropbox start
 exec_always --no-startup-id nm-applet
 
