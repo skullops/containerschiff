@@ -177,13 +177,14 @@ bindsym XF86AudioLowerVolume exec "amixer -D pulse sset Master '1%-'"
 bindsym XF86AudioMute exec "amixer -D pulse set Master toggle"
 bindsym XF86AudioMicMute exec "amixer -D pulse sset Capture toggle"
 
-# autolock after 10m
-exec xautolock -time 10 -locker $Locker
-
 ###########
 # autostart
 ###########
-#exec --no-startup-id i3-msg 'workspace 3; exec slack; exec pidgin'
+{% if ansible_os_family == 'Archlinux' or ansible_os_family == 'RedHat' %}
+exec --no-startup-id i3-msg 'workspace 1; exec google-chrome-stable'
+exec --no-startup-id i3-msg 'workspace 3; exec telegram-desktop'
+{% endif %}
+exec --no-startup-id i3-msg 'workspace 4; exec pidgin'
 exec_always --no-startup-id dropbox start
 exec_always --no-startup-id nm-applet
 
