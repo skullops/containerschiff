@@ -9,6 +9,7 @@
     - ttf-dejavu
     - alsa-utils
     - pulseaudio-alsa
+    - evince
   when: ansible_os_family == 'Archlinux'
 
 - name: deploy the i3 configuration file
