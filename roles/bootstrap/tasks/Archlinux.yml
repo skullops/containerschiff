@@ -49,4 +49,6 @@
     - chromium
     - gimp
     - unzip
+    - tcpdump
+    - mtr
 
