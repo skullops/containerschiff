@@ -52,3 +52,15 @@
     - tcpdump
     - mtr
 
+- name: install packages for notebook
+  become: true
+  pacman:
+    name: "{{ item }}"
+    state: latest
+  with_items:
+    - blueman
+    - bluez
+    - bluez-utils
+    - pulseaudio-bluetooth
+  when: ansible_form_factor == "Notebook"
+
