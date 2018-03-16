@@ -54,4 +54,6 @@
     - nmap
     - telegram-desktop
     - chromium
+    - tcpdump
+    - mtr
 
