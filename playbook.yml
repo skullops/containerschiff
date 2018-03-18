@@ -1,5 +1,5 @@
 ---
-- hosts: all
+- hosts: localhost
   vars:
     VIM_SYNTAX_PLUGINS:
       - "https://raw.githubusercontent.com/nginx/nginx/master/contrib/vim/syntax/nginx.vim"
