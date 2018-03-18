@@ -62,5 +62,6 @@
     - bluez
     - bluez-utils
     - pulseaudio-bluetooth
+    - xf86-input-synaptics
   when: ansible_form_factor == "Notebook"
 
