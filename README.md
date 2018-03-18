@@ -18,3 +18,7 @@
 [5]: https://github.com/RaymiiOrg/ansible
 [6]: https://github.com/M4nu/ansible
 [7]: http://jinja.pocoo.org/docs/dev/templates/
+
+<!--
+vim: tw=80
+-->

@@ -6,6 +6,46 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [v5.2.0] - 2018-03-18
+### Added
+- tagged window manager reload task for applying just that configuration
+  instead of running the whole playbook
+- install packages for ArchLinux and RedHat:
+  - tcpdump
+  - mtr
+  - chromium
+- install packages on ArchLinux:
+  - gimp
+  - unzip
+  - nmap
+  - evince (needed a pdf reader)
+- list of packages to be installed on Notebook only
+- touchpad toggle (on/off) on notebook only for easily disabling it when mouse
+  is pluged in or when typing
+- limit text width to 80 characters in the [CHANGELOG](CHANGELOG.md) and
+  [README](README.md)
+
+### Changed
+- Ansible roles path in [ansible.cfg](ansible.cfg); just clone the role in the
+  project dir where all roles are stored so it's easier to version it
+- `vim-ansible-role` name changed to its actual repository name for easily
+  switching to it in vim and finding it properly
+
+### Fixed
+- RPM Fusion repository provisioning for RedHat distribution; missing jinja2
+  escape statement (double quotes and surrounded by double braces)
+- sound issues on ArchLinux; installed missing packages (`alsa-utils` and
+  `pulseaudio-alsa`)
+
+### Deprecated
+- disable autostart processes on i3wm system boot; wasn't functioning very well
+
+### Removed
+- duplicate text from [CHANGELOG](CHANGELOG.md)
+- xautolock package; it wasn't locking screen after inactivity anyway
+- `ansible` vim filetype; was screwing up indentation, `yaml` filetype
+  indentation works better out of the box and it's native
+
 ## [v5.1.0] - 2018-03-04
 ### Added
 - `xautolock` on ArchLinux for auto-locking screen
@@ -57,6 +97,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - obsolete Openbox presence check
 - roles from playbook that aren't integrated yet on master branch
 
-[Unreleased]: https://github.com/WizDevOps/containerschiff/compare/v5.1.0...HEAD
+[Unreleased]: https://github.com/WizDevOps/containerschiff/compare/v5.2.0...HEAD
+[v5.2.0]: https://github.com/WizDevOps/containerschiff/compare/v5.1.0...v5.2.0
 [v5.1.0]: https://github.com/WizDevOps/containerschiff/compare/v5.0.0...v5.1.0
 [v5.0.0]: https://github.com/WizDevOps/containerschiff/compare/4.2.0...v5.0.0
+
+<!--
+vim: tw=80
+-->
