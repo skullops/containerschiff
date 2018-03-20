@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+{{ ansible_managed | comment('plain', prefix='#######\n#', postfix='#\n#######\n') }}
+declare -i DEVICE_STATUS
+DEVICE_STATUS=$(xinput list-props "ETPS/2 Elantech Touchpad" | awk '/Device Enabled/ {print $4}')
+
+if [ ${DEVICE_STATUS} -eq 1 ]
+then
+  xinput disable "ETPS/2 Elantech Touchpad"
+else
+  xinput enable "ETPS/2 Elantech Touchpad"
+fi

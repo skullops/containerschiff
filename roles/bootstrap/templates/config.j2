@@ -179,7 +179,7 @@ bindsym XF86AudioMicMute exec "amixer -D pulse sset Capture toggle"
 
 {% if ansible_form_factor == "Notebook" %}
 # Touchpad toggle On/Off on FN+F9 (notebook only)
-bindsym XF86TouchpadToggle exec synclient TouchpadOff=$(( $(synclient -l | grep 'TouchpadOff' | awk -F= '{print $2}') ^1 ))
+bindsym XF86TouchpadToggle exec touchpad_toggle
 {% endif %}
 
 ###########

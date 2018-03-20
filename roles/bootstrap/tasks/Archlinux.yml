@@ -52,16 +52,23 @@
     - tcpdump
     - mtr
 
-- name: install packages for notebook
-  become: true
-  pacman:
-    name: "{{ item }}"
-    state: latest
-  with_items:
-    - blueman
-    - bluez
-    - bluez-utils
-    - pulseaudio-bluetooth
-    - xf86-input-synaptics
+- block:
+  - name: install packages for notebook
+    become: true
+    pacman:
+      name: "{{ item }}"
+      state: latest
+    with_items:
+      - blueman
+      - bluez
+      - bluez-utils
+      - pulseaudio-bluetooth
+
+  - name: deploy touchpad toggle script
+    become: true
+    template:
+      src: touchpad_toggle.j2
+      dest: /usr/local/bin/touchpad_toggle
+      mode: 0755
   when: ansible_form_factor == "Notebook"
 
