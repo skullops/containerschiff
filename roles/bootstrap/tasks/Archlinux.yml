@@ -63,6 +63,7 @@
       - bluez
       - bluez-utils
       - pulseaudio-bluetooth
+      - powertop
 
   - name: deploy touchpad toggle script
     become: true
