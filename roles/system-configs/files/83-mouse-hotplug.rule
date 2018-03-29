@@ -1,0 +1,2 @@
+ACTION=="add",SUBSYSTEMS=="usb",ATTRS{idVendor}=="093a",ATTRS{idProduct}=="2510",RUN+="/usr/bin/xinput disable 'ETPS/2 Elantech Touchpad'"
+ACTION=="remove",SUBSYSTEMS=="usb",ATTRS{idVendor}=="093a",ATTRS{idProduct}=="2510",RUN+="/usr/bin/xinput enable 'ETPS/2 Elantech Touchpad'"
