@@ -8,6 +8,12 @@
     state: present
   notify: restart docker
 
+- name: ensure presence of docker configuration dir
+  become: true
+  file:
+    path: /etc/docker
+    state: directory
+
 - name: Enable Docker Experimental mode
   become: true
   template:
