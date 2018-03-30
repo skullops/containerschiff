@@ -50,6 +50,7 @@
     - unzip
     - tcpdump
     - mtr
+    - evince
 
 - block:
   - name: install packages for notebook

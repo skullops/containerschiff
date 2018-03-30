@@ -9,7 +9,6 @@
     - ttf-dejavu
     - alsa-utils
     - pulseaudio-alsa
-    - evince
   when: ansible_os_family == 'Archlinux'
   tags: wm
 
