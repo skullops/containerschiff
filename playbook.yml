@@ -4,8 +4,6 @@
     VIM_SYNTAX_PLUGINS:
       - "https://raw.githubusercontent.com/nginx/nginx/master/contrib/vim/syntax/nginx.vim"
       - "https://raw.githubusercontent.com/pearofducks/ansible-vim/master/syntax/jinja2.vim"
-      - "https://raw.githubusercontent.com/pearofducks/ansible-vim/master/syntax/ansible_template.vim"
-      - "https://raw.githubusercontent.com/pearofducks/ansible-vim/master/syntax/ansible_hosts.vim"
     VIM_PLUGINS:
       - "https://github.com/scrooloose/nerdtree.git"
       - "https://github.com/MarcWeber/vim-addon-mw-utils.git"

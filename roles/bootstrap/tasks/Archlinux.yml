@@ -38,7 +38,6 @@
     - libreoffice-fresh
     - icedtea-web
     - bind-tools
-    - ttf-ubuntu-font-family
     - openssh
     - gnu-netcat
     - parallel
