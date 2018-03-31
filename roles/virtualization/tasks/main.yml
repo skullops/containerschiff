@@ -1,0 +1,19 @@
+---
+
+- name: ArchLinux VBox configuration
+  block:
+    - name: install virtualbox utilities
+      become: true
+      pacman:
+        name: "{{ item }}"
+        state: latest
+      with_items:
+        - virtualbox-host-modules-arch
+        - virtualbox
+
+    - name: load VBox kernel module
+      become: true
+      modprobe:
+        name: vboxdrv
+        state: present
+  when: ansible_os_family == Archlinux
