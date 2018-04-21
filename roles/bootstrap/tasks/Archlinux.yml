@@ -8,7 +8,7 @@
     - vim
     - git
     - tmux
-    - keepassx2
+    - keepassxc
     - xdotool
     - xclip
     - tree
@@ -52,24 +52,32 @@
     - mtr
     - evince
 
-- block:
-  - name: install packages for notebook
-    become: true
-    pacman:
-      name: "{{ item }}"
-      state: latest
-    with_items:
-      - blueman
-      - bluez
-      - bluez-utils
-      - pulseaudio-bluetooth
-      - powertop
+- name: deploy locale X configuration file
+  become: true
+  copy:
+    src: 00-keyboard.conf
+    dest: /etc/X11/xorg.conf.d/00-keyboard.conf
+    owner: root
+    group: root
 
-  - name: deploy touchpad toggle script
-    become: true
-    template:
-      src: touchpad_toggle.j2
-      dest: /usr/local/bin/touchpad_toggle
-      mode: 0755
+- name: Notebook only tuning
+  become: true
+  block:
+    - name: install packages for notebook
+      pacman:
+        name: "{{ item }}"
+        state: latest
+      with_items:
+        - blueman
+        - bluez
+        - bluez-utils
+        - pulseaudio-bluetooth
+        - powertop
+
+    - name: deploy touchpad toggle script
+      template:
+        src: touchpad_toggle.j2
+        dest: /usr/local/bin/touchpad_toggle
+        mode: 0755
   when: ansible_form_factor == "Notebook"
 

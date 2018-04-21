@@ -5,10 +5,20 @@
     dest: "{{ ansible_env.HOME }}/{{ item.dest }}"
     mode: 0644
   with_items:
-    - { src: bash_aliases.j2, dest: .bash_aliases }
-    - { src: bashrc.j2, dest: .bashrc }
-    - { src: git-commit-template.commit.j2, dest: .git-commit-template.commit }
-    - { src: tmux.conf.j2, dest: .tmux.conf }
+    - src: bash_aliases.j2
+      dest: .bash_aliases
+    - src: bashrc.j2
+      dest: .bashrc
+    - src: git-commit-template.commit.j2
+      dest: .git-commit-template.commit
+    - src: tmux.conf.j2
+      dest: .tmux.conf
+
+- name: deploy the URXVT configuration file
+  copy:
+    src: Xdefaults
+    dest: "{{ansible_env.HOME}}/.Xdefaults"
+  when: ("urxvt" in ansible_env.DESKTOP_STARTUP_ID) or (ansible_env.COLORTERM == "rxvt")
 
 - name: symlink git-prompt
   become: true
