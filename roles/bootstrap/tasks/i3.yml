@@ -7,8 +7,11 @@
   with_items:
     - dmenu
     - ttf-dejavu
+    - ttf-hack
     - alsa-utils
     - pulseaudio-alsa
+    - rxvt-unicode
+    - rxvt-unicode-terminfo
   when: ansible_os_family == 'Archlinux'
   tags: wm
 

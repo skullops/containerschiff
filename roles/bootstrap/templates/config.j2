@@ -15,7 +15,7 @@ set $Locker i3lock -c 000000 && sleep 1
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:monospace 8
+font pango:Hack 8
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -32,7 +32,7 @@ font pango:monospace 8
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec lxterminal
+bindsym $mod+Return exec urxvt
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -166,11 +166,11 @@ bindsym $mod+t exec telegram-desktop
 bindsym $mod+l exec --no-startup-id $Locker
 bindsym $mod+f exec pcmanfm
 {% if ansible_os_family == 'Archlinux' %}
-bindsym $mod+k exec keepassx2
+bindsym $mod+k exec keepassxc
 {% else %}
 bindsym $mod+k exec keepassx
 {% endif %}
-
+bindsym $mod+c exec chromium
 
 bindsym XF86AudioRaiseVolume exec "amixer -D pulse sset Master '3%+'"
 bindsym XF86AudioLowerVolume exec "amixer -D pulse sset Master '1%-'"
@@ -194,7 +194,10 @@ exec --no-startup-id "i3-msg 'workspace 4; exec --no-startup-id pidgin'"
 #}
 exec_always --no-startup-id dropbox start
 exec_always --no-startup-id nm-applet
+
+{# Disabled in favor of X configuration file
 exec_always --no-startup-id setxkbmap -layout "us,ro,ru" -variant ",std," -option 'grp:alt_shift_toggle'
+#}
 
 {#
 vim: ft=jinja2
