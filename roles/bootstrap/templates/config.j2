@@ -172,6 +172,10 @@ bindsym $mod+k exec keepassx
 {% endif %}
 bindsym $mod+c exec chromium
 
+{% if pycharm_stat.stat.exists %}
+bindsym $mod+p exec pycharm
+{% endif %}
+
 bindsym XF86AudioRaiseVolume exec "amixer -D pulse sset Master '3%+'"
 bindsym XF86AudioLowerVolume exec "amixer -D pulse sset Master '1%-'"
 bindsym XF86AudioMute exec "amixer -D pulse set Master toggle"

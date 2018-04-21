@@ -52,6 +52,12 @@
     - mtr
     - evince
 
+- name: check if PyCharm is installed
+  become: true
+  stat:
+    path: /opt/pycharm-professional
+  register: pycharm_stat
+
 - name: deploy locale X configuration file
   become: true
   copy:
