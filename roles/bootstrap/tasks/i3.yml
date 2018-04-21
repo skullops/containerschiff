@@ -12,6 +12,7 @@
     - pulseaudio-alsa
     - rxvt-unicode
     - rxvt-unicode-terminfo
+    - pcmanfm
   when: ansible_os_family == 'Archlinux'
   tags: wm
 
