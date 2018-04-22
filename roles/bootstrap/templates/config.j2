@@ -189,19 +189,10 @@ bindsym XF86TouchpadToggle exec touchpad_toggle
 ###########
 # autostart
 ###########
-{# TODO: get more intel; unable to spawn these on different workspaces
-{% if ansible_os_family == 'Archlinux' or ansible_os_family == 'RedHat' %}
-exec --no-startup-id "i3-msg 'workspace 1; exec --no-startup-id google-chrome-stable'"
-exec --no-startup-id "i3-msg 'workspace 3; exec --no-startup-id telegram-desktop'"
-{% endif %}
-exec --no-startup-id "i3-msg 'workspace 4; exec --no-startup-id pidgin'"
-#}
 exec_always --no-startup-id dropbox start
 exec_always --no-startup-id nm-applet
-
-{# Disabled in favor of X configuration file
 exec_always --no-startup-id setxkbmap -layout "us,ro,ru" -variant ",std," -option 'grp:alt_shift_toggle'
-#}
+
 
 {#
 vim: ft=jinja2
