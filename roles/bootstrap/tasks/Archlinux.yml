@@ -66,6 +66,18 @@
     owner: root
     group: root
 
+- name: set system locale
+  become: true
+  copy:
+    content: "LANG=en_US.UTF-8"
+    dest: /etc/locale.conf
+
+- name: set keyboard layout
+  become: true
+  copy:
+    content: "KEYMAP=us"
+    dest: /etc/vconsole.conf
+
 - name: Notebook only tuning
   become: true
   block:

@@ -18,7 +18,6 @@
   copy:
     src: Xdefaults
     dest: "{{ansible_env.HOME}}/.Xdefaults"
-  when: ("urxvt" in ansible_env.DESKTOP_STARTUP_ID) or (ansible_env.COLORTERM == "rxvt")
 
 - name: symlink git-prompt
   become: true
@@ -36,11 +35,11 @@
     state: directory
     mode: 0700
 
-- name: add GnuPG configuration file
-  template:
-    src: gpg.conf.j2
-    dest: "{{ ansible_env.HOME }}/.gnupg/gpg.conf"
-    mode: 0700
+#- name: add GnuPG configuration file
+#  template:
+#    src: gpg.conf.j2
+#    dest: "{{ ansible_env.HOME }}/.gnupg/gpg.conf"
+#    mode: 0700
 
 - name: ensure git directories are created
   file:
