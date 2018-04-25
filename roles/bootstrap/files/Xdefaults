@@ -18,6 +18,12 @@ URxvt*.shading: 10
 !! perl extensions
 URxvt.perl-ext:             default,url-select,clipboard
 
+! clickable urls
+! https://wiki.archlinux.org/index.php/Rxvt-unicode#Clickable_URLs
+URxvt.perl-ext-common: default,matcher
+URxvt.url-launcher: /usr/bin/xdg-open
+URxvt.matcher.button: 1
+
 ! url-select (part of urxvt-perls package)
 URxvt.keysym.M-u:           perl:url-select:select_next
 URxvt.url-select.autocopy:  true
