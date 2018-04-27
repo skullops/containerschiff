@@ -20,5 +20,6 @@
   template:
     src: config.j2
     dest: "{{ ansible_env.HOME }}/.config/i3/config"
+  notify: reload i3wm
   tags: wm
 

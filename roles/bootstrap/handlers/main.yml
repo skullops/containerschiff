@@ -2,3 +2,6 @@
 - name: reload openbox
   command: openbox --reconfigure
   tags: reload_obox
+
+- name: reload i3wm
+  command: reload
