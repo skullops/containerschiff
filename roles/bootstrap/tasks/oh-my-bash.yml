@@ -1,0 +1,21 @@
+---
+- name: ensure bash is the default shell
+  become: true
+  user:
+    name: dminca
+    shell: /usr/bin/bash
+
+- name: fetch oh-my-bash from the interwebz
+  get_url:
+    url: "https://raw.github.com/ohmybash/oh-my-bash/master/tools/install.sh"
+    tmp_dest: /tmp
+    mode: 0755
+
+- name: install oh-my-bash
+  shell: /tmp/install.sh
+
+- name: deploy the bashrc config file
+  template:
+    src: bashrc.j2
+    dest: "{{ansible_env.HOME}}/.bashrc"
+    mode: 0644

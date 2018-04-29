@@ -5,10 +5,6 @@
     dest: "{{ ansible_env.HOME }}/{{ item.dest }}"
     mode: 0644
   with_items:
-    - src: bash_aliases.j2
-      dest: .bash_aliases
-    - src: bashrc.j2
-      dest: .bashrc
     - src: git-commit-template.commit.j2
       dest: .git-commit-template.commit
     - src: tmux.conf.j2
@@ -35,11 +31,11 @@
     state: directory
     mode: 0700
 
-#- name: add GnuPG configuration file
-#  template:
-#    src: gpg.conf.j2
-#    dest: "{{ ansible_env.HOME }}/.gnupg/gpg.conf"
-#    mode: 0700
+- name: add GnuPG configuration file
+  template:
+    src: gpg.conf.j2
+    dest: "{{ ansible_env.HOME }}/.gnupg/gpg.conf"
+    mode: 0700
 
 - name: ensure git directories are created
   file:
