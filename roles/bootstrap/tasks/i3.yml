@@ -13,8 +13,16 @@
     - rxvt-unicode
     - rxvt-unicode-terminfo
     - pcmanfm
+    - volumeicon
+    - feh
   when: ansible_os_family == 'Archlinux'
   tags: wm
+
+- name: symlink the wallpaper
+  file:
+    src: "{{ ansible_env.HOME }}/Dropbox/Screenshots/Wallpapers/ArchLinux/ArchLinux_space_warm.png"
+    dest: "{{ ansible_env.HOME }}/.config/i3/i3wm_wallpaper"
+    state: link
 
 - name: deploy the i3 configuration file
   template:
