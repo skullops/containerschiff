@@ -4,4 +4,4 @@
   tags: reload_obox
 
 - name: reload i3wm
-  command: reload
+  command: i3-msg reload
