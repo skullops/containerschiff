@@ -8,7 +8,7 @@
 - name: fetch oh-my-bash from the interwebz
   get_url:
     url: "https://raw.github.com/ohmybash/oh-my-bash/master/tools/install.sh"
-    tmp_dest: /tmp
+    dest: /tmp
     mode: 0755
 
 - name: install oh-my-bash
