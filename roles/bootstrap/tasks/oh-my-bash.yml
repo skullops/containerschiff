@@ -3,7 +3,7 @@
   become: true
   user:
     name: dminca
-    shell: /usr/bin/bash
+    shell: /bin/bash
 
 - name: fetch oh-my-bash from the interwebz
   get_url:
