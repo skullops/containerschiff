@@ -9,6 +9,8 @@
       dest: .git-commit-template.commit
     - src: tmux.conf.j2
       dest: .tmux.conf
+    - src: bash_aliases.j2
+      dest: .bash_aliases
 
 - name: deploy the URXVT configuration file
   copy:

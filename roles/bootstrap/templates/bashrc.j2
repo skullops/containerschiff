@@ -52,6 +52,10 @@ plugins=(core git bashmarks progress)
 
 source $OSH/oh-my-bash.sh
 
+if [ -f ~/.bash_aliases ]; then
+    source ~/.bash_aliases
+fi
+
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"

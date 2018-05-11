@@ -130,18 +130,6 @@ alias ..='cd ../'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 
-# ------------- Markets DEVMODE -----------------------------
-alias devmod="cd ~/Projects/markets/application && bundle exec script/server thin | egrep -v 'SELECT (\"tags\"|tags\.\*)|\* FROM \"(recurring_closures|market_closures|markets|suspend_entries|app_texts|translations|promotions)\" WHERE"
-alias prymod='cd ~/Projects/markets/application && script/server thin'
-alias e1='cd ~/Projects/markets/stream-dispatcher && node server.js'
-alias e2='cd ~/Projects/markets/mwd-comm && node app.js'
-alias e3='cd ~/Projects/markets/market-data && bundle exec bin/market-data'
-alias e4='cd ~/Projects/markets/data-retention && bundle exec bin/data-retention'
-alias e5='cd ~/Projects/markets/game && bundle exec bin/game-engine'
-alias e6='cd ~/Projects/markets/resolve && bundle exec bin/resolve-engine'
-alias e7='cd ~/Projects/markets/expiry && bundle exec bin/expiry-engine'
-alias e8='cd ~/Projects/markets/watchdog && bundle exec bin/watchdog'
-
 # ----------------------------------------------------------
 #
 # Defines transfer alias and provides easy command line file and folder sharing.
