@@ -77,6 +77,15 @@
     content: "KEYMAP=us"
     dest: /etc/vconsole.conf
 
+- name: fetch the dpaste binary
+  become: true
+  get_url:
+    url: https://bitbucket.org/pbx/dpaste-tools/raw/default/dpaste.sh
+    dest: /usr/local/bin/dpaste
+    mode: 0755
+    owner: root
+    group: root
+
 - name: Notebook only tuning
   become: true
   block:
