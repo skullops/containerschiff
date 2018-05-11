@@ -57,6 +57,9 @@
     src: "{{ item.src }}"
     dest: "{{ ansible_env.HOME }}/.{{ item.dest }}"
   with_items:
-    - { src: gitconfig.j2, dest: gitconfig }
-    - { src: gitconfig_open_source.j2, dest: gitconfig_open_source }
-    - { src: gitconfig_work.j2, dest: gitconfig_work }
+    - src: gitconfig.j2
+      dest: gitconfig
+    - src: gitconfig_open_source.j2
+      dest: gitconfig_open_source
+    - src: gitconfig_work.j2
+      dest: gitconfig_work
