@@ -31,3 +31,13 @@
       --sort rate
       --save /etc/pacman.d/mirrorlist
   tags: cron
+
+- name: Notebook configurations
+  block:
+    - name: deploy udev rule to disable touchpad on mouse hotplug
+      become: true
+      copy:
+        src: 83-mouse-hotplug.rule
+        dest: /etc/udev/rules.d/83-mouse-hotplug.rule
+      notify: udev reload rules
+  when: ansible_form_factor == "Notebook"

@@ -2,3 +2,7 @@
 - name: clear font cache
   become: true
   shell: fc-cache -vf /usr/share/fonts
+
+- name: udev reload rules
+  become: true
+  shell: udevadm control --reload
