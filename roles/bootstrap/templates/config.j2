@@ -171,6 +171,7 @@ bindsym $mod+k exec keepassxc
 bindsym $mod+k exec keepassx
 {% endif %}
 bindsym $mod+c exec chromium
+bindsym Print exec "flameshot gui"
 
 {% if pycharm_stat.stat.exists %}
 bindsym $mod+p exec pycharm
@@ -194,6 +195,7 @@ exec_always --no-startup-id nm-applet
 exec_always --no-startup-id setxkbmap -layout "us,ro,ru" -variant ",std," -option 'grp:alt_shift_toggle'
 exec_always --no-startup-id volumeicon
 exec_always --no-startup-id feh --bg-scale ~/.config/i3/i3wm_wallpaper
+exec_always --no-startup-id flameshot
 {% if ansible_form_factor == "Notebook" %}
 exec_always --no-startup-id blueman-applet
 {% endif %}

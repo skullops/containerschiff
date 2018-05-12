@@ -15,6 +15,7 @@
     - pcmanfm
     - volumeicon
     - feh
+    - flameshot
   when: ansible_os_family == 'Archlinux'
   tags: wm
 
