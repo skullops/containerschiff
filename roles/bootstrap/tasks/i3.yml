@@ -15,6 +15,7 @@
     - pcmanfm
     - volumeicon
     - feh
+    - scrot
   when: ansible_os_family == 'Archlinux'
   tags: wm
 

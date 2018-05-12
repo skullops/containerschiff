@@ -171,11 +171,15 @@ bindsym $mod+k exec keepassxc
 bindsym $mod+k exec keepassx
 {% endif %}
 bindsym $mod+c exec chromium
+bindsym Print exec "scrot '%Y-%m-%d_$wx$h.png' -e 'mv $f ~/Pictures/'"
+{# About `--release` https://i3wm.org/docs/userguide.html#keybindings #}
+bindsym --release Alt+Print exec "scrot -s '%Y-%m-%d_$wx$h.png' -e 'mv $f ~/Pictures/'"
 
 {% if pycharm_stat.stat.exists %}
-bindsym $mod+p exec pycharm
+    bindsym $mod+p exec pycharm
 {% endif %}
 
+{# XF86 Keyboard symbols http://wiki.linuxquestions.org/wiki/XF86_keyboard_symbols #}
 bindsym XF86AudioRaiseVolume exec "amixer -D pulse sset Master '3%+'"
 bindsym XF86AudioLowerVolume exec "amixer -D pulse sset Master '1%-'"
 bindsym XF86AudioMute exec "amixer -D pulse set Master toggle"
