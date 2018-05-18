@@ -50,6 +50,7 @@
     - tcpdump
     - mtr
     - evince
+    - bash-completion
 
 - name: check if PyCharm is installed
   become: true
