@@ -31,3 +31,8 @@
       --sort rate
       --save /etc/pacman.d/mirrorlist
   tags: cron
+
+- name: configure NVIDIA driver on LightDM notebook
+  include_tasks: nvidia-lightdm.yml
+  when: ansible_form_factor == "Notebook"
+

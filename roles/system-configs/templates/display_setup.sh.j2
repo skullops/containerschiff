@@ -1,0 +1,4 @@
+#!/bin/sh
+{{ ansible_managed | comment('plain', prefix='#######\n#', postfix='#\n#######\n') }}
+xrandr --setprovideroutputsource modesetting NVIDIA-0
+xrandr --auto

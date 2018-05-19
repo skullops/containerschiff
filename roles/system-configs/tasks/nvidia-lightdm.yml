@@ -1,0 +1,29 @@
+---
+- name: ensure no drivers were previously installed
+  become: true
+  pacman:
+    name: xf86-video-nouveau
+    state: absent
+
+- name: install NVIDIA driver
+  become: true
+  pacman:
+    name: nvidia
+    state: latest
+
+- name: deploy the xrandr executable script
+  become: true
+  template:
+    src: display_setup.sh.j2
+    dest: /etc/lightdm/display_setup.sh
+    owner: root
+    group: root
+    mode: 0755
+
+- name: deploy lightdm configuration file
+  become: true
+  template:
+    src: lightdm.conf.j2
+    dest: /etc/lightdm/lightdm.conf
+    owner: root
+    group: root
