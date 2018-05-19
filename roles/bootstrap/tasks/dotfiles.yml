@@ -11,6 +11,8 @@
       dest: .tmux.conf
     - src: bash_aliases.j2
       dest: .bash_aliases
+    - src: redshift.conf.j2
+      dest: .config/redshift.conf
 
 - name: deploy the URXVT configuration file
   copy:

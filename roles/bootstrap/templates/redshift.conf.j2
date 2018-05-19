@@ -1,0 +1,19 @@
+{{ ansible_managed | comment(decoration="; ") }}
+[redshift]
+; Set the day and night screen temperatures
+temp-day=5500
+temp-night=3700
+
+; enabling smooth transition
+transition=1
+
+adjustment-method=randr
+
+; Now specify the location manually
+location-provider=manual
+
+[manual]
+; use the Internet to get your latitudes and longitudes
+; below is the latitude and longitude for Delhi
+lat=44.42
+lon=26.10

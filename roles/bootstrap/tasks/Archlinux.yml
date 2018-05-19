@@ -51,6 +51,8 @@
     - mtr
     - evince
     - bash-completion
+    - redshift
+    - python-xdg
 
 - name: check if PyCharm is installed
   become: true
