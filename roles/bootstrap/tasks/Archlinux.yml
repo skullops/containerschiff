@@ -82,11 +82,16 @@
 - name: fetch the dpaste binary
   become: true
   get_url:
-    url: https://bitbucket.org/pbx/dpaste-tools/raw/default/dpaste.sh
-    dest: /usr/local/bin/dpaste
+    url: "{{ item.src }}"
+    dest: "{{ item.dest }}"
     mode: 0755
     owner: root
     group: root
+  with_items:
+    - src: "https://raw.githubusercontent.com/bfontaine/rfc/master/rfc"
+      dest: /usr/local/bin/rfc
+    - src: "https://bitbucket.org/pbx/dpaste-tools/raw/default/dpaste.sh"
+      dest: /usr/local/bin/dpaste
 
 - name: Notebook only tuning
   become: true
