@@ -1,2 +1,17 @@
-ACTION=="add",SUBSYSTEMS=="usb",ATTRS{idVendor}=="093a",ATTRS{idProduct}=="2510",RUN+="/usr/bin/xinput disable 'ETPS/2 Elantech Touchpad'"
-ACTION=="remove",SUBSYSTEMS=="usb",ATTRS{idVendor}=="093a",ATTRS{idProduct}=="2510",RUN+="/usr/bin/xinput enable 'ETPS/2 Elantech Touchpad'"
+# this rules file must be named 61* or later because it won't work
+# unless it runs after '/lib/udev/rules.d/60-persistent-input.rules'
+#
+# NOTE: will only affect DISPLAY :0
+#
+# run:
+#   udevadm test --action=add /sys/devices/platform/i8042/serio1/input/input6/mouse1
+# or similar to test the following rules
+#
+
+# disable PS/2 touchpad on DISPLAY :0 if a mouse is added to the system
+#ACTION=="add",SUBSYSTEMS=="usb",ATTRS{idVendor}=="093a",ATTRS{idProduct}=="2510",RUN+="/usr/bin/xinput --set-prop 'ETPS/2 Elantech Touchpad' 'Device Enabled' 0"
+ACTION=="add",SUBSYSTEM=="input",ENV{ID_INPUT_MOUSE}=="1",RUN+="/bin/sh -c 'DISPLAY=:0 /usr/bin/xinput --set-prop ETPS\/2\ Elantech\ Touchpad Device\ Enabled 0'"
+
+# enable PS/2 touchpad on DISPLAY :0 if a mouse is added to the system
+#ACTION=="remove",SUBSYSTEMS=="usb",ATTRS{idVendor}=="093a",ATTRS{idProduct}=="2510",RUN+="/usr/bin/xinput --set-prop 'ETPS/2 Elantech Touchpad' 'Device Enabled' 1"
+ACTION=="add",SUBSYSTEM=="input",ENV{ID_INPUT_MOUSE}=="1",RUN+="/bin/sh -c 'DISPLAY=:0 /usr/bin/xinput --set-prop ETPS\/2\ Elantech\ Touchpad Device\ Enabled 1'"
