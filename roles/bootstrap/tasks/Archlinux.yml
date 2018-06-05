@@ -52,6 +52,7 @@
     - bash-completion
     - redshift
     - python-xdg
+    - pacman-contrib
 
 - name: check if PyCharm is installed
   become: true
