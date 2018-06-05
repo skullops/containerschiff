@@ -1,3 +1,4 @@
 ---
 # variables for sublime text role
 sublime_text_download_url: https://download.sublimetext.com/sublime_text_3_build_3126_x64.tar.bz2
+sublime_text_latest_download_url: https://download.sublimetext.com/sublime_text_3_build_3176_x64.tar.bz2

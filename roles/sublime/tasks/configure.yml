@@ -14,9 +14,3 @@
     - Default (Linux).sublime-keymap
     - Preferences.sublime-settings
     - Python.sublime-settings
-
-- name: Create the Installed Packages dir
-  file:
-    path: "{{ ansible_env.HOME }}/.config/sublime-text-3/Installed Packages"
-    state: directory
-
