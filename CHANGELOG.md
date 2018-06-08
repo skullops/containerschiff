@@ -6,6 +6,69 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [v5.3.0] - 2018-06-08
+### Added
+- support for touchpad toggle ON/OFF via <key>FN</key>+<key>F9</key>
+- support for keyboard layout switching (EN/RO/RU languages)
+- `powertop` utility for optimizing battery save
+- installation of `evince` for all Desktop Envrionments (DE)
+- `VirtualBox` role for ArchLinux for installing & configuring VirtualBox
+- install and configure `urxvt` terminal for `i3wm` DE
+- configure X and locale + keyboard layout
+- install the `Hack` font
+- install `pcmanfm` File Manager for `i3wm`
+- hotkey for launching PyCharm IDE
+- System Locale configuration in the X configuration file
+- enable [clickable URLs][1] on URXVT
+- `i3wm` reload handler after applying changes to configuration file
+- setup wallpaper and volume icon in tray bar for `i3wm`
+- install and configure `oh-my-bash`
+- autostart bluetooth applet on laptop on-boot
+- install and configure `dpaste` script for pasting code on the web and sharing
+  link to community easily for debugging purposes
+- add PyCharm generated files to `.gitignore`
+- install and configure `flameshot` for Print Screen
+- install `bash-completion` pkg for autocomplete in bash
+- install and deploy configuration file for `redshift` (blue light filter)
+- install RFC script for fetching and reading RFC's on the cli
+
+### Changed
+- YAML inventory instead of CFG for simplicity sake
+- set VIM as default IDE on bash
+- refactor list of dicts in dotfiles configuration task
+- enable task profiling when running the Ansible playbook
+- disable keyboard layout switching since it's conflicting with Sublime Text 3
+- remove `python-pip` from the list of common ArchLinux packages; will install it
+  how the [Python community][2] suggested #104
+- show the diff in the IDE before committing in git
+- disabled `git` plugin from `oh-my-bash`; it was conflicting with our own
+  `bash_aliases`
+- add another `roles_path` in `ansible.cfg` for successfully finding the roles
+- `pacman v5.1` release; install missing package
+- refactor Sublime Text installation role
+
+### Fixed
+- docker installation issue; the `/etc/docker` folder wasn't present before
+  deploying the `daemon.json` configuration file
+- installation of `keepassxc` instead of `keepassx2`
+- issue with `include_*` with Jinja2 conditional
+- `i3wm` DE reload handler
+- critical issue with default TTY for current user that was denying access on
+  the DE eventhough the password was correct; `/usr/bin/bash` wasn't in `shells(5)`
+- `NVIDIA` driver installation for laptop ArchLinux
+- optimize the `ansible_managed` Ansible variable from Jinja2 templates
+- launching default web browser via `xdg-open`
+
+### Removed
+- vim syntax templates
+- Ubuntu font family from common ArchLinux packages list
+- obsolete dotfiles from the `bootstrap` role
+- useless TravisCI configuration
+- obsolete code that was used for starting processes on different workspaces
+  after boot
+- obsolete `bash_aliases` and `zshrc`
+- useless zsh configuration tasks
+
 ## [v5.2.0] - 2018-03-18
 ### Added
 - tagged window manager reload task for applying just that configuration
@@ -97,10 +160,14 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - obsolete Openbox presence check
 - roles from playbook that aren't integrated yet on master branch
 
-[Unreleased]: https://github.com/WizDevOps/containerschiff/compare/v5.2.0...HEAD
+[Unreleased]: https://github.com/WizDevOps/containerschiff/compare/v5.3.0...HEAD
+[v5.3.0]: https://github.com/WizDevOps/containerschiff/compare/v5.2.0...v5.3.0
 [v5.2.0]: https://github.com/WizDevOps/containerschiff/compare/v5.1.0...v5.2.0
 [v5.1.0]: https://github.com/WizDevOps/containerschiff/compare/v5.0.0...v5.1.0
 [v5.0.0]: https://github.com/WizDevOps/containerschiff/compare/4.2.0...v5.0.0
+
+[1]: https://wiki.archlinux.org/index.php/Rxvt-unicode#Clickable_URLs
+[2]: https://pip.pypa.io/en/stable/installing/
 
 <!--
 vim: tw=80
