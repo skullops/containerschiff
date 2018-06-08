@@ -8,7 +8,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [v5.3.0] - 2018-06-08
 ### Added
-- support for touchpad toggle ON/OFF via <key>FN</key>+<key>F9</key>
+- support for touchpad toggle ON/OFF via <kbd>FN</kbd>+<kbd>F9</kbd>
 - support for keyboard layout switching (EN/RO/RU languages)
 - `powertop` utility for optimizing battery save
 - installation of `evince` for all Desktop Envrionments (DE)
